@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ali Salloum | Full-Stack Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#0f172a", // Navy/Deep Charcoal
+              "background": "#020617", // Deeper Navy
+              "on-background": "#f8fafc",
+              "on-surface": "#f1f5f9",
+              "on-surface-variant": "#94a3b8",
+              "primary": "#6366f1",
+              "tertiary": "#818cf8",
+              "outline": "#1e293b",
+              "outline-variant": "#334155",
+              "surface-container": "#1e293b",
+              "surface-container-high": "#334155"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #020617;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #f8fafc;
+        }
+        .industrial-card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+        }
+        .industrial-inset {
+            background-color: #020617;
+            border: 1px solid #1e293b;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="bg-surface/80 backdrop-blur-md border-b border-outline sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold text-primary tracking-tighter">Silk Architect</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm tracking-tight text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Home</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm tracking-tight text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Services</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm tracking-tight text-primary border-b border-primary pb-1" href="#">Portfolio</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm tracking-tight text-on-surface-variant hover:text-primary transition-all duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">language</span>
+<button class="px-6 py-2 bg-primary text-white font-semibold text-sm rounded-md hover:bg-indigo-500 active:scale-95 transition-all">Start a Project</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 py-16">
+<!-- Hero Section -->
+<header class="mb-24 text-center">
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter text-on-background mb-6">
+            Ali Salloum
+        </h1>
+<p class="text-xl text-on-surface-variant font-medium max-w-2xl mx-auto leading-relaxed">
+            AI-Accelerated Full-Stack Architect building resilient systems focused on <span class="text-primary">scalability</span>, <span class="text-primary">security</span>, and <span class="text-primary">production-readiness</span>.
+        </p>
+</header>
+<!-- Bento Grid Case Studies -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24">
+<!-- Case Study 1: Large Span -->
+<div class="md:col-span-8 industrial-card rounded-lg p-8 flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/2">
+<div class="industrial-inset rounded-md overflow-hidden aspect-video mb-6">
+<img class="w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="Abstract data visualization with flowing lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOfqaQzs9kvbHZS4Xmgy6YcK1Gx5jWkDTJbZbbNn3iZ8D-TVkUNF6_4-36X-KGFjsxo1xWpWKcKm3WlbJlyTQQNE5Mg7ZK9PuILLn224eTg-3a3JsM-MnRbud-z-J2kXk0u9vKK9WJ3WH8ry1rojZoXKtqXeK1VjKphd0Zcj8jVIjdQLIbRw-9OUBqIZR37HERf79WnjaoImlrO634sLx3ztgyIDsxc_5Eq7f9FLHmXUxHZFYx0BBzbjlzzjqX65vDz97c9AzAlqE"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="industrial-inset p-4 rounded-md text-center">
+<div class="text-2xl font-bold text-primary">1.2M+</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Concurrent Users</div>
+</div>
+<div class="industrial-inset p-4 rounded-md text-center">
+<div class="text-2xl font-bold text-primary">99.99%</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Uptime Record</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center">
+<span class="text-tertiary text-xs font-bold uppercase tracking-widest mb-2 block">FinTech • Case Study 01</span>
+<h3 class="text-2xl font-bold mb-4">High-Frequency Trading Gateway</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                    Solved the bottleneck of legacy WebSockets failing under peak market volatility. Implemented a Go-based micro-architecture with Redis Pub/Sub backplane.
+                </p>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">architecture</span>
+<span class="text-xs font-semibold text-on-surface">Event-Driven Architecture</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">security</span>
+<span class="text-xs font-semibold text-on-surface">mTLS &amp; AES-256 Encryption</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Case Study 2: Small Square -->
+<div class="md:col-span-4 industrial-card rounded-lg p-8 flex flex-col justify-between">
+<div>
+<span class="text-tertiary text-xs font-bold uppercase tracking-widest mb-2 block">SaaS • Case Study 02</span>
+<h3 class="text-xl font-bold mb-3">Multi-Tenant CMS Engine</h3>
+<p class="text-on-surface-variant text-xs leading-relaxed mb-6">
+                    Architected a horizontally scalable content engine for a global publishing house.
+                </p>
+</div>
+<div class="industrial-inset p-4 rounded-md mb-6">
+<div class="text-sm font-semibold mb-1">Architecture</div>
+<div class="text-primary text-xs font-medium">PostgreSQL Row-Level Security</div>
+</div>
+<div class="flex justify-between items-center border-t border-outline pt-4">
+<div class="text-xl font-bold text-on-surface">45ms</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold text-right">Avg Response Time</div>
+</div>
+</div>
+<!-- Case Study 3: Small Square -->
+<div class="md:col-span-4 industrial-card rounded-lg p-8 flex flex-col">
+<span class="text-tertiary text-xs font-bold uppercase tracking-widest mb-2 block">AI • Case Study 03</span>
+<h3 class="text-xl font-bold mb-4">Vector Search Pipeline</h3>
+<div class="industrial-inset rounded-md p-4 mb-4 flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-lg">database</span>
+<span class="text-xs font-bold text-on-surface">Pinecone + LangChain</span>
+</div>
+<p class="text-on-surface-variant text-[11px] leading-tight">
+                    Reduced embedding cost by 40% through intelligent batching strategies.
+                </p>
+</div>
+<div class="pt-4 flex items-center justify-between border-t border-outline">
+<span class="text-xs font-semibold text-on-surface-variant">Production Ready</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Case Study 4: Long Vertical -->
+<div class="md:col-span-4 industrial-card rounded-lg p-8 flex flex-col">
+<div class="flex-1">
+<span class="text-tertiary text-xs font-bold uppercase tracking-widest mb-2 block">Security • Case Study 04</span>
+<h3 class="text-xl font-bold mb-4">Zero-Trust Identity Provider</h3>
+<div class="industrial-inset aspect-square rounded-md overflow-hidden mb-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/20">fingerprint</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                    Unified 15 fragmented authentication systems into a single OAuth2/OIDC compliant core.
+                </p>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-on-surface-variant uppercase">Threat Mitigation</span>
+<span class="text-primary">99.8%</span>
+</div>
+<div class="w-full h-1.5 bg-outline rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[99.8%]"></div>
+</div>
+</div>
+</div>
+<!-- Case Study 5: Wide Bottom -->
+<div class="md:col-span-4 industrial-card rounded-lg p-8 flex flex-col">
+<span class="text-tertiary text-xs font-bold uppercase tracking-widest mb-2 block">E-Commerce • Case Study 05</span>
+<h3 class="text-xl font-bold mb-4">Autoscaling Inventory Sync</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">
+                Managing 5M+ SKUs across 12 warehouses with real-time consistency.
+            </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-outline px-3 py-1 rounded-md text-[10px] font-bold text-on-surface-variant border border-outline-variant">KUBERNETES</span>
+<span class="bg-outline px-3 py-1 rounded-md text-[10px] font-bold text-on-surface-variant border border-outline-variant">KAFKA</span>
+<span class="bg-outline px-3 py-1 rounded-md text-[10px] font-bold text-on-surface-variant border border-outline-variant">GRPC</span>
+</div>
+<div class="text-center border-t border-outline pt-4">
+<div class="text-3xl font-extrabold text-primary">0%</div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant">Overselling Incidents</div>
+</div>
+</div>
+</div>
+<!-- Architecture Pillars -->
+<section class="mb-24">
+<h2 class="text-3xl font-bold text-center mb-12">Core Architecture Philosophy</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="industrial-card p-8 rounded-lg">
+<div class="w-16 h-16 industrial-inset rounded-md flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">speed</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Performance-First</h4>
+<p class="text-sm text-on-surface-variant">P99 latency isn't a goal; it's a requirement. Every millisecond of compute is optimized for cost and speed.</p>
+</div>
+<div class="industrial-card p-8 rounded-lg">
+<div class="w-16 h-16 industrial-inset rounded-md flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Security by Design</h4>
+<p class="text-sm text-on-surface-variant">Security is not a layer added at the end. It's built into the data schema, network topology, and CI/CD pipelines.</p>
+</div>
+<div class="industrial-card p-8 rounded-lg">
+<div class="w-16 h-16 industrial-inset rounded-md flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">cloud_done</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Infinite Scalability</h4>
+<p class="text-sm text-on-surface-variant">Stateless services and distributed state management allow for seamless growth from 10 to 10M users.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="industrial-card rounded-lg p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-9xl">engineering</span>
+</div>
+<h2 class="text-3xl font-bold mb-6">Ready to scale your vision?</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto mb-10 font-medium">
+            Let's discuss how we can build a production-ready architecture tailored to your specific performance and security needs.
+        </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="px-10 py-4 bg-primary text-white font-bold rounded-md hover:bg-indigo-500 active:scale-95 transition-all">
+                Schedule a Consultation
+            </button>
+<button class="px-10 py-4 border border-outline text-on-surface font-bold rounded-md hover:bg-outline/50 transition-all">
+                View Technical Resume
+            </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-lg font-semibold text-on-surface">Silk Architect</div>
+<div class="flex gap-8">
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Telegram</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="font-['Plus_Jakarta_Sans'] font-medium text-sm text-on-surface-variant opacity-60">
+        © 2024 Full-Stack Architect. Moscow UTC+3.
+    </div>
+</footer>
+</body></html>
