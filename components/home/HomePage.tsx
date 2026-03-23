@@ -1,10 +1,16 @@
 import { MaterialIcon } from "@/components/MaterialIcon";
+import {
+  GlassPointerDiv,
+  GlassPointerLink,
+  GlassPointerSection,
+} from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 const HERO_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuB4JAc4ThjGWgDfhCyHykHBjB94NvaRMfSfyZHL6dkXotora__xdcAdL_bCmTackBqUrKufWVrEhNUxyERTQ70ipUcbTRfmZahgSX5qJB_x7JiK_PDkNqW1gk266zG1S_QQSvb46lzO5Korxy1YLo3M3XJNXp8CwuUwj8MAUaMd1MnSwwLFyj_C05RAGb61ErErJCczBmULjCf2HjTRlDWeAkKh6bdckhyR1Ox4zb9JpAEhhdNjX7OfyiqMmT_fACjVbt8DiPdmX8I";
+  "/images/main_picture.jpg";
+  // "https://lh3.googleusercontent.com/aida-public/AB6AXuB4JAc4ThjGWgDfhCyHykHBjB94NvaRMfSfyZHL6dkXotora__xdcAdL_bCmTackBqUrKufWVrEhNUxyERTQ70ipUcbTRfmZahgSX5qJB_x7JiK_PDkNqW1gk266zG1S_QQSvb46lzO5Korxy1YLo3M3XJNXp8CwuUwj8MAUaMd1MnSwwLFyj_C05RAGb61ErErJCczBmULjCf2HjTRlDWeAkKh6bdckhyR1Ox4zb9JpAEhhdNjX7OfyiqMmT_fACjVbt8DiPdmX8I";
 
 const TEASE_1 =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDqEn-spumb7Y0akTqRdDup2Q4YMrDVHsfhgFfu6V4kaNH68eP1cfn17Q2Zl5HlRTMROBY_M9Rtb-fjJsmvKfRKvjtH8CsdCkQUNxgatyfjQ8fzbyHFK6vYvTNKFfKNCneotLKdDWdcChE0aOj44t8fM666JYrrMUs5Yb7Nep2w2LXzB725UlB8D1dSGioIAXO7xQ_UsTXwOPuAzgAASDQ_Ru0wD3nBrikZB1-DI9Zrtnhi8hufJk0Hfj7ULmsRMEzEwZ7l-VdgCq0";
@@ -20,7 +26,7 @@ export async function HomePage() {
     <main className="mx-auto max-w-7xl space-y-32 px-6 pb-12 pt-24 md:px-8">
       <section className="flex flex-col items-center gap-16 py-12 lg:flex-row">
         <div className="flex-1 space-y-8">
-          <p className="inline-flex items-center rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
+          <p className="glass-panel inline-flex items-center rounded-md border-primary/35 bg-gradient-to-br from-primary/12 to-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
             {t("badge")}
           </p>
           <h1 className="text-5xl font-extrabold leading-[1.1] tracking-tight text-on-surface lg:text-7xl">
@@ -45,40 +51,55 @@ export async function HomePage() {
           </div>
         </div>
         <div className="flex flex-1 justify-center lg:justify-end">
-          <div className="relative h-80 w-80 overflow-hidden rounded-2xl border border-outline-variant bg-surface-container p-4 lg:h-[450px] lg:w-[450px]">
+          <GlassPointerDiv className="glass-panel relative h-80 w-80 overflow-hidden rounded-2xl p-4 lg:h-[450px] lg:w-[450px]">
             <Image
               src={HERO_IMG}
               alt={t("title")}
               fill
-              className="rounded-xl object-cover grayscale transition-all duration-700 hover:grayscale-0"
+              className="relative z-[1] rounded-xl object-cover grayscale transition-all duration-700 hover:grayscale-0"
               sizes="(max-width: 1024px) 320px, 450px"
               priority
             />
-          </div>
+          </GlassPointerDiv>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-outline-variant bg-surface-container/50 px-8 py-20 text-center">
-        <h2 className="mb-12 text-sm font-bold uppercase tracking-[0.2em] text-primary">
-          {t("equationTitle")}
-        </h2>
-        <div className="flex flex-col items-center justify-center gap-6 text-3xl font-extrabold tracking-tighter text-on-surface md:flex-row md:gap-4 md:text-5xl">
-          <span className="rounded-lg border border-primary/40 bg-primary/5 px-8 py-6 text-primary">
-            {t("equationTotal")}
-          </span>
-          <span className="text-on-surface-variant">=</span>
-          <span className="rounded-lg border border-outline-variant bg-surface px-8 py-6 text-2xl text-on-surface-variant md:text-3xl">
-            {t("equationKnowledge")}
-          </span>
-          <span className="text-primary">×</span>
-          <span className="rounded-lg border border-indigo-500/40 bg-indigo-500/5 px-8 py-6 text-indigo-400">
-            {t("equationMultiplier")}
-          </span>
+      <section className="py-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+          <Stat variant="number" value="9+" label={t("statsYears")} />
+          <Stat variant="icon" icon="school" label={t("statsDegree")} />
+          <Stat variant="number" value="150+" label={t("statsProjects")} />
+          <Stat variant="icon" icon="verified_user" label={t("statsMl")} />
         </div>
-        <p className="mx-auto mt-12 max-w-3xl text-lg font-medium italic text-on-surface-variant">
-          {t("equationCaption")}
-        </p>
       </section>
+
+      <GlassPointerSection className="glass-panel rounded-2xl px-4 py-16 text-center sm:px-6 md:px-6 md:py-20 lg:px-8">
+        <div className="relative z-[1]">
+          <h2 className="mb-12 text-sm font-bold uppercase tracking-[0.2em] text-primary">
+            {t("equationTitle")}
+          </h2>
+          <div className="mx-auto flex w-full min-w-0 max-w-full flex-col items-center justify-center gap-2 text-3xl font-extrabold tracking-tighter text-on-surface md:flex-row md:flex-wrap md:gap-x-3 md:gap-y-4 md:text-4xl lg:gap-x-4 lg:text-5xl">
+            <span className="glass-panel box-border min-w-0 max-w-full shrink rounded-lg border-primary/40 bg-gradient-to-br from-primary/14 to-primary/5 px-4 py-4 text-center text-primary sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
+              {t("equationTotal")}
+            </span>
+            <span className="inline-block shrink-0 self-center leading-none text-on-surface-variant -translate-y-[0.1em] md:px-0.5">
+              =
+            </span>
+            <span className="glass-panel box-border min-w-0 max-w-full shrink rounded-lg px-4 py-4 text-center text-2xl text-on-surface-variant sm:px-5 sm:py-5 md:px-5 md:py-5 md:text-3xl lg:px-8 lg:py-6">
+              {t("equationKnowledge")}
+            </span>
+            <span className="inline-block shrink-0 self-center leading-none text-primary -translate-y-[0.1em] md:px-0.5">
+              ×
+            </span>
+            <span className="glass-panel box-border min-w-0 max-w-full shrink rounded-lg border-indigo-400/40 bg-gradient-to-br from-indigo-500/14 to-indigo-500/5 px-4 py-4 text-center text-indigo-400 sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
+              {t("equationMultiplier")}
+            </span>
+          </div>
+          <p className="mx-auto mt-12 max-w-3xl text-lg font-medium italic text-on-surface-variant">
+            {t("equationCaption")}
+          </p>
+        </div>
+      </GlassPointerSection>
 
       <section>
         <div className="mb-16 flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -138,72 +159,71 @@ export async function HomePage() {
       </section>
 
       <section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <Link href="/portfolio" className="group relative block h-[500px] overflow-hidden rounded-2xl border border-outline-variant">
+        <GlassPointerLink
+          href="/portfolio"
+          className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
+        >
           <Image
             src={TEASE_1}
             alt=""
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="relative z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/40 to-transparent p-10">
-            <span className="w-fit rounded border border-primary/30 bg-primary/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary backdrop-blur-md">
+          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/40 to-transparent p-10">
+            <span className="glass-pill w-fit rounded border-primary/35 bg-gradient-to-b from-primary/25 to-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary">
               {t("case1Tag")}
             </span>
             <h3 className="text-3xl font-bold text-on-surface">{t("case1Title")}</h3>
             <p className="max-w-sm text-on-surface-variant">{t("case1Desc")}</p>
           </div>
-        </Link>
-        <Link href="/portfolio" className="group relative block h-[500px] overflow-hidden rounded-2xl border border-outline-variant">
+        </GlassPointerLink>
+        <GlassPointerLink
+          href="/portfolio"
+          className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
+        >
           <Image
             src={TEASE_2}
             alt=""
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="relative z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/40 to-transparent p-10">
-            <span className="w-fit rounded border border-indigo-500/30 bg-indigo-500/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-indigo-400 backdrop-blur-md">
+          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/40 to-transparent p-10">
+            <span className="glass-pill w-fit rounded border-indigo-400/35 bg-gradient-to-b from-indigo-500/25 to-indigo-500/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-indigo-400">
               {t("case2Tag")}
             </span>
             <h3 className="text-3xl font-bold text-on-surface">{t("case2Title")}</h3>
             <p className="max-w-sm text-on-surface-variant">{t("case2Desc")}</p>
           </div>
-        </Link>
+        </GlassPointerLink>
       </section>
 
-      <section className="py-16">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-          <Stat variant="number" value="9+" label={t("statsYears")} />
-          <Stat variant="icon" icon="school" label={t("statsDegree")} />
-          <Stat variant="number" value="150+" label={t("statsProjects")} />
-          <Stat variant="icon" icon="verified_user" label={t("statsMl")} />
+      <GlassPointerSection className="glass-panel relative space-y-8 overflow-hidden rounded-2xl border-primary/25 px-8 py-20 text-center md:px-12">
+        <div className="absolute start-0 top-0 z-[2] h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <div className="relative z-[1] space-y-8">
+          <h2 className="text-5xl font-extrabold tracking-tight text-on-surface">
+            {t("bottomCtaTitle")}
+          </h2>
+          <p className="mx-auto max-w-2xl text-xl font-medium leading-relaxed text-on-surface-variant">
+            {t("bottomCtaBody")}
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 pt-6">
+            <Link
+              href="/contact"
+              className="rounded-lg bg-primary px-12 py-5 text-xl font-bold text-white transition-all hover:bg-primary-hover"
+            >
+              {t("bottomCtaPrimary")}
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-lg border border-outline-variant px-12 py-5 text-xl font-semibold text-on-surface transition-colors hover:border-primary"
+            >
+              {t("bottomCtaSecondary")}
+            </Link>
+          </div>
         </div>
-      </section>
-
-      <section className="relative space-y-8 overflow-hidden rounded-2xl border border-primary/20 bg-surface-container/50 px-8 py-20 text-center md:px-12">
-        <div className="absolute start-0 top-0 h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
-        <h2 className="text-5xl font-extrabold tracking-tight text-on-surface">
-          {t("bottomCtaTitle")}
-        </h2>
-        <p className="mx-auto max-w-2xl text-xl font-medium leading-relaxed text-on-surface-variant">
-          {t("bottomCtaBody")}
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 pt-6">
-          <Link
-            href="/contact"
-            className="rounded-lg bg-primary px-12 py-5 text-xl font-bold text-white transition-all hover:bg-primary-hover"
-          >
-            {t("bottomCtaPrimary")}
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-lg border border-outline-variant px-12 py-5 text-xl font-semibold text-on-surface transition-colors hover:border-primary"
-          >
-            {t("bottomCtaSecondary")}
-          </Link>
-        </div>
-      </section>
+      </GlassPointerSection>
     </main>
   );
 }
@@ -222,30 +242,30 @@ function ServiceCard({
   featured?: boolean;
 }) {
   return (
-    <Link
+    <GlassPointerLink
       href="/services"
       className={
         featured
-          ? "flex cursor-pointer flex-col space-y-6 rounded-xl border border-primary/30 bg-surface-container/50 p-8 transition-colors hover:border-primary/50"
-          : "flex cursor-pointer flex-col space-y-6 rounded-xl border border-outline-variant bg-surface-container/30 p-8 transition-colors hover:border-primary/50"
+          ? "glass-panel flex cursor-pointer flex-col space-y-6 rounded-xl border-primary/35 p-8 transition-colors hover:border-primary/50"
+          : "glass-panel flex cursor-pointer flex-col space-y-6 rounded-xl p-8 transition-colors hover:border-primary/50"
       }
     >
       <div
         className={
           featured
-            ? "flex h-14 w-14 items-center justify-center rounded-lg border border-indigo-400/30 bg-surface text-indigo-400"
-            : "flex h-14 w-14 items-center justify-center rounded-lg border border-outline-variant bg-surface text-primary"
+            ? "glass-panel relative z-[1] flex h-14 w-14 items-center justify-center rounded-lg border-indigo-400/30 text-indigo-400"
+            : "glass-panel relative z-[1] flex h-14 w-14 items-center justify-center rounded-lg text-primary"
         }
       >
         <MaterialIcon name={icon} className="text-3xl" />
       </div>
-      <h3 className="text-2xl font-bold text-on-surface">{title}</h3>
-      <p className="flex-grow leading-relaxed text-on-surface-variant">{description}</p>
-      <span className="flex items-center gap-2 text-sm font-bold text-primary">
+      <h3 className="relative z-[1] text-2xl font-bold text-on-surface">{title}</h3>
+      <p className="relative z-[1] flex-grow leading-relaxed text-on-surface-variant">{description}</p>
+      <span className="relative z-[1] flex items-center gap-2 text-sm font-bold text-primary">
         {learnMore}
         <MaterialIcon name="north_east" className="text-sm" />
       </span>
-    </Link>
+    </GlassPointerLink>
   );
 }
 
@@ -261,15 +281,23 @@ function Stat({
   label: string;
 }) {
   return (
-    <div className="flex flex-col items-center space-y-3 rounded-xl border border-outline-variant bg-surface-container/20 p-8 text-center">
-      {variant === "number" ? (
-        <span className="text-4xl font-extrabold text-primary">{value}</span>
-      ) : (
-        <MaterialIcon name={icon!} className="text-4xl text-primary" />
-      )}
-      <span className="text-sm font-semibold uppercase tracking-widest text-on-surface-variant">
+    <GlassPointerDiv className="glass-panel flex flex-col items-center gap-3 rounded-xl px-5 py-7 text-center sm:px-7 sm:py-8">
+      <div className="relative z-[1] flex min-h-16 w-full items-center justify-center py-1 sm:min-h-[4.5rem]">
+        {variant === "number" ? (
+          <span className="text-4xl font-extrabold leading-none tracking-tight text-primary sm:text-5xl">
+            {value}
+          </span>
+        ) : (
+          <MaterialIcon
+            name={icon!}
+            className="text-5xl text-primary sm:text-6xl"
+            style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 40" }}
+          />
+        )}
+      </div>
+      <span className="relative z-[1] text-xs font-semibold uppercase leading-snug tracking-widest text-on-surface-variant sm:text-sm">
         {label}
       </span>
-    </div>
+    </GlassPointerDiv>
   );
 }

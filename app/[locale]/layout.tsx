@@ -9,7 +9,7 @@ import { getSiteUrl } from "@/lib/site-config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Noto_Sans_Arabic, Plus_Jakarta_Sans } from "next/font/google";
+import { Amiri, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 
@@ -19,9 +19,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const notoArabic = Noto_Sans_Arabic({
-  subsets: ["arabic"],
-  variable: "--font-noto-arabic",
+const amiri = Amiri({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
+  variable: "--font-amiri",
   display: "swap",
 });
 
@@ -32,6 +33,12 @@ export function generateStaticParams() {
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(getSiteUrl()),
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+    },
   };
 }
 
@@ -55,7 +62,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
-      className={cn(plusJakarta.variable, notoArabic.variable, "h-full")}
+      className={cn(plusJakarta.variable, amiri.variable, "h-full")}
       suppressHydrationWarning
     >
       <head>
@@ -71,15 +78,14 @@ export default async function LocaleLayout({
         {/* Material Symbols — not available via next/font */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
         className={cn(
           "flex min-h-full flex-col bg-background text-on-background antialiased",
-          isRtl ? notoArabic.className : plusJakarta.className,
+          isRtl ? amiri.className : plusJakarta.className,
         )}
       >
         <SiteJsonLd />

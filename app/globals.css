@@ -13,30 +13,112 @@
   --color-tertiary: #818cf8;
   --color-outline: #1e293b;
   --color-outline-variant: #334155;
-  --font-sans: var(--font-plus-jakarta), var(--font-noto-arabic), ui-sans-serif,
+  --font-sans: var(--font-plus-jakarta), var(--font-amiri), ui-sans-serif,
     system-ui, sans-serif;
 }
 
 @layer components {
+  /*
+   * Glass-style panels: mostly opaque fills so containers stay visible on
+   * #020617; light border + inset shine (no per-card backdrop-filter).
+   */
   .industrial-card {
     background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
     border: 1px solid #334155;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 8px 28px rgba(0, 0, 0, 0.35);
   }
 
   .industrial-inset {
     background-color: #020617;
     border: 1px solid #1e293b;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
   }
 
   .industrial-border {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(
       145deg,
-      rgba(30, 34, 48, 0.4),
-      rgba(15, 17, 23, 0.4)
+      rgba(30, 41, 59, 0.85),
+      rgba(15, 23, 42, 0.9)
     );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
+  .glass-panel {
+    background: linear-gradient(
+      155deg,
+      rgba(30, 41, 59, 0.92) 0%,
+      rgba(15, 23, 42, 0.96) 100%
+    );
+    border: 1px solid #334155;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 8px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-pill {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.95) 0%,
+      rgba(15, 23, 42, 0.88) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 4px 14px rgba(0, 0, 0, 0.35);
+  }
+
+  /*
+   * Pointer-driven glass highlight only (no tilt, no dynamic shadow).
+   * Shadow stays fixed from .glass-panel / .industrial-card.
+   * --gp-x / --gp-y ∈ [-1, 1] from card center (set by JS).
+   */
+  .glass-pointer-card {
+    --gp-x: 0;
+    --gp-y: 0;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glass-pointer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      520px circle at calc(50% + var(--gp-x) * 45%) calc(50% + var(--gp-y) * 45%),
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.03) 40%,
+      transparent 70%
+    );
+    opacity: 0.5;
+    mix-blend-mode: soft-light;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glass-pointer-card::before {
+      display: none;
+    }
+  }
+
+  .glass-footer {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border-top: 1px solid #334155;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    header.sticky {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
+  /* Default axes; opsz matches variable font URL in layout (20..48). */
   .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   }
@@ -44,4 +126,20 @@
 
 body {
   @apply bg-background text-on-background antialiased;
+  background-image:
+    radial-gradient(
+      ellipse 90% 70% at 50% -25%,
+      rgba(99, 102, 241, 0.12),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 42% 50% at 105% 12%,
+      rgba(129, 140, 248, 0.07),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse 38% 42% at -5% 72%,
+      rgba(99, 102, 241, 0.07),
+      transparent 45%
+    );
 }

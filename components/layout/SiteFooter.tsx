@@ -8,7 +8,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-outline-variant bg-surface-container py-12">
+    <footer className="glass-footer mt-auto py-12">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-8 md:flex-row">
         <p className="text-center text-lg font-semibold text-on-surface md:text-start">
           {t("tagline")}

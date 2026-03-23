@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/contact/ContactForm";
+import { GlassPointerDiv } from "@/components/ui/GlassPointerSurface";
 import { siteConfig } from "@/lib/site-config";
 import { getTranslations } from "next-intl/server";
 
@@ -16,7 +17,7 @@ export async function ContactPage() {
 
       <ContactForm />
 
-      <div className="mt-12 industrial-card rounded-xl p-6 text-center">
+      <GlassPointerDiv className="mt-12 industrial-card rounded-xl p-6 text-center">
         <p className="mb-4 text-sm font-semibold text-on-surface-variant">{t("prefer")}</p>
         <div className="flex flex-wrap justify-center gap-6">
           <a
@@ -34,7 +35,7 @@ export async function ContactPage() {
             {t("stackTelegram")}
           </a>
         </div>
-      </div>
+      </GlassPointerDiv>
     </main>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { GlassPointerForm } from "@/components/ui/GlassPointerSurface";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -46,7 +47,7 @@ export function ContactForm() {
   }
 
   return (
-    <form
+    <GlassPointerForm
       onSubmit={onSubmit}
       className="relative industrial-card space-y-6 rounded-2xl p-8 md:p-10"
     >
@@ -119,6 +120,6 @@ export function ContactForm() {
       >
         {status === "sending" ? t("sending") : t("submit")}
       </button>
-    </form>
+    </GlassPointerForm>
   );
 }

@@ -1,4 +1,10 @@
 import { MaterialIcon } from "@/components/MaterialIcon";
+import {
+  GlassPointerDiv,
+  GlassPointerLi,
+  GlassPointerLink,
+  GlassPointerSection,
+} from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
@@ -18,12 +24,12 @@ export async function ServicesPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-24">
       <header className="mx-auto mb-20 max-w-3xl text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container px-4 py-1.5">
+        <GlassPointerDiv className="glass-panel mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5">
           <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
           <span className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">
             {t("heroBadge")}
           </span>
-        </div>
+        </GlassPointerDiv>
         <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-on-surface md:text-6xl">
           {t.rich("heroTitleRich", {
             accent: (c) => <span className="text-primary">{c}</span>,
@@ -35,7 +41,7 @@ export async function ServicesPage() {
       </header>
 
       <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="industrial-card flex items-center gap-6 rounded-xl p-6">
+        <GlassPointerDiv className="industrial-card flex items-center gap-6 rounded-xl p-6">
           <div className="flex h-14 w-14 items-center justify-center rounded-lg industrial-inset text-primary">
             <MaterialIcon name="schedule" className="text-3xl" />
           </div>
@@ -43,8 +49,8 @@ export async function ServicesPage() {
             <h3 className="font-bold text-on-surface">{t("trustTimezoneTitle")}</h3>
             <p className="text-sm text-on-surface-variant">{t("trustTimezoneBody")}</p>
           </div>
-        </div>
-        <div className="industrial-card flex items-center gap-6 rounded-xl p-6">
+        </GlassPointerDiv>
+        <GlassPointerDiv className="industrial-card flex items-center gap-6 rounded-xl p-6">
           <div className="flex h-14 w-14 items-center justify-center rounded-lg industrial-inset text-tertiary">
             <MaterialIcon name="bolt" className="text-3xl" />
           </div>
@@ -52,33 +58,33 @@ export async function ServicesPage() {
             <h3 className="font-bold text-on-surface">{t("trustResponseTitle")}</h3>
             <p className="text-sm text-on-surface-variant">{t("trustResponseBody")}</p>
           </div>
-        </div>
+        </GlassPointerDiv>
       </div>
 
-      <section className="mb-20 industrial-card rounded-2xl p-8 md:p-10">
+      <GlassPointerSection className="mb-20 industrial-card rounded-2xl p-8 md:p-10">
         <h2 className="mb-4 text-2xl font-extrabold text-on-surface">{t("pricingTitle")}</h2>
         <p className="max-w-3xl leading-relaxed text-on-surface-variant">{t("pricingBody")}</p>
-      </section>
+      </GlassPointerSection>
 
       <section className="mb-24">
         <h2 className="mb-10 text-center text-3xl font-bold text-on-surface">{t("howTitle")}</h2>
         <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((label, i) => (
-            <li
+            <GlassPointerLi
               key={label}
-              className="flex items-center gap-3 rounded-xl border border-outline-variant bg-surface-container/40 px-4 py-4"
+              className="glass-panel flex items-center gap-3 rounded-xl px-4 py-4"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
                 {i + 1}
               </span>
               <span className="font-semibold text-on-surface">{label}</span>
-            </li>
+            </GlassPointerLi>
           ))}
         </ol>
       </section>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-        <div className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7">
+        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7">
           <div>
             <div className="mb-8 flex items-start justify-between">
               <div className="rounded-xl industrial-inset p-4 text-primary">
@@ -107,9 +113,9 @@ export async function ServicesPage() {
           >
             {t("s1Cta")}
           </Link>
-        </div>
+        </GlassPointerDiv>
 
-        <div className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-tertiary/50 md:p-10 lg:col-span-5">
+        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-tertiary/50 md:p-10 lg:col-span-5">
           <div>
             <div className="mb-8 flex items-start justify-between">
               <div className="rounded-xl industrial-inset p-4 text-tertiary">
@@ -128,9 +134,9 @@ export async function ServicesPage() {
           >
             {t("s2Cta")}
           </Link>
-        </div>
+        </GlassPointerDiv>
 
-        <div className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-on-surface/30 md:p-10 lg:col-span-5">
+        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-on-surface/30 md:p-10 lg:col-span-5">
           <div>
             <div className="mb-8 flex items-start justify-between">
               <div className="rounded-xl industrial-inset p-4 text-on-surface">
@@ -149,9 +155,9 @@ export async function ServicesPage() {
           >
             {t("s3Cta")}
           </Link>
-        </div>
+        </GlassPointerDiv>
 
-        <div className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7">
+        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7">
           <div className="flex flex-col gap-10 md:flex-row">
             <div className="flex-1">
               <div className="mb-8 flex items-start justify-between">
@@ -180,10 +186,10 @@ export async function ServicesPage() {
           >
             {t("s4Cta")}
           </Link>
-        </div>
+        </GlassPointerDiv>
       </div>
 
-      <section className="mt-32 industrial-card rounded-2xl border-primary/20 p-12 text-center">
+      <GlassPointerSection className="mt-32 industrial-card rounded-2xl border-primary/20 p-12 text-center">
         <h2 className="mb-4 text-3xl font-extrabold">{t("closingTitle")}</h2>
         <p className="mx-auto mb-10 max-w-xl text-on-surface-variant">{t("closingBody")}</p>
         <div className="flex flex-col justify-center gap-6 sm:flex-row">
@@ -194,14 +200,14 @@ export async function ServicesPage() {
             <MaterialIcon name="calendar_today" />
             {t("closingPrimary")}
           </Link>
-          <Link
+          <GlassPointerLink
             href="/portfolio"
-            className="rounded-lg border border-outline-variant bg-surface-container px-10 py-5 font-bold text-on-surface transition-all hover:bg-surface-container-high"
+            className="glass-panel rounded-lg px-10 py-5 font-bold text-on-surface transition-all hover:brightness-110"
           >
             {t("closingSecondary")}
-          </Link>
+          </GlassPointerLink>
         </div>
-      </section>
+      </GlassPointerSection>
     </main>
   );
 }

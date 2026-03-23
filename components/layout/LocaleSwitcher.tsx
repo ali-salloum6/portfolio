@@ -17,7 +17,7 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
 
   return (
     <div
-      className="flex items-center gap-1 rounded-lg border border-outline-variant bg-surface-container px-2 py-2"
+      className="glass-panel flex items-center gap-1 rounded-lg px-2 py-2"
       role="group"
       aria-label="Language"
     >

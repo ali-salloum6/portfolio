@@ -1,3 +1,4 @@
+import { GlassPointerArticle } from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
 import { getBlogSlugs, getBlogSource, type BlogFrontmatter } from "@/lib/blog";
 import { buildPageMetadata } from "@/lib/page-metadata";
@@ -59,8 +60,8 @@ export default async function Page({ params }: Props) {
       >
         ← {t("back")}
       </Link>
-      <article>
-        <header className="mb-10 border-b border-outline-variant pb-8">
+      <GlassPointerArticle className="industrial-card rounded-xl p-6 md:p-8">
+        <header className="relative z-[1] mb-10 border-b border-outline-variant pb-8">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">
             {fm.date}
           </p>
@@ -69,10 +70,10 @@ export default async function Page({ params }: Props) {
           </h1>
           <p className="mt-4 text-lg text-on-surface-variant">{fm.description}</p>
         </header>
-        <div className="max-w-none space-y-4 leading-relaxed text-on-surface-variant [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-on-surface [&_li]:ms-6 [&_li]:list-disc [&_p]:mb-4 [&_strong]:text-on-surface">
+        <div className="relative z-[1] max-w-none space-y-4 leading-relaxed text-on-surface-variant [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-on-surface [&_li]:ms-6 [&_li]:list-disc [&_p]:mb-4 [&_strong]:text-on-surface">
           {mdx}
         </div>
-      </article>
+      </GlassPointerArticle>
     </main>
   );
 }

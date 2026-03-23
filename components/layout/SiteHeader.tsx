@@ -22,7 +22,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-outline-variant bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-outline-variant bg-background/85 backdrop-blur-md backdrop-saturate-150">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:px-8"
         aria-label="Main"
@@ -78,7 +78,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </nav>
 
       {open ? (
-        <div className="border-t border-outline-variant bg-background px-6 py-4 md:hidden">
+        <div className="border-t border-white/[0.08] bg-background/95 px-6 py-4 md:hidden">
           <div className="flex flex-col gap-3">
             {nav.map((item) => (
               <Link

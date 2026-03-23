@@ -1,4 +1,9 @@
 import { MaterialIcon } from "@/components/MaterialIcon";
+import {
+  GlassPointerArticle,
+  GlassPointerDiv,
+  GlassPointerSection,
+} from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -21,7 +26,7 @@ export async function PortfolioPage() {
       </header>
 
       <div className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-12">
-        <article className="industrial-card flex flex-col items-center gap-8 rounded-lg p-8 md:col-span-8 md:flex-row">
+        <GlassPointerArticle className="industrial-card flex flex-col items-center gap-8 rounded-lg p-8 md:col-span-8 md:flex-row">
           <div className="w-full md:w-1/2">
             <div className="industrial-inset relative mb-6 aspect-video overflow-hidden rounded-md">
               <Image
@@ -66,9 +71,9 @@ export async function PortfolioPage() {
               </li>
             </ul>
           </div>
-        </article>
+        </GlassPointerArticle>
 
-        <article className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-4">
+        <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-4">
           <div>
             <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
               {t("cases.c2.tag")}
@@ -88,9 +93,9 @@ export async function PortfolioPage() {
               {t("cases.c2.metricLabel")}
             </div>
           </div>
-        </article>
+        </GlassPointerArticle>
 
-        <article className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
+        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
           <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
             {t("cases.c3.tag")}
           </span>
@@ -106,9 +111,9 @@ export async function PortfolioPage() {
             <span className="text-xs font-semibold text-on-surface-variant">{t("cases.c3.footer")}</span>
             <MaterialIcon name="check_circle" filled className="text-primary" />
           </div>
-        </article>
+        </GlassPointerArticle>
 
-        <article className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
+        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
           <div className="flex-1">
             <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
               {t("cases.c4.tag")}
@@ -128,9 +133,9 @@ export async function PortfolioPage() {
               <div className="h-full w-[99.8%] bg-primary" />
             </div>
           </div>
-        </article>
+        </GlassPointerArticle>
 
-        <article className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
+        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
           <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
             {t("cases.c5.tag")}
           </span>
@@ -152,14 +157,14 @@ export async function PortfolioPage() {
               {t("cases.c5.statLabel")}
             </div>
           </div>
-        </article>
+        </GlassPointerArticle>
       </div>
 
       <section className="mb-24">
         <h2 className="mb-12 text-center text-3xl font-bold">{t("philosophyTitle")}</h2>
         <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
           {(["p1", "p2", "p3"] as const).map((key) => (
-            <div key={key} className="industrial-card rounded-lg p-8">
+            <GlassPointerDiv key={key} className="industrial-card rounded-lg p-8">
               <div className="industrial-inset mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-md">
                 <MaterialIcon
                   name={key === "p1" ? "speed" : key === "p2" ? "verified_user" : "cloud_done"}
@@ -168,32 +173,34 @@ export async function PortfolioPage() {
               </div>
               <h3 className="mb-3 text-lg font-bold">{t(`${key}Title`)}</h3>
               <p className="text-sm text-on-surface-variant">{t(`${key}Body`)}</p>
-            </div>
+            </GlassPointerDiv>
           ))}
         </div>
       </section>
 
-      <section className="industrial-card relative overflow-hidden rounded-lg p-12 text-center">
-        <div className="absolute end-0 top-0 p-8 opacity-5">
+      <GlassPointerSection className="industrial-card relative overflow-hidden rounded-lg p-12 text-center">
+        <div className="absolute end-0 top-0 z-0 p-8 opacity-5">
           <MaterialIcon name="engineering" className="text-9xl" />
         </div>
-        <h2 className="mb-6 text-3xl font-bold">{t("ctaTitle")}</h2>
-        <p className="mx-auto mb-10 max-w-xl font-medium text-on-surface-variant">{t("ctaBody")}</p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="rounded-md bg-primary px-10 py-4 font-bold text-white transition-all hover:bg-primary-hover"
-          >
-            {t("ctaPrimary")}
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-md border border-outline-variant px-10 py-4 font-bold text-on-surface transition-all hover:bg-outline-variant/50"
-          >
-            {t("ctaSecondary")}
-          </Link>
+        <div className="relative z-[1]">
+          <h2 className="mb-6 text-3xl font-bold">{t("ctaTitle")}</h2>
+          <p className="mx-auto mb-10 max-w-xl font-medium text-on-surface-variant">{t("ctaBody")}</p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="rounded-md bg-primary px-10 py-4 font-bold text-white transition-all hover:bg-primary-hover"
+            >
+              {t("ctaPrimary")}
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-md border border-outline-variant px-10 py-4 font-bold text-on-surface transition-all hover:bg-outline-variant/50"
+            >
+              {t("ctaSecondary")}
+            </Link>
+          </div>
         </div>
-      </section>
+      </GlassPointerSection>
     </main>
   );
 }

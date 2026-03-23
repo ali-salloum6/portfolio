@@ -1,3 +1,4 @@
+import { GlassPointerArticle } from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
 import { getAllBlogPosts } from "@/lib/blog";
 import { buildPageMetadata } from "@/lib/page-metadata";
@@ -34,7 +35,7 @@ export default async function Page({ params }: Props) {
       <ul className="space-y-6">
         {posts.map((post) => (
           <li key={post.slug}>
-            <article className="industrial-card rounded-xl p-6 transition-colors hover:border-primary/40">
+            <GlassPointerArticle className="industrial-card rounded-xl p-6 transition-colors hover:border-primary/40">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">
                 {post.date}
               </p>
@@ -50,7 +51,7 @@ export default async function Page({ params }: Props) {
               >
                 {t("readMore")} →
               </Link>
-            </article>
+            </GlassPointerArticle>
           </li>
         ))}
       </ul>
