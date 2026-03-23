@@ -8,15 +8,12 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-const HERO_IMG =
-  "/images/main_picture.jpg";
-  // "https://lh3.googleusercontent.com/aida-public/AB6AXuB4JAc4ThjGWgDfhCyHykHBjB94NvaRMfSfyZHL6dkXotora__xdcAdL_bCmTackBqUrKufWVrEhNUxyERTQ70ipUcbTRfmZahgSX5qJB_x7JiK_PDkNqW1gk266zG1S_QQSvb46lzO5Korxy1YLo3M3XJNXp8CwuUwj8MAUaMd1MnSwwLFyj_C05RAGb61ErErJCczBmULjCf2HjTRlDWeAkKh6bdckhyR1Ox4zb9JpAEhhdNjX7OfyiqMmT_fACjVbt8DiPdmX8I";
+const HERO_IMG = "/images/hero-main.webp";
 
-const TEASE_1 =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDqEn-spumb7Y0akTqRdDup2Q4YMrDVHsfhgFfu6V4kaNH68eP1cfn17Q2Zl5HlRTMROBY_M9Rtb-fjJsmvKfRKvjtH8CsdCkQUNxgatyfjQ8fzbyHFK6vYvTNKFfKNCneotLKdDWdcChE0aOj44t8fM666JYrrMUs5Yb7Nep2w2LXzB725UlB8D1dSGioIAXO7xQ_UsTXwOPuAzgAASDQ_Ru0wD3nBrikZB1-DI9Zrtnhi8hufJk0Hfj7ULmsRMEzEwZ7l-VdgCq0";
-
-const TEASE_2 =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuACu0AWR9aOKD0oh77-cD0it9SMtOfK_yUGJWDvFTytVBTv9F1inuB3GIchIh3yTzBzehBxh6_58FYtd6BJDTv-RaBx8efIVFkCaAhcetofthL0xmy-l-UYN0uFzT5c5o0OW-3daYRj0WIvmO30BSZneQq_C59HyichZeJGxeK8VGm5e6g8CkpOJHFtN3QB11i4EdyQHNsvVLEtNzI3eGe4OdHjmT_rEYFS5EQkJdvL05zMjfGqQKjoVs2pot4DkGQzDBMeFyd1qTc";
+/** Portfolio case c1 — unified deployment manager blueprint */
+const CASE_TEASER_1_IMAGE = "/images/unified-manager-blueprint.webp";
+/** Portfolio case c4 — LuukAI embeddable widget */
+const CASE_TEASER_2_IMAGE = "/images/luukai-widget-wide.webp";
 
 export async function HomePage() {
   const t = await getTranslations("home");
@@ -164,14 +161,14 @@ export async function HomePage() {
           className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
         >
           <Image
-            src={TEASE_1}
-            alt=""
+            src={CASE_TEASER_1_IMAGE}
+            alt={t("case1Title")}
             fill
             className="relative z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/40 to-transparent p-10">
-            <span className="glass-pill w-fit rounded border-primary/35 bg-gradient-to-b from-primary/25 to-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/70 to-transparent p-10">
+            <span className="w-fit rounded-md border border-outline-variant/80 bg-background/95 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-md backdrop-blur-sm">
               {t("case1Tag")}
             </span>
             <h3 className="text-3xl font-bold text-on-surface">{t("case1Title")}</h3>
@@ -183,14 +180,14 @@ export async function HomePage() {
           className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
         >
           <Image
-            src={TEASE_2}
-            alt=""
+            src={CASE_TEASER_2_IMAGE}
+            alt={t("case2Title")}
             fill
-            className="relative z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
+            className="relative z-[1] object-cover object-top transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/40 to-transparent p-10">
-            <span className="glass-pill w-fit rounded border-indigo-400/35 bg-gradient-to-b from-indigo-500/25 to-indigo-500/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-indigo-400">
+          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/70 to-transparent p-10">
+            <span className="w-fit rounded-md border border-outline-variant/80 bg-background/95 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-indigo-600 shadow-md backdrop-blur-sm dark:text-indigo-400">
               {t("case2Tag")}
             </span>
             <h3 className="text-3xl font-bold text-on-surface">{t("case2Title")}</h3>

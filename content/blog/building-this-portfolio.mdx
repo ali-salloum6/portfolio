@@ -1,17 +1,9 @@
 ---
-title: Building this portfolio with Next.js
-date: 2025-03-15
-description: Static i18n routes, MDX content, and a contact pipeline wired for Resend.
+title: Building this portfolio with Stitch and Cursor
+date: 2026-03-24
+description: the power of AI
 ---
 
-## Why static first
+## How I built this
 
-This site uses the App Router with `next-intl` so every locale gets real URLs (`/en/...`, `/ru/...`, `/ar/...`). That keeps SEO and sharing sane compared to client-only translation widgets.
-
-## MDX for long-form notes
-
-Blog posts live as `.mdx` files under `content/blog/`. The runtime compiles them with `next-mdx-remote` so you can evolve components later without a database.
-
-## Contact form
-
-The form posts to a Route Handler that validates with Zod and sends mail through Resend. A honeypot field quietly drops naive bots.
+This site took me 30 minutes to build with no boilerplates and completely customizable with exactly what I wanted to include.

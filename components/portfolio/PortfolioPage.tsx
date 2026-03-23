@@ -1,4 +1,5 @@
 import { MaterialIcon } from "@/components/MaterialIcon";
+import { ScholarCitationCount } from "@/components/portfolio/ScholarCitationCount";
 import {
   GlassPointerArticle,
   GlassPointerDiv,
@@ -8,8 +9,24 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-const CASE_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBOfqaQzs9kvbHZS4Xmgy6YcK1Gx5jWkDTJbZbbNn3iZ8D-TVkUNF6_4-36X-KGFjsxo1xWpWKcKm3WlbJlyTQQNE5Mg7ZK9PuILLn224eTg-3a3JsM-MnRbud-z-J2kXk0u9vKK9WJ3WH8ry1rojZoXKtqXeK1VjKphd0Zcj8jVIjdQLIbRw-9OUBqIZR37HERf79WnjaoImlrO634sLx3ztgyIDsxc_5Eq7f9FLHmXUxHZFYx0BBzbjlzzjqX65vDz97c9AzAlqE";
+/** Case study 01: blueprint-style architecture (Caddy → Manager → Unix sockets) — `cases.c1` */
+const CASE1_IMAGE = "/images/unified-manager-blueprint.webp";
+
+/** LuukAI widget screenshot — `cases.c4` */
+const CASE_WIDGET_IMAGE = "/images/luukai-widget-wide.webp";
+const CASE_WIDGET_DEMO_URL = "https://ai.myluuk.app/widget/v1/widget-example.html";
+
+/** Published paper — `cases.c5` (Procedia CS 2024; Google Scholar cluster) */
+const QBOOST_PAPER_URL =
+  "https://www.sciencedirect.com/science/article/pii/S1877050924023330";
+const QBOOST_SCHOLAR_CITES_URL =
+  "https://scholar.google.com/scholar?cites=4727824286413679555&as_sdt=2005&hl=en";
+const NATURE_NPJ_CITING_URL = "https://www.nature.com/articles/s41524-026-02032-x";
+
+/** Electricity price forecasting — `cases.c6` */
+const CASE_ELECTRICITY_CHART = "/images/week-of-data.webp";
+const ELECTRICITY_REPORT_PDF_URL =
+  "https://drive.google.com/file/d/1UrRe9NF8okN4td2ZMYHdbI3LygMXXnoR/view";
 
 export async function PortfolioPage() {
   const t = await getTranslations("portfolio");
@@ -26,14 +43,14 @@ export async function PortfolioPage() {
       </header>
 
       <div className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-12">
-        <GlassPointerArticle className="industrial-card flex flex-col items-center gap-8 rounded-lg p-8 md:col-span-8 md:flex-row">
+        <GlassPointerArticle className="industrial-card flex flex-col items-center gap-8 rounded-lg p-8 md:col-span-12 md:flex-row">
           <div className="w-full md:w-1/2">
             <div className="industrial-inset relative mb-6 aspect-video overflow-hidden rounded-md">
               <Image
-                src={CASE_IMG}
-                alt=""
+                src={CASE1_IMAGE}
+                alt={t("cases.c1.imageAlt")}
                 fill
-                className="object-cover opacity-60 mix-blend-luminosity"
+                className="object-cover opacity-90 mix-blend-luminosity"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -73,90 +90,256 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
+        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-8">
+          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
+            {t("cases.c2.tag")}
+          </span>
+          <h2 className="mb-4 text-2xl font-bold">{t("cases.c2.title")}</h2>
+          <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">{t("cases.c2.body")}</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-tertiary">
+            {t("cases.c2.techTitle")}
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3">
+              <MaterialIcon name="sync" className="mt-0.5 shrink-0 text-sm text-primary" />
+              <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c2.f1")}</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <MaterialIcon name="fact_check" className="mt-0.5 shrink-0 text-sm text-primary" />
+              <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c2.f2")}</span>
+            </li>
+          </ul>
+        </GlassPointerArticle>
+
         <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-4">
           <div>
             <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
-              {t("cases.c2.tag")}
+              {t("cases.c3.tag")}
             </span>
-            <h2 className="mb-3 text-xl font-bold">{t("cases.c2.title")}</h2>
+            <h2 className="mb-3 text-xl font-bold">{t("cases.c3.title")}</h2>
             <p className="mb-6 text-xs leading-relaxed text-on-surface-variant">
-              {t("cases.c2.body")}
+              {t("cases.c3.body")}
             </p>
           </div>
           <div className="industrial-inset mb-6 rounded-md p-4">
-            <div className="mb-1 text-sm font-semibold">{t("cases.c2.arch")}</div>
-            <div className="text-xs font-medium text-primary">{t("cases.c2.archVal")}</div>
+            <div className="mb-1 text-sm font-semibold">{t("cases.c3.arch")}</div>
+            <div className="text-xs font-medium text-primary">{t("cases.c3.archVal")}</div>
+            <div className="mt-2 text-xs font-medium text-primary">{t("cases.c3.archVal2")}</div>
           </div>
           <div className="flex items-center justify-between border-t border-outline-variant pt-4">
-            <div className="text-xl font-bold text-on-surface">{t("cases.c2.metric")}</div>
+            <div className="text-xl font-bold text-on-surface">{t("cases.c3.metric")}</div>
             <div className="text-end text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-              {t("cases.c2.metricLabel")}
+              {t("cases.c3.metricLabel")}
             </div>
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
-          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
-            {t("cases.c3.tag")}
-          </span>
-          <h2 className="mb-4 text-xl font-bold">{t("cases.c3.title")}</h2>
-          <div className="industrial-inset mb-4 flex flex-1 flex-col rounded-md p-4">
-            <div className="mb-2 flex items-center gap-2">
-              <MaterialIcon name="database" className="text-lg text-primary" />
-              <span className="text-xs font-bold text-on-surface">{t("cases.c3.stack")}</span>
+        <GlassPointerArticle className="industrial-card flex flex-col gap-8 rounded-lg p-8 md:col-span-12 md:flex-row">
+          <div className="w-full md:w-2/5 md:shrink-0">
+            <div className="industrial-inset relative aspect-video w-full overflow-hidden rounded-md">
+              <Image
+                src={CASE_WIDGET_IMAGE}
+                alt={t("cases.c4.imageAlt")}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
             </div>
-            <p className="text-[11px] leading-tight text-on-surface-variant">{t("cases.c3.body")}</p>
+            <a
+              href={CASE_WIDGET_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
+            >
+              <MaterialIcon name="open_in_new" className="text-base" />
+              {t("cases.c4.demoLink")}
+            </a>
           </div>
-          <div className="flex items-center justify-between border-t border-outline-variant pt-4">
-            <span className="text-xs font-semibold text-on-surface-variant">{t("cases.c3.footer")}</span>
-            <MaterialIcon name="check_circle" filled className="text-primary" />
-          </div>
-        </GlassPointerArticle>
-
-        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
-          <div className="flex-1">
+          <div className="flex min-w-0 flex-1 flex-col">
             <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
               {t("cases.c4.tag")}
             </span>
-            <h2 className="mb-4 text-xl font-bold">{t("cases.c4.title")}</h2>
-            <div className="industrial-inset mb-6 flex aspect-square items-center justify-center overflow-hidden rounded-md">
-              <MaterialIcon name="fingerprint" className="text-6xl text-primary/20" />
+            <h2 className="mb-4 text-2xl font-bold">{t("cases.c4.title")}</h2>
+            <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">{t("cases.c4.body")}</p>
+            <div className="industrial-inset mb-6 rounded-md p-4">
+              <div className="mb-1 text-sm font-semibold">{t("cases.c4.techTitle")}</div>
+              <div className="text-xs font-medium text-primary">{t("cases.c4.techVal")}</div>
             </div>
-            <p className="text-sm leading-relaxed text-on-surface-variant">{t("cases.c4.body")}</p>
-          </div>
-          <div className="mt-8 space-y-4">
-            <div className="flex justify-between text-xs font-bold">
-              <span className="uppercase text-on-surface-variant">{t("cases.c4.l1")}</span>
-              <span className="text-primary">{t("cases.c4.l2")}</span>
-            </div>
-            <div className="h-1.5 w-full overflow-hidden rounded-full bg-outline-variant">
-              <div className="h-full w-[99.8%] bg-primary" />
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-tertiary">
+              {t("cases.c4.engineeringTitle")}
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="widgets" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c4.f1")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="forum" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c4.f2")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="translate" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c4.f3")}</span>
+              </li>
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-2 border-t border-outline-variant pt-6">
+              {["REACT 18", "MUI V5", "VITE 5"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-md border border-outline-variant bg-outline-variant px-3 py-1 text-[10px] font-bold text-on-surface-variant"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-4">
-          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
-            {t("cases.c5.tag")}
-          </span>
-          <h2 className="mb-4 text-xl font-bold">{t("cases.c5.title")}</h2>
-          <p className="mb-6 flex-1 text-sm text-on-surface-variant">{t("cases.c5.body")}</p>
-          <div className="mb-8 flex flex-wrap gap-2">
-            {["KUBERNETES", "KAFKA", "GRPC"].map((tag) => (
-              <span
-                key={tag}
-                className="rounded-md border border-outline-variant bg-outline-variant px-3 py-1 text-[10px] font-bold text-on-surface-variant"
+        <GlassPointerArticle className="industrial-card flex flex-col gap-8 rounded-lg p-8 md:col-span-12 md:flex-row">
+          <div className="flex w-full flex-col justify-between md:w-2/5 md:shrink-0">
+            <div className="industrial-inset rounded-md p-6">
+              <div className="mb-1 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+                {t("cases.c5.citationBlockTitle")}
+              </div>
+              <ScholarCitationCount
+                fallbackCount={t("cases.c5.citationFallbackCount")}
+                restLabel={t("cases.c5.citationRest")}
+              />
+            </div>
+            <div className="mt-6 flex flex-col gap-3">
+              <a
+                href={QBOOST_PAPER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
               >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="border-t border-outline-variant pt-4 text-center">
-            <div className="text-3xl font-extrabold text-primary">{t("cases.c5.stat")}</div>
-            <div className="text-[10px] font-bold uppercase text-on-surface-variant">
-              {t("cases.c5.statLabel")}
+                <MaterialIcon name="menu_book" className="text-base" />
+                {t("cases.c5.paperLink")}
+              </a>
+              <a
+                href={QBOOST_SCHOLAR_CITES_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
+              >
+                <MaterialIcon name="school" className="text-base" />
+                {t("cases.c5.scholarLink")}
+              </a>
+              <a
+                href={NATURE_NPJ_CITING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-start gap-2 text-sm font-semibold text-on-surface underline decoration-outline-variant underline-offset-4 transition-colors hover:text-primary"
+              >
+                <MaterialIcon name="public" className="mt-0.5 shrink-0 text-base text-primary" />
+                <span>{t("cases.c5.natureLink")}</span>
+              </a>
             </div>
           </div>
+          <div className="flex min-w-0 flex-1 flex-col">
+            <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
+              {t("cases.c5.tag")}
+            </span>
+            <h2 className="mb-4 text-2xl font-bold">{t("cases.c5.title")}</h2>
+            <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">{t("cases.c5.body")}</p>
+            <div className="industrial-inset mb-6 rounded-md p-4">
+              <div className="mb-1 text-sm font-semibold">{t("cases.c5.venueTitle")}</div>
+              <div className="text-xs font-medium text-primary">{t("cases.c5.venueVal")}</div>
+            </div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-tertiary">
+              {t("cases.c5.engineeringTitle")}
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="hub" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c5.f1")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="memory" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c5.f2")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="trending_up" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c5.f3")}</span>
+              </li>
+            </ul>
+          </div>
+        </GlassPointerArticle>
+
+        <GlassPointerArticle className="industrial-card flex h-full flex-col gap-6 rounded-lg p-8 md:col-span-8">
+          <div className="w-full shrink-0">
+            <div className="industrial-inset relative aspect-[983/376] w-full overflow-hidden rounded-md bg-outline-variant/20">
+              <Image
+                src={CASE_ELECTRICITY_CHART}
+                alt={t("cases.c6.imageAlt")}
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 768px) 100vw, 58vw"
+              />
+            </div>
+            <a
+              href={ELECTRICITY_REPORT_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
+            >
+              <MaterialIcon name="open_in_new" className="text-base" />
+              {t("cases.c6.pdfLink")}
+            </a>
+          </div>
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+            <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
+              {t("cases.c6.tag")}
+            </span>
+            <h2 className="mb-4 text-2xl font-bold">{t("cases.c6.title")}</h2>
+            <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">{t("cases.c6.body")}</p>
+            <div className="industrial-inset mb-6 rounded-md p-4">
+              <div className="mb-1 text-sm font-semibold">{t("cases.c6.evalTitle")}</div>
+              <div className="text-xs font-medium text-primary">{t("cases.c6.evalVal")}</div>
+            </div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-tertiary">
+              {t("cases.c6.engineeringTitle")}
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="show_chart" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c6.f1")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="timeline" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c6.f2")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MaterialIcon name="description" className="mt-0.5 shrink-0 text-sm text-primary" />
+                <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c6.f3")}</span>
+              </li>
+            </ul>
+          </div>
+        </GlassPointerArticle>
+
+        <GlassPointerArticle className="industrial-card flex h-full flex-col rounded-lg p-8 md:col-span-4">
+          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
+            {t("cases.c7.tag")}
+          </span>
+          <h2 className="mb-4 text-2xl font-bold">{t("cases.c7.title")}</h2>
+          <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">{t("cases.c7.body")}</p>
+          <div className="industrial-inset mb-6 rounded-md p-4">
+            <div className="mb-1 text-sm font-semibold">{t("cases.c7.detailTitle")}</div>
+            <div className="text-xs font-medium text-primary">{t("cases.c7.detailVal")}</div>
+          </div>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-tertiary">
+            {t("cases.c7.highlightsTitle")}
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3">
+              <MaterialIcon name="psychology" className="mt-0.5 shrink-0 text-sm text-primary" />
+              <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c7.f1")}</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <MaterialIcon name="groups" className="mt-0.5 shrink-0 text-sm text-primary" />
+              <span className="text-xs font-semibold leading-relaxed text-on-surface">{t("cases.c7.f2")}</span>
+            </li>
+          </ul>
         </GlassPointerArticle>
       </div>
 

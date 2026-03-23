@@ -10,23 +10,36 @@ import Image from "next/image";
 
 const PORTRAIT =
   // "https://lh3.googleusercontent.com/aida-public/AB6AXuAyRrXf7lnqEWPZx6IbloZLOLw_-awlpumdK40PYk9RHB-inS1Ti573dq_IcsQvz9rsIvL_3xPBmW7Yx8wLF8BU4ZtwaseeINj9DrJLPV7llv-6xYB-J5jrNNg-Z8wjJQFS8WH5IRTwFEKMg-HY2URw21mO0nDUiSbr0_6HHeyvcr0InMwyrmEfGKJnp_iMK-AEGCXILTm3Ub5O_IPRtlfNwuHPuhURYJocfAThZkvOQLiyKIILG0k7KlwCuCAVXlRh8xpES3Tr8TU";
-  "/images/secondary_picture.png";
-
-const CERT_IMGS = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBjredr3e-idP8QioAa0MrHf3oDpozyE5eAjsRFGN1K0zEsRh7keizI4P8FOOWdH7fvQzNFgoKDBU8JRvbWp6q0DdDcGA8zzHIAQiyJ9pMyU3-Cpv9BQRRvEOLzJCMllLhzYG039cGWC8MFKogTpSMiltieNwu8IE4i4syqsWANGMibYq4n_wYAM6r9YaVoHe82th1Ri3v72fpTjXSsfOJz451lhapG4d1CZg8WWNOx0q2LFpPC1wjUNpg6OUBKkMxKQP5a9vSzZD8",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuD2tAnlmz427Iv8O629IUEHph1bF47ANExBze5ZxE0OurI2MwPNnpcS5oFgD9UXYegh8NI-_WOWM6LCMWlcV1fliJR9ewlsIG2c4WetVpH6DbxkFWELkHcNr_6HfB7sFcTUOY8CBzO9Kl3hUv68CNSLDeEm1zK0-0HgzSxuZ1hY-P9Ga0u-yqhGP6g0xmfBXOeFeudAaF2znwT9zIINLbN8giSoBHZCXG9iZ5PeP27odmkwHA3YXFU1BZXl4y0U1qKRD0KIv5yBP4g",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDG_eR-E2Pb_OkxZId6WsB73nKxVaeIO6GvtpjomcGG1tWwd9VLYv9ZaFW_OD3rRIMC8r6rSD8Dfw29rXBG-GrZgeYH6XuC4Z0_gULfdG4kzOWHDpgjEM7vXPz1lk_V8UffaGKYJxAVHcYd-3uiUnuME2HQOrF1hZuxFv9nxP1zEH8sbt0gUxZLcGxUDdkvS41MgADYMDkt__r_cIUJDg-SnpKERNApKNaws-4L4NpJssVdX0NfdXYib_yJMJPpAQqC93qXNPhJaEM",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAlEf8Patig6LXV1vIs4Rt8a2nguC6a7pcLR_hoPlT7svSVczjF6japa-5XaLp2GZAFcqJC3r3NCrWAzyq-DFu3uRPlVBjyjuY-ZZwh-Y01327fw2-LMDC8WyU_nw8s-r1sHethxk31_mzRQ90wRIvsTwU_NA88tFzSVjmxXC0lOSc0xNwuIiqddAj-BQUCBrDT3BqfcqixuuTiZN4jFZlKCDbqwL_IaNpyuTBuqIgTE-1_J73uOeQ--WC9ICJ5KyiAFUc0x5WIv9I",
-];
+  "/images/secondary_picture.webp";
 
 export async function AboutPage() {
   const t = await getTranslations("about");
 
   const certs = [
-    { issuer: t("cert1Issuer"), name: t("cert1Name"), img: CERT_IMGS[0] },
-    { issuer: t("cert2Issuer"), name: t("cert2Name"), img: CERT_IMGS[1] },
-    { issuer: t("cert3Issuer"), name: t("cert3Name"), img: CERT_IMGS[2] },
-    { issuer: t("cert4Issuer"), name: t("cert4Name"), img: CERT_IMGS[3] },
+    {
+      href: "https://www.coursera.org/share/4ac77db33ee05bbf9ecb28d9c94e3a98",
+      issuer: t("cert1Issuer"),
+      name: t("cert1Name"),
+      img: "/images/certificates/machine-learning-specialization.svg",
+    },
+    {
+      href: "https://www.coursera.org/share/c1625e0c7e9997547bea0f38107c0c25",
+      issuer: t("cert2Issuer"),
+      name: t("cert2Name"),
+      img: "/images/certificates/neural-networks-deep-learning.svg",
+    },
+    {
+      href: "https://www.coursera.org/share/26dcc76811cf78406306e007eea0aa35",
+      issuer: t("cert3Issuer"),
+      name: t("cert3Name"),
+      img: "/images/certificates/improving-deep-neural-networks.svg",
+    },
+    {
+      href: "https://drive.google.com/drive/folders/18TKsGDzu0gxNYhk-Yb3iAt8vQStn9MmU?usp=sharing",
+      issuer: t("cert4Issuer"),
+      name: t("cert4Name"),
+      img: "/images/certificates/competitive-programming.svg",
+    },
   ];
 
   return (
@@ -86,7 +99,20 @@ export async function AboutPage() {
               <MaterialIcon name="school" className="text-primary" />
             </div>
             <h3 className="mb-4 text-2xl font-bold">{t("j2Title")}</h3>
-            <p className="leading-relaxed text-on-surface-variant">{t("j2Body")}</p>
+            <p className="leading-relaxed text-on-surface-variant">
+              {t.rich("j2Body", {
+                verify: (chunks) => (
+                  <a
+                    href="https://secondary2020.moed.gov.sy/scientific/result.php?city=10&stdnum=9468"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-primary underline decoration-primary/40 underline-offset-2 transition-colors hover:text-primary/90 hover:decoration-primary"
+                  >
+                    {chunks}
+                  </a>
+                ),
+              })}
+            </p>
           </GlassPointerArticle>
           <GlassPointerArticle className="industrial-card rounded-xl p-8">
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
@@ -115,8 +141,8 @@ export async function AboutPage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {certs.map((c) => (
             <GlassPointerLink
-              key={c.name}
-              href="https://www.coursera.org/"
+              key={c.href}
+              href={c.href}
               rel="noopener noreferrer"
               target="_blank"
               className="industrial-card group cursor-pointer rounded-xl p-2 transition-all hover:border-primary/50"
