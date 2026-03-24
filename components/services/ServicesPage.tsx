@@ -8,7 +8,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
-const tagsS1 = ["PostgreSQL", "Node.js", "Go", "Redis"];
+const tagsS1 = ["PostgreSQL", "Node.js", "Go", "Python"];
 
 export async function ServicesPage() {
   const t = await getTranslations("services");

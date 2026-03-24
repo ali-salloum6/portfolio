@@ -90,7 +90,7 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-8">
+        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-7">
           <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
             {t("cases.c2.tag")}
           </span>
@@ -111,7 +111,7 @@ export async function PortfolioPage() {
           </ul>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-4">
+        <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-5">
           <div>
             <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
               {t("cases.c3.tag")}

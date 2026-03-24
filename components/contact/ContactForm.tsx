@@ -2,10 +2,16 @@
 
 import { GlassPointerForm } from "@/components/ui/GlassPointerSurface";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { siteConfig } from "@/lib/site-config";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useRef, useState } from "react";
 
 type ContactField = "name" | "email" | "message";
+
+type ServerBanner =
+  | null
+  | { kind: "help" }
+  | { kind: "text"; message: string };
 
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -14,7 +20,7 @@ export function ContactForm() {
   const locale = useLocale();
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<ContactField, string>>>({});
-  const [serverError, setServerError] = useState<string | null>(null);
+  const [serverBanner, setServerBanner] = useState<ServerBanner>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileInstance | undefined>(undefined);
 
@@ -31,7 +37,7 @@ export function ContactForm() {
     const form = e.currentTarget;
     const fd = new FormData(form);
     setFieldErrors({});
-    setServerError(null);
+    setServerBanner(null);
 
     const website = String(fd.get("website") ?? "");
     if (website) {
@@ -64,7 +70,7 @@ export function ContactForm() {
     }
 
     if (turnstileSiteKey && !turnstileToken) {
-      setServerError(t("captchaRequired"));
+      setServerBanner({ kind: "text", message: t("captchaRequired") });
       setStatus("err");
       return;
     }
@@ -89,35 +95,36 @@ export function ContactForm() {
       if (!res.ok) {
         const body = (await res.json().catch(() => null)) as { error?: string } | null;
         if (body?.error === "validation") {
-          setServerError(t("validationServer"));
+          setServerBanner({ kind: "help" });
         } else if (body?.error === "captcha_required") {
-          setServerError(t("captchaRequired"));
+          setServerBanner({ kind: "text", message: t("captchaRequired") });
         } else if (body?.error === "captcha_failed") {
-          setServerError(t("captchaFailed"));
+          setServerBanner({ kind: "text", message: t("captchaFailed") });
         } else if (body?.error === "email_not_configured") {
-          setServerError(t("errorEmailNotConfigured"));
+          setServerBanner({ kind: "text", message: t("errorEmailNotConfigured") });
         } else if (body?.error === "send_failed") {
-          setServerError(t("errorSendFailed"));
+          setServerBanner({ kind: "text", message: t("errorSendFailed") });
         } else {
-          setServerError(t("error"));
+          setServerBanner({ kind: "help" });
         }
         setStatus("err");
         return;
       }
       setStatus("ok");
       setFieldErrors({});
-      setServerError(null);
+      setServerBanner(null);
       form.reset();
       setTurnstileToken(null);
       turnstileRef.current?.reset();
     } catch {
-      setServerError(t("error"));
+      setServerBanner({ kind: "help" });
       setStatus("err");
     }
   }
 
   return (
     <GlassPointerForm
+      noValidate
       onSubmit={onSubmit}
       className="relative industrial-card space-y-6 rounded-2xl p-8 md:p-10"
     >
@@ -209,8 +216,33 @@ export function ContactForm() {
       {status === "ok" ? (
         <p className="text-sm font-medium text-primary">{t("success")}</p>
       ) : null}
-      {status === "err" ? (
-        <p className="text-sm font-medium text-red-400">{serverError ?? t("error")}</p>
+      {status === "err" && serverBanner ? (
+        <p className="text-sm font-medium text-red-400">
+          {serverBanner.kind === "help"
+            ? t.rich("formErrorHelpRich", {
+                email: (chunks) => (
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    data-plausible-name="contact_error_email"
+                    className="font-semibold text-primary underline decoration-primary/60 underline-offset-2 hover:text-tertiary"
+                  >
+                    {chunks}
+                  </a>
+                ),
+                telegram: (chunks) => (
+                  <a
+                    href={siteConfig.telegram}
+                    data-plausible-name="contact_error_telegram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-primary underline decoration-primary/60 underline-offset-2 hover:text-tertiary"
+                  >
+                    {chunks}
+                  </a>
+                ),
+              })
+            : serverBanner.message}
+        </p>
       ) : null}
 
       <button

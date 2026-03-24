@@ -6,7 +6,7 @@ Code is largely in place; most items below are **your** accounts, environment, a
 
 - [x] Create **`.env.local`** from `.env.example` and fill every variable you use in production.
 - [x] Set **`NEXT_PUBLIC_SITE_URL`** to the real canonical URL (e.g. `https://alisalloum.tech`) so metadata, sitemap, and 
-- [ ] Open Graph URLs are correct.
+- [x] Open Graph URLs are correct.
 - [x] **Deploy on Vercel** (or your host) and add the same environment variables in the project settings.
 - [x] Point **DNS** for `alisalloum.tech` to the host and confirm HTTPS.
 
@@ -25,13 +25,14 @@ Code is largely in place; most items below are **your** accounts, environment, a
 ## Analytics (optional; in PRD)
 
 - [x] **Vercel Analytics** is wired in the app; enable it in the Vercel project dashboard if you want it active.
-- [ ] think about tracking button clicks.
+- [x] think about tracking button clicks.
 
 ## Content and assets (still mock / external)
 
 - [x] Replace **hero and portfolio images** that still use `lh3.googleusercontent.com` (`components/home/HomePage.tsx`, `components/portfolio/PortfolioPage.tsx`, `components/about/AboutPage.tsx`) with files under **`public/`** and `next/image`.
-- [ x] Swap **certificate thumbnails** for real images and link each card to **Coursera verify URLs** (About page may still link generically to coursera.org).
-- [ ] Review **copy and numbers** in `messages/en.json` (and `ru` / `ar`) so stats, pricing ranges, and case studies match what you are comfortable claiming.
+- [x] Swap **certificate thumbnails** for real images and link each card to **Coursera verify URLs** (About page may still link generically to coursera.org).
+- [x] Review **copy and numbers** in `messages/en.json` (and `ru` / `ar`) so stats, pricing ranges, and case studies match what you are comfortable claiming.
+- [ ] check translations.
 
 ## SEO follow-through
 
@@ -43,7 +44,7 @@ Code is largely in place; most items below are **your** accounts, environment, a
 
 - [ ] **RTL pass** on `/ar/...` (nav, grids, equation block, forms).
 - [ ] **Mobile** pass on all main routes.
-- [ ] Optional hardening: **rate limit** or CAPTCHA on **`/api/contact`** beyond the honeypot.
+- [x] Optional hardening: CAPTCHA on **`/api/contact`** beyond the honeypot.
 
 ## Housekeeping
 
