@@ -156,44 +156,24 @@ export async function HomePage() {
       </section>
 
       <section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <GlassPointerLink
-          href="/portfolio"
-          className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
-        >
-          <Image
-            src={CASE_TEASER_1_IMAGE}
-            alt={t("case1Title")}
-            fill
-            className="relative z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/70 to-transparent p-10">
-            <span className="w-fit rounded-md border border-outline-variant/80 bg-background/95 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-md backdrop-blur-sm">
-              {t("case1Tag")}
-            </span>
-            <h3 className="text-3xl font-bold text-on-surface">{t("case1Title")}</h3>
-            <p className="max-w-sm text-on-surface-variant">{t("case1Desc")}</p>
-          </div>
-        </GlassPointerLink>
-        <GlassPointerLink
-          href="/portfolio"
-          className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
-        >
-          <Image
-            src={CASE_TEASER_2_IMAGE}
-            alt={t("case2Title")}
-            fill
-            className="relative z-[1] object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 z-[2] flex flex-col justify-end space-y-4 bg-gradient-to-t from-background via-background/70 to-transparent p-10">
-            <span className="w-fit rounded-md border border-outline-variant/80 bg-background/95 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-indigo-600 shadow-md backdrop-blur-sm dark:text-indigo-400">
-              {t("case2Tag")}
-            </span>
-            <h3 className="text-3xl font-bold text-on-surface">{t("case2Title")}</h3>
-            <p className="max-w-sm text-on-surface-variant">{t("case2Desc")}</p>
-          </div>
-        </GlassPointerLink>
+        <CaseTeaserCard
+          imageSrc={CASE_TEASER_1_IMAGE}
+          imageAlt={t("case1Title")}
+          imageClassName="object-cover"
+          tag={t("case1Tag")}
+          tagAccent="primary"
+          title={t("case1Title")}
+          description={t("case1Desc")}
+        />
+        <CaseTeaserCard
+          imageSrc={CASE_TEASER_2_IMAGE}
+          imageAlt={t("case2Title")}
+          imageClassName="object-cover object-top"
+          tag={t("case2Tag")}
+          tagAccent="indigo"
+          title={t("case2Title")}
+          description={t("case2Desc")}
+        />
       </section>
 
       <GlassPointerSection className="glass-panel relative space-y-8 overflow-hidden rounded-2xl border-primary/25 px-8 py-20 text-center md:px-12">
@@ -222,6 +202,67 @@ export async function HomePage() {
         </div>
       </GlassPointerSection>
     </main>
+  );
+}
+
+function CaseTeaserCard({
+  imageSrc,
+  imageAlt,
+  imageClassName,
+  tag,
+  tagAccent,
+  title,
+  description,
+}: {
+  imageSrc: string;
+  imageAlt: string;
+  imageClassName: string;
+  tag: string;
+  tagAccent: "primary" | "indigo";
+  title: string;
+  description: string;
+}) {
+  const tagClass =
+    tagAccent === "primary"
+      ? "border-primary/35 bg-primary/12 text-primary"
+      : "border-indigo-400/35 bg-indigo-500/12 text-indigo-800 dark:text-indigo-200";
+
+  return (
+    <GlassPointerLink
+      href="/portfolio"
+      className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
+    >
+      <div className="absolute inset-0 z-[1] overflow-hidden">
+        <div className="relative h-full w-full">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            className={`scale-105 transition-transform duration-700 ease-out will-change-transform group-hover:scale-110 ${imageClassName}`}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 z-[2] space-y-3 border-t border-white/15 bg-slate-950/35 px-8 pb-8 pt-7 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl sm:space-y-4 sm:px-10 sm:pb-9 sm:pt-8">
+        <span
+          className={`inline-flex w-fit rounded-md border px-4 py-1.5 text-xs font-bold uppercase tracking-wider backdrop-blur-sm ${tagClass}`}
+        >
+          {tag}
+        </span>
+        <h3 className="text-2xl font-bold leading-snug text-on-surface [text-shadow:0_1px_2px_rgba(0,0,0,0.85)] sm:text-3xl">
+          {title}
+        </h3>
+        <p
+          className={
+            tagAccent === "indigo"
+              ? "max-w-prose text-sm font-medium leading-relaxed text-slate-50 [text-shadow:0_1px_4px_rgba(0,0,0,0.55),0_0_20px_rgba(2,6,23,0.45)] sm:max-w-sm sm:text-base"
+              : "max-w-prose text-sm leading-relaxed text-on-surface-variant [text-shadow:0_1px_2px_rgba(0,0,0,0.75)] sm:max-w-sm sm:text-base"
+          }
+        >
+          {description}
+        </p>
+      </div>
+    </GlassPointerLink>
   );
 }
 

@@ -44,11 +44,20 @@ export function buildPageMetadata({
       siteName: siteConfig.name,
       locale: ogLocale,
       type: "website",
+      images: [
+        {
+          url: "/og-default.png",
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: ["/og-default.png"],
     },
   };
 }
