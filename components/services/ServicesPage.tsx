@@ -109,6 +109,7 @@ export async function ServicesPage() {
           </div>
           <Link
             href="/contact"
+            data-plausible-name="services_tier_database_contact"
             className="w-full rounded-lg border border-primary px-8 py-4 text-center font-bold text-primary transition-all hover:bg-primary/10 md:w-fit"
           >
             {t("s1Cta")}
@@ -130,6 +131,7 @@ export async function ServicesPage() {
           </div>
           <Link
             href="/contact"
+            data-plausible-name="services_tier_mobile_contact"
             className="w-full rounded-lg border border-tertiary px-8 py-4 text-center font-bold text-tertiary transition-all hover:bg-tertiary/10"
           >
             {t("s2Cta")}
@@ -151,6 +153,7 @@ export async function ServicesPage() {
           </div>
           <Link
             href="/contact"
+            data-plausible-name="services_tier_web_contact"
             className="w-full rounded-lg border border-outline-variant px-8 py-4 text-center font-bold text-on-surface transition-all hover:bg-surface-container-high"
           >
             {t("s3Cta")}
@@ -182,6 +185,7 @@ export async function ServicesPage() {
           </div>
           <Link
             href="/contact"
+            data-plausible-name="services_tier_ai_contact"
             className="mt-8 w-full rounded-lg border border-primary px-8 py-4 text-center font-bold text-primary transition-all hover:bg-primary/10 md:w-fit"
           >
             {t("s4Cta")}
@@ -195,6 +199,7 @@ export async function ServicesPage() {
         <div className="flex flex-col justify-center gap-6 sm:flex-row">
           <Link
             href="/contact"
+            data-plausible-name="services_closing_contact"
             className="flex items-center justify-center gap-2 rounded-lg bg-primary px-10 py-5 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover"
           >
             <MaterialIcon name="calendar_today" />
@@ -202,6 +207,7 @@ export async function ServicesPage() {
           </Link>
           <GlassPointerLink
             href="/portfolio"
+            data-plausible-name="services_closing_portfolio"
             className="glass-panel rounded-lg px-10 py-5 font-bold text-on-surface transition-all hover:brightness-110"
           >
             {t("closingSecondary")}

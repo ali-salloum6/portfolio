@@ -22,12 +22,14 @@ export async function ContactPage() {
         <div className="flex flex-wrap justify-center gap-6">
           <a
             href={`mailto:${siteConfig.email}`}
+            data-plausible-name="contact_page_email"
             className="font-bold text-primary hover:text-tertiary"
           >
             {t("stackEmail")}: {siteConfig.email}
           </a>
           <a
             href={siteConfig.telegram}
+            data-plausible-name="contact_page_telegram"
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold text-primary hover:text-tertiary"

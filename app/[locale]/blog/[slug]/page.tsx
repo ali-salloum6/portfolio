@@ -56,6 +56,7 @@ export default async function Page({ params }: Props) {
     <main className="mx-auto max-w-3xl px-6 py-16 md:px-8 md:py-24">
       <Link
         href="/blog"
+        data-plausible-name="blog_post_back"
         className="mb-8 inline-flex text-sm font-bold text-primary hover:text-tertiary"
       >
         ← {t("back")}

@@ -1,10 +1,13 @@
 "use client";
 
 import { GlassPointerForm } from "@/components/ui/GlassPointerSurface";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 type ContactField = "name" | "email" | "message";
+
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export function ContactForm() {
   const t = useTranslations("contact");
@@ -12,6 +15,16 @@ export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<ContactField, string>>>({});
   const [serverError, setServerError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | undefined>(undefined);
+
+  const onTurnstileSuccess = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  const onTurnstileExpire = useCallback(() => {
+    setTurnstileToken(null);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,6 +63,12 @@ export function ContactForm() {
       return;
     }
 
+    if (turnstileSiteKey && !turnstileToken) {
+      setServerError(t("captchaRequired"));
+      setStatus("err");
+      return;
+    }
+
     setStatus("sending");
     const payload = {
       name,
@@ -58,6 +77,7 @@ export function ContactForm() {
       message,
       website,
       locale,
+      ...(turnstileToken ? { turnstileToken } : {}),
     };
 
     try {
@@ -70,6 +90,10 @@ export function ContactForm() {
         const body = (await res.json().catch(() => null)) as { error?: string } | null;
         if (body?.error === "validation") {
           setServerError(t("validationServer"));
+        } else if (body?.error === "captcha_required") {
+          setServerError(t("captchaRequired"));
+        } else if (body?.error === "captcha_failed") {
+          setServerError(t("captchaFailed"));
         } else if (body?.error === "email_not_configured") {
           setServerError(t("errorEmailNotConfigured"));
         } else if (body?.error === "send_failed") {
@@ -84,6 +108,8 @@ export function ContactForm() {
       setFieldErrors({});
       setServerError(null);
       form.reset();
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
     } catch {
       setServerError(t("error"));
       setStatus("err");
@@ -163,6 +189,23 @@ export function ContactForm() {
         ) : null}
       </div>
 
+      {turnstileSiteKey ? (
+        <div className="flex flex-col gap-2">
+          <span className="text-sm font-semibold text-on-surface">{t("captchaLabel")}</span>
+          <Turnstile
+            ref={turnstileRef}
+            siteKey={turnstileSiteKey}
+            onSuccess={onTurnstileSuccess}
+            onExpire={onTurnstileExpire}
+            onError={() => setTurnstileToken(null)}
+            options={{
+              theme: "dark",
+              language: locale === "ar" ? "ar" : locale === "ru" ? "ru" : "en",
+            }}
+          />
+        </div>
+      ) : null}
+
       {status === "ok" ? (
         <p className="text-sm font-medium text-primary">{t("success")}</p>
       ) : null}
@@ -172,6 +215,7 @@ export function ContactForm() {
 
       <button
         type="submit"
+        data-plausible-name="contact_submit"
         disabled={status === "sending"}
         className="w-full rounded-lg bg-primary px-8 py-4 font-bold text-white transition-all hover:bg-primary-hover disabled:opacity-60 md:w-auto"
       >

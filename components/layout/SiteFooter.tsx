@@ -16,6 +16,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
         <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
           <a
             href={siteConfig.telegram}
+            data-plausible-name="footer_telegram"
             className="text-on-surface-variant transition-colors hover:text-primary"
             rel="noopener noreferrer"
             target="_blank"
@@ -24,6 +25,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
           </a>
           <a
             href={siteConfig.github}
+            data-plausible-name="footer_github"
             className="text-on-surface-variant transition-colors hover:text-primary"
             rel="noopener noreferrer"
             target="_blank"
@@ -32,6 +34,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
           </a>
           <a
             href={siteConfig.linkedin}
+            data-plausible-name="footer_linkedin"
             className="text-on-surface-variant transition-colors hover:text-primary"
             rel="noopener noreferrer"
             target="_blank"
@@ -40,12 +43,14 @@ export async function SiteFooter({ locale }: { locale: string }) {
           </a>
           <a
             href={`mailto:${siteConfig.email}`}
+            data-plausible-name="footer_email"
             className="text-on-surface-variant transition-colors hover:text-primary"
           >
             {siteConfig.email}
           </a>
           <Link
             href="/contact"
+            data-plausible-name="footer_contact"
             className="font-bold text-primary hover:text-tertiary"
           >
             {tNav("contact")}

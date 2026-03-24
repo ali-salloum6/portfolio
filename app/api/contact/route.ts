@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site-config";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -10,6 +11,7 @@ const bodySchema = z.object({
   message: z.string().min(10).max(20000),
   website: z.string().optional(),
   locale: z.string().max(8).optional(),
+  turnstileToken: z.string().max(2048).optional(),
 });
 
 export async function POST(req: Request) {
@@ -25,9 +27,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
   }
 
-  const { name, email, projectType, message, website, locale } = parsed.data;
+  const { name, email, projectType, message, website, locale, turnstileToken } = parsed.data;
   if (website && website.length > 0) {
     return NextResponse.json({ ok: true });
+  }
+
+  if (process.env.TURNSTILE_SECRET_KEY) {
+    const token = turnstileToken?.trim() ?? "";
+    if (!token) {
+      return NextResponse.json({ ok: false, error: "captcha_required" }, { status: 400 });
+    }
+    const forwarded = req.headers.get("x-forwarded-for");
+    const remoteip =
+      forwarded?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? undefined;
+    const captchaOk = await verifyTurnstileToken(token, remoteip);
+    if (!captchaOk) {
+      return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 400 });
+    }
   }
 
   const key = process.env.RESEND_API_KEY;

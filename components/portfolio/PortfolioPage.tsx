@@ -147,6 +147,7 @@ export async function PortfolioPage() {
             </div>
             <a
               href={CASE_WIDGET_DEMO_URL}
+              data-plausible-name="portfolio_case_luukai_demo"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
@@ -209,6 +210,7 @@ export async function PortfolioPage() {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href={QBOOST_PAPER_URL}
+                data-plausible-name="portfolio_case_qboost_paper"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
@@ -218,6 +220,7 @@ export async function PortfolioPage() {
               </a>
               <a
                 href={QBOOST_SCHOLAR_CITES_URL}
+                data-plausible-name="portfolio_case_qboost_scholar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
@@ -227,6 +230,7 @@ export async function PortfolioPage() {
               </a>
               <a
                 href={NATURE_NPJ_CITING_URL}
+                data-plausible-name="portfolio_case_qboost_nature"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-start gap-2 text-sm font-semibold text-on-surface underline decoration-outline-variant underline-offset-4 transition-colors hover:text-primary"
@@ -279,6 +283,7 @@ export async function PortfolioPage() {
             </div>
             <a
               href={ELECTRICITY_REPORT_PDF_URL}
+              data-plausible-name="portfolio_case_electricity_pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
@@ -371,12 +376,14 @@ export async function PortfolioPage() {
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
+              data-plausible-name="portfolio_cta_contact_primary"
               className="rounded-md bg-primary px-10 py-4 font-bold text-white transition-all hover:bg-primary-hover"
             >
               {t("ctaPrimary")}
             </Link>
             <Link
               href="/contact"
+              data-plausible-name="portfolio_cta_contact_secondary"
               className="rounded-md border border-outline-variant px-10 py-4 font-bold text-on-surface transition-all hover:bg-outline-variant/50"
             >
               {t("ctaSecondary")}

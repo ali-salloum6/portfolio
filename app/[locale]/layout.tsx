@@ -1,5 +1,6 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { PlausibleButtonTracker } from "@/components/analytics/PlausibleButtonTracker";
 import { PlausibleScript } from "@/components/seo/PlausibleScript";
 import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
 import { Analytics } from "@vercel/analytics/react";
@@ -10,7 +11,7 @@ import { getSiteUrl } from "@/lib/site-config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Amiri, Plus_Jakarta_Sans } from "next/font/google";
+import { Noto_Kufi_Arabic, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 
@@ -20,10 +21,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const amiri = Amiri({
+const notoKufiArabic = Noto_Kufi_Arabic({
   subsets: ["arabic", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-amiri",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-noto-kufi-arabic",
   display: "swap",
 });
 
@@ -63,7 +64,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
-      className={cn(plusJakarta.variable, amiri.variable, "h-full")}
+      className={cn(plusJakarta.variable, notoKufiArabic.variable, "h-full")}
       suppressHydrationWarning
     >
       <head>
@@ -86,11 +87,12 @@ export default async function LocaleLayout({
       <body
         className={cn(
           "flex min-h-full flex-col bg-background text-on-background antialiased",
-          isRtl ? amiri.className : plusJakarta.className,
+          isRtl ? notoKufiArabic.className : plusJakarta.className,
         )}
       >
         <SiteJsonLd />
         <PlausibleScript />
+        <PlausibleButtonTracker />
         <NextIntlClientProvider messages={messages}>
           <SiteHeader locale={locale} />
           <div className="flex-1">{children}</div>

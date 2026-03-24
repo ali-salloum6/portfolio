@@ -28,6 +28,7 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
         <button
           key={loc}
           type="button"
+          data-plausible-name={`locale_${loc}`}
           onClick={() => router.replace(pathname, { locale: loc })}
           className={cn(
             "rounded px-2 py-0.5 text-xs font-bold transition-colors",

@@ -13,7 +13,8 @@
   --color-tertiary: #818cf8;
   --color-outline: #1e293b;
   --color-outline-variant: #334155;
-  --font-sans: var(--font-plus-jakarta), var(--font-amiri), ui-sans-serif,
+  --font-sans: var(--font-plus-jakarta), var(--font-noto-kufi-arabic),
+    ui-sans-serif,
     system-ui, sans-serif;
 }
 

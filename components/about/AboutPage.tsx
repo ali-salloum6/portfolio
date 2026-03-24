@@ -104,6 +104,7 @@ export async function AboutPage() {
                 verify: (chunks) => (
                   <a
                     href="https://secondary2020.moed.gov.sy/scientific/result.php?city=10&stdnum=9468"
+                    data-plausible-name="about_secondary_verify"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-medium text-primary underline decoration-primary/40 underline-offset-2 transition-colors hover:text-primary/90 hover:decoration-primary"
@@ -139,10 +140,11 @@ export async function AboutPage() {
           </span>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {certs.map((c) => (
+          {certs.map((c, index) => (
             <GlassPointerLink
               key={c.href}
               href={c.href}
+              data-plausible-name={`about_cert_${index + 1}`}
               rel="noopener noreferrer"
               target="_blank"
               className="industrial-card group cursor-pointer rounded-xl p-2 transition-all hover:border-primary/50"

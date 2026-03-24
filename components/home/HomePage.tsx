@@ -35,12 +35,14 @@ export async function HomePage() {
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/contact"
+              data-plausible-name="home_hero_contact"
               className="rounded-lg bg-primary px-8 py-4 text-lg font-bold text-white transition-all hover:bg-primary-hover"
             >
               {t("ctaPrimary")}
             </Link>
             <Link
               href="/portfolio"
+              data-plausible-name="home_hero_portfolio"
               className="rounded-lg border border-outline-variant px-8 py-4 text-lg font-semibold text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
             >
               {t("ctaSecondary")}
@@ -110,6 +112,7 @@ export async function HomePage() {
           </div>
           <Link
             href="/services"
+            data-plausible-name="home_view_services"
             className="hidden items-center gap-2 font-bold text-primary md:inline-flex"
           >
             {t("viewAllServices")}
@@ -123,12 +126,14 @@ export async function HomePage() {
           <ServiceCard
             learnMore={learnMore}
             icon="database"
+            plausibleName="home_service_backend"
             title={t("serviceBackendTitle")}
             description={t("serviceBackendDesc")}
           />
           <ServiceCard
             learnMore={learnMore}
             icon="layers"
+            plausibleName="home_service_fullstack"
             title={t("serviceFullstackTitle")}
             description={t("serviceFullstackDesc")}
             featured
@@ -136,18 +141,21 @@ export async function HomePage() {
           <ServiceCard
             learnMore={learnMore}
             icon="smartphone"
+            plausibleName="home_service_mobile"
             title={t("serviceMobileTitle")}
             description={t("serviceMobileDesc")}
           />
           <ServiceCard
             learnMore={learnMore}
             icon="psychology"
+            plausibleName="home_service_ai"
             title={t("serviceAiTitle")}
             description={t("serviceAiDesc")}
           />
         </div>
         <Link
           href="/services"
+          data-plausible-name="home_view_services"
           className="mt-8 inline-flex items-center gap-2 font-bold text-primary md:hidden"
         >
           {t("viewAllServices")}
@@ -162,6 +170,7 @@ export async function HomePage() {
           imageClassName="object-cover"
           tag={t("case1Tag")}
           tagAccent="primary"
+          plausibleName="home_case_teaser_deploy"
           title={t("case1Title")}
           description={t("case1Desc")}
         />
@@ -171,6 +180,7 @@ export async function HomePage() {
           imageClassName="object-cover object-top"
           tag={t("case2Tag")}
           tagAccent="indigo"
+          plausibleName="home_case_teaser_luukai"
           title={t("case2Title")}
           description={t("case2Desc")}
         />
@@ -188,12 +198,14 @@ export async function HomePage() {
           <div className="flex flex-wrap justify-center gap-4 pt-6">
             <Link
               href="/contact"
+              data-plausible-name="home_bottom_cta_primary"
               className="rounded-lg bg-primary px-12 py-5 text-xl font-bold text-white transition-all hover:bg-primary-hover"
             >
               {t("bottomCtaPrimary")}
             </Link>
             <Link
               href="/contact"
+              data-plausible-name="home_bottom_cta_secondary"
               className="rounded-lg border border-outline-variant px-12 py-5 text-xl font-semibold text-on-surface transition-colors hover:border-primary"
             >
               {t("bottomCtaSecondary")}
@@ -211,6 +223,7 @@ function CaseTeaserCard({
   imageClassName,
   tag,
   tagAccent,
+  plausibleName,
   title,
   description,
 }: {
@@ -219,6 +232,7 @@ function CaseTeaserCard({
   imageClassName: string;
   tag: string;
   tagAccent: "primary" | "indigo";
+  plausibleName: string;
   title: string;
   description: string;
 }) {
@@ -230,6 +244,7 @@ function CaseTeaserCard({
   return (
     <GlassPointerLink
       href="/portfolio"
+      data-plausible-name={plausibleName}
       className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
     >
       <div className="absolute inset-0 z-[1] overflow-hidden">
@@ -269,12 +284,14 @@ function CaseTeaserCard({
 function ServiceCard({
   learnMore,
   icon,
+  plausibleName,
   title,
   description,
   featured,
 }: {
   learnMore: string;
   icon: string;
+  plausibleName: string;
   title: string;
   description: string;
   featured?: boolean;
@@ -282,6 +299,7 @@ function ServiceCard({
   return (
     <GlassPointerLink
       href="/services"
+      data-plausible-name={plausibleName}
       className={
         featured
           ? "glass-panel flex cursor-pointer flex-col space-y-6 rounded-xl border-primary/35 p-8 transition-colors hover:border-primary/50"

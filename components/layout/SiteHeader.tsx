@@ -29,6 +29,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       >
         <Link
           href="/"
+          data-plausible-name="nav_logo"
           className="text-xl font-bold tracking-tighter text-primary"
         >
           {locale === "en" ? "Ali Salloum" : locale === "ru" ? "Али Саллум" : "علي سلّوم"}
@@ -44,6 +45,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <Link
                 key={item.key}
                 href={item.href}
+                data-plausible-name={`nav_${item.key}`}
                 className={cn(
                   "text-sm font-semibold tracking-tight transition-colors",
                   active
@@ -61,12 +63,14 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <LocaleSwitcher locale={locale} />
           <Link
             href="/contact"
+            data-plausible-name="nav_cta_contact"
             className="hidden rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-hover sm:inline-flex"
           >
             {t("startProject")}
           </Link>
           <button
             type="button"
+            data-plausible-name="nav_menu_toggle"
             className="inline-flex rounded-lg border border-outline-variant p-2 text-on-surface-variant md:hidden"
             aria-expanded={open}
             aria-label={open ? t("closeMenu") : t("openMenu")}
@@ -84,6 +88,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <Link
                 key={item.key}
                 href={item.href}
+                data-plausible-name={`nav_drawer_${item.key}`}
                 className="font-semibold text-on-surface"
                 onClick={() => setOpen(false)}
               >
@@ -92,6 +97,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             ))}
             <Link
               href="/contact"
+              data-plausible-name="nav_drawer_cta_contact"
               className="rounded-lg bg-primary px-4 py-3 text-center font-semibold text-white"
               onClick={() => setOpen(false)}
             >

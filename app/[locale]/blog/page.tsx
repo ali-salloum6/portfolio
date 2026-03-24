@@ -40,13 +40,18 @@ export default async function Page({ params }: Props) {
                 {post.date}
               </p>
               <h2 className="mb-2 text-xl font-bold text-on-surface">
-                <Link href={`/blog/${post.slug}`} className="hover:text-primary">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  data-plausible-name={`blog_index_post_${post.slug}`}
+                  className="hover:text-primary"
+                >
                   {post.title}
                 </Link>
               </h2>
               <p className="mb-4 text-sm text-on-surface-variant">{post.description}</p>
               <Link
                 href={`/blog/${post.slug}`}
+                data-plausible-name={`blog_index_read_${post.slug}`}
                 className="text-sm font-bold text-primary hover:text-tertiary"
               >
                 {t("readMore")} →
