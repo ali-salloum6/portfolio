@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { PlausibleScript } from "@/components/seo/PlausibleScript";
 import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { getSiteUrl } from "@/lib/site-config";
@@ -95,6 +96,7 @@ export default async function LocaleLayout({
           <div className="flex-1">{children}</div>
           <SiteFooter locale={locale} />
           <Analytics />
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>
