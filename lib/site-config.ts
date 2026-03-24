@@ -15,6 +15,6 @@ export const siteConfig = {
 export function getSiteUrl() {
   return (
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://alisalloum.tech"
+    "https://www.alisalloum.tech"
   );
 }
