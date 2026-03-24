@@ -46,7 +46,7 @@ export function buildPageMetadata({
       type: "website",
       images: [
         {
-          url: "/og-default.png",
+          url: "/og-default.jpg",
           width: 1200,
           height: 630,
           alt: siteConfig.name,
@@ -57,7 +57,7 @@ export function buildPageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-default.png"],
+      images: ["/og-default.jpg"],
     },
   };
 }
