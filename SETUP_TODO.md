@@ -49,7 +49,3 @@ Code is largely in place; most items below are **your** accounts, environment, a
 ## Housekeeping
 
 - [ ] Update **`README.md`** so it describes this portfolio project (not the default create-next-app boilerplate).
-
-
-- double check the translations. 
-- fix the mobile style of the equation section. 
