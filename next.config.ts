@@ -13,6 +13,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    const plausibleOrigin =
+      process.env.PLAUSIBLE_PROXY_ORIGIN ?? "https://plausible.alisalloum.tech";
+
+    return [
+      {
+        source: "/js/script.js",
+        destination: `${plausibleOrigin}/js/script.js`,
+      },
+      {
+        source: "/api/event",
+        destination: `${plausibleOrigin}/api/event`,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
