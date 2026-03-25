@@ -173,6 +173,10 @@ Previously: `/opt/plausible-hosting` on `217.26.31.20` with **Caddy** → `127.0
 - Loads script from **`NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC`** or defaults to **`/js/script.js`**
 - Sets **`data-api`** to **`NEXT_PUBLIC_PLAUSIBLE_API_ENDPOINT`** or defaults to **`/api/event`**
 
+### Vercel Analytics removal
+
+- `app/[locale]/layout.tsx`: removed `@vercel/analytics` + `@vercel/speed-insights` components so the self-hosted site does not keep sending Vercel tracking requests.
+
 ### `lib/site-config.ts`
 
 - `getSiteUrl()` fallback updated to **`https://www.alisalloum.tech`** to match canonical production.
@@ -194,22 +198,28 @@ Previously: `/opt/plausible-hosting` on `217.26.31.20` with **Caddy** → `127.0
 
 ### `scripts/deploy-fin.sh`
 
-- **`cd`s to repo root** based on script location (prevents accidental `rsync --delete` from wrong directory).
+- Builds locally on your machine: `npm run build` (so Finland VPS does not compile during deploy).
 - **rsync** to `fin:/var/www/portfolio/` with excludes:
   - `.git`, `node_modules`, `.next`, `debug`, **`.env.production`**
-- Runs remote **`/usr/local/bin/portfolio-deploy`**
+- Uploads compiled Next output atomically:
+  - rsync `.next/` to `fin:/var/www/portfolio/.next-tmp/`
+  - on Finland, swaps `.next-tmp` into place as `.next`
+- Updates Finland Nginx config to minimize Next compute:
+  - serves `/_next/static/` directly from disk with long cache headers
+  - proxies Plausible endpoints (`/js/script.js` and `/api/event`) directly to `https://plausible.alisalloum.tech/...` (avoids Next rewrites during incidents)
+  - uses explicit upstream TLS (`proxy_ssl_protocols TLSv1.2 TLSv1.3` + SNI) to avoid TLS handshake failures to Moscow Plausible
+- Restarts **`portfolio-eu.service`** after the swap.
 
 ### `scripts/status-fin.sh`
 
 - SSH to `fin` and runs **`/usr/local/bin/portfolio-status`**
 
-### Remote `portfolio-deploy` (on Finland VPS)
+### Remote swap + Nginx update (on Finland VPS)
 
-- Requires **`/var/www/portfolio/.env.local`** (synced from laptop)
-- **`cp -f .env.local .env.production`**
-- Forces **`NEXT_PUBLIC_SITE_URL=https://www.alisalloum.tech`** in `.env.production`
-- **`rm -rf .next`** (avoids stale/partial build artifacts after interrupted syncs)
-- `npm install`, `npm run build`, `systemctl restart portfolio-eu`
+- Executed directly by `scripts/deploy-fin.sh` over SSH (no separate `/usr/local/bin/portfolio-deploy` call anymore).
+- Swaps `.next-tmp` into `.next`.
+- Regenerates `.env.production` from `.env.local` and ensures `NEXT_PUBLIC_SITE_URL=https://www.alisalloum.tech`.
+- Reloads/restarts Nginx and then restarts **`portfolio-eu.service`**.
 
 ---
 
@@ -255,19 +265,23 @@ sudo certbot --nginx --cert-name eu.alisalloum.tech \
 6. **Accidental near-empty `/var/www/portfolio`** — `deploy-fin.sh` ran with **wrong working directory**, so `rsync --delete` synced almost nothing and deleted the app.  
    - Fixed script to **always `cd` to repo root**.  
    - Added **`.env.production` rsync exclude** so it isn’t deleted each deploy.  
-   - Remote deploy now **rebuilds from clean `.next`**.
+   - Deploy now **uploads compiled `.next` from the laptop** and swaps it atomically (`.next-tmp` → `.next`) so Finland never serves partial assets.
 
 7. **`systemd` failed after incident** — `.env.production` missing; `EnvironmentFile=` was mandatory.  
    - Switched to **`EnvironmentFile=-/path`** (optional).  
    - Deploy now **recreates `.env.production` from `.env.local`**.
 
 8. **Next.js runtime errors after partial sync** — corrupt client reference manifest / missing files under `.next`.  
-   - Fix: **`rm -rf .next` + full `npm run build`**.
+   - Fix: ensure compiled assets are complete by uploading to `.next-tmp` and swapping into place (avoids partial `.next` during deploy).
 
 9. **Finland VPS 1 GB saturated — SSH/VNC login timeouts (March 2026)**  
    - **Cause:** Running **Plausible CE** (Postgres + **ClickHouse**) on the **same** 1 vCPU / 1 GB host as **Next.js + Nginx** exhausted RAM and CPU; the guest became so slow that **SSH hung** and **VNC** showed **“login timed out after 60 seconds”** or a **blank screen with cursor** (getty under load, not necessarily disk death).  
    - **Recovery:** From console/VNC when possible: `cd /opt/plausible-hosting && docker compose down`; stop Docker fully with **`systemctl stop docker.socket`** and **`systemctl stop docker`** (the **socket** otherwise restarts `docker.service`). Optionally **`systemctl disable docker.socket docker`** until a larger plan exists. Keep **`portfolio-eu`** + **`nginx`** for the site. **Panel hard reboot** helped in some cases after cleaning services.  
    - **Policy:** **Plausible** moved back to **Moscow (`tae`)**; Finland hosts **only** the portfolio. DNS: **`A` `plausible`** → **`217.26.31.20`**.
+
+10. **`502` on `/api/event` after cutover**
+   - Cause: Finland Nginx proxying to Moscow Plausible over HTTPS was failing TLS handshakes (`SSL_do_handshake()`).
+   - Fix: added explicit proxy TLS settings for `/js/script.js` and `/api/event` (`proxy_ssl_protocols TLSv1.2 TLSv1.3` + SNI).
 
 ---
 
@@ -344,4 +358,4 @@ A captured HAR showed ~**75s** spent in **TCP connect** to `www.alisalloum.tech`
 
 ---
 
-*Last updated: 2026-03-24 (incident #9; Plausible TLS recovery on Moscow documented.)*
+*Last updated: 2026-03-25 (deployment flow updated; Plausible TLS + Vercel analytics removed.)*
