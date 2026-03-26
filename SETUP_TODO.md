@@ -32,18 +32,18 @@ Code is largely in place; most items below are **your** accounts, environment, a
 - [x] Replace **hero and portfolio images** that still use `lh3.googleusercontent.com` (`components/home/HomePage.tsx`, `components/portfolio/PortfolioPage.tsx`, `components/about/AboutPage.tsx`) with files under **`public/`** and `next/image`.
 - [x] Swap **certificate thumbnails** for real images and link each card to **Coursera verify URLs** (About page may still link generically to coursera.org).
 - [x] Review **copy and numbers** in `messages/en.json` (and `ru` / `ar`) so stats, pricing ranges, and case studies match what you are comfortable claiming.
-- [ ] check translations.
+- [x] check translations.
 
 ## SEO follow-through
 
-- [ ] After deploy, submit **`/sitemap.xml`** in Google Search Console (and Bing if you care).
-- [ ] **Validate** `hreflang` / canonicals for a few URLs (page source or an hreflang validator).
+- [x] After deploy, submit **`/sitemap.xml`** in Google Search Console (and Bing if you care).
+- [x] **Validate** `hreflang` / canonicals for a few URLs (page source or an hreflang validator).
 - [x] Optional: add **`opengraph-image`** (or static OG art) so shares look intentional on Telegram, WhatsApp, and LinkedIn.
 
 ## QA (PRD-style)
 
-- [ ] **RTL pass** on `/ar/...` (nav, grids, equation block, forms).
-- [ ] **Mobile** pass on all main routes.
+- [x] **RTL pass** on `/ar/...` (nav, grids, equation block, forms).
+- [x] **Mobile** pass on all main routes.
 - [x] Optional hardening: CAPTCHA on **`/api/contact`** beyond the honeypot.
 
 ## Housekeeping
