@@ -199,10 +199,13 @@ Previously: `/opt/plausible-hosting` on `217.26.31.20` with **Caddy** → `127.0
 ### `scripts/deploy-fin.sh`
 
 - Builds locally on your machine: `npm run build` (so Finland VPS does not compile during deploy).
+- Prints timestamped stage markers (`1/5` → `5/5`) so long-running steps are visible during deploy.
 - **rsync** to `fin:/var/www/portfolio/` with excludes:
   - `.git`, `node_modules`, `.next`, `debug`, **`.env.production`**
 - Uploads compiled Next output atomically:
   - rsync `.next/` to `fin:/var/www/portfolio/.next-tmp/`
+  - excludes `.next/cache` (runtime cache; large and not needed on server for this flow)
+  - shows transfer progress/stats (`--info=progress2,stats`) to avoid "silent" long uploads
   - on Finland, swaps `.next-tmp` into place as `.next`
 - Updates Finland Nginx config to minimize Next compute:
   - serves `/_next/static/` directly from disk with long cache headers
@@ -358,4 +361,4 @@ A captured HAR showed ~**75s** spent in **TCP connect** to `www.alisalloum.tech`
 
 ---
 
-*Last updated: 2026-03-25 (deployment flow updated; Plausible TLS + Vercel analytics removed.)*
+*Last updated: 2026-03-26 (deploy script now logs stages and excludes `.next/cache` during artifact sync.)*

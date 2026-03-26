@@ -76,7 +76,7 @@ export async function AboutPage() {
       <section className="mb-24">
         <h2 className="mb-12 text-center text-3xl font-bold tracking-tight">{t("journeyTitle")}</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-xl p-8 md:col-span-2">
+          <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-xl p-8">
             <div>
               <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
                 <MaterialIcon name="code" className="text-primary" />
@@ -94,7 +94,7 @@ export async function AboutPage() {
               </span>
             </div>
           </GlassPointerArticle>
-          <GlassPointerArticle className="industrial-card rounded-xl p-8">
+          <GlassPointerArticle className="industrial-card rounded-xl p-8 md:col-span-2">
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
               <MaterialIcon name="school" className="text-primary" />
             </div>
@@ -115,14 +115,14 @@ export async function AboutPage() {
               })}
             </p>
           </GlassPointerArticle>
-          <GlassPointerArticle className="industrial-card rounded-xl p-8">
+          <GlassPointerArticle className="industrial-card rounded-xl p-8 md:col-span-2">
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
               <MaterialIcon name="currency_bitcoin" className="text-primary" />
             </div>
             <h3 className="mb-4 text-2xl font-bold">{t("j3Title")}</h3>
             <p className="leading-relaxed text-on-surface-variant">{t("j3Body")}</p>
           </GlassPointerArticle>
-          <GlassPointerArticle className="industrial-card rounded-xl border border-primary/20 bg-gradient-to-br from-surface-container to-surface p-8 md:col-span-2">
+          <GlassPointerArticle className="industrial-card rounded-xl border border-primary/20 bg-gradient-to-br from-surface-container to-surface p-8">
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg border-tertiary/30 bg-surface">
               <MaterialIcon name="auto_awesome" filled className="text-tertiary" />
             </div>

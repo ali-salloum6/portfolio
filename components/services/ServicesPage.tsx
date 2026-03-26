@@ -8,8 +8,6 @@ import {
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
-const tagsS1 = ["PostgreSQL", "Node.js", "Go", "Python"];
-
 export async function ServicesPage() {
   const t = await getTranslations("services");
 
@@ -63,7 +61,9 @@ export async function ServicesPage() {
 
       <GlassPointerSection className="mb-20 industrial-card rounded-2xl p-8 md:p-10">
         <h2 className="mb-4 text-2xl font-extrabold text-on-surface">{t("pricingTitle")}</h2>
-        <p className="max-w-3xl leading-relaxed text-on-surface-variant">{t("pricingBody")}</p>
+        <p className="max-w-none whitespace-pre-line leading-relaxed text-on-surface-variant">
+          {t("pricingBody")}
+        </p>
       </GlassPointerSection>
 
       <section className="mb-24">
@@ -96,16 +96,6 @@ export async function ServicesPage() {
             </div>
             <h2 className="mb-4 text-2xl font-extrabold">{t("s1Title")}</h2>
             <p className="mb-8 max-w-lg text-on-surface-variant">{t("s1Desc")}</p>
-            <div className="mb-10 flex flex-wrap gap-3">
-              {tagsS1.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-md border border-outline-variant bg-surface-container px-3 py-1 text-xs font-semibold"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
           <Link
             href="/contact"

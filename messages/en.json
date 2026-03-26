@@ -2,7 +2,7 @@
   "metadata": {
     "siteName": "Ali Salloum",
     "defaultTitle": "Ali Salloum | AI-Accelerated Full-Stack Architect",
-    "defaultDescription": "Building scalable software at the speed of AI. Backend, full-stack web, Flutter, and AI/ML integration — production-ready architecture."
+    "defaultDescription": "Building scalable software with AI-accelerated speed. Backend, full-stack web, Flutter, and AI/ML integration — production-ready architecture."
   },
   "nav": {
     "home": "Home",
@@ -23,7 +23,7 @@
   "home": {
     "badge": "Available for Partnerships",
     "title": "Ali Salloum",
-    "tagline": "Building scalable software at the speed of AI. Full-Stack Architect specialized in accelerated delivery.",
+    "tagline": "Building scalable software with AI-accelerated speed. Full-Stack Architect specialized in accelerated delivery.",
     "ctaPrimary": "Start a Project",
     "ctaSecondary": "View Portfolio",
     "equationTitle": "The Delivery Equation",
@@ -39,7 +39,7 @@
     "serviceFullstackTitle": "Full-Stack Craft",
     "serviceFullstackDesc": "End-to-end product development with polished UI/UX and seamless state management.",
     "serviceMobileTitle": "Mobile",
-    "serviceMobileDesc": "Cross-platform apps with native feel, solid offline strategy, and backend integration.",
+    "serviceMobileDesc": "Cross-platform apps with native feel or actual native apps, solid offline strategy, and backend integration.",
     "serviceAiTitle": "AI & ML Integration",
     "serviceAiDesc": "Embedding LLMs and predictive models into your workflows for automated value.",
     "learnMore": "Learn More",
@@ -71,7 +71,7 @@
     "trustResponseTitle": "Rapid Response",
     "trustResponseBody": "Replies within < 12 hours for any inquiries.",
     "pricingTitle": "Pricing guidance",
-    "pricingBody": "Discovery calls are free. Typical engagements start around $1k; most product builds fall in the $5k–$10k range depending on scope, SLA, and timeline. Fixed quotes after architecture review.",
+    "pricingBody": "Discovery calls are free. Typical engagements start around $1k.\nMost product builds fall in the $5k–$10k range depending on scope, SLA, and timeline. Fixed quotes after architecture review.",
     "howTitle": "How I work",
     "howStep1": "Discovery",
     "howStep2": "Proposal",
@@ -84,7 +84,7 @@
     "s1Cta": "Discuss this project",
     "s2Time": "2–4 weeks",
     "s2Title": "Mobile App Development",
-    "s2Desc": "Flutter apps for iOS and Android with backend integration and offline-first patterns where needed.",
+    "s2Desc": "Cross-platform apps for iOS and Android with backend integration and offline-first patterns where needed.",
     "s2Cta": "Discuss this project",
     "s3Time": "6-8 weeks",
     "s3Title": "Full-Stack Web Applications",
@@ -119,31 +119,31 @@
     "cases": {
       "c1": {
         "tag": "CI/CD • Case Study 01",
-        "title": "Unified Manager for Multi-Agent Deployment",
-        "body": "I redesigned deployment into one manager per environment and automated creating agents from the admin UI—no manual systemd units, Caddy edits, or port assignment. The same model makes backups and bringing the stack up on additional servers far simpler: one service, one config, repeatable deploy.",
+        "title": "Legacy Deployment Modernization",
+        "body": "I inherited a brittle deployment setup with per-agent manual steps, scattered config edits, and high maintenance overhead. I consolidated it into a predictable release flow with one control surface per environment, automated routine operations from the admin UI, and safer rollouts that reduced operator friction and recovery time.",
         "m1": "25 → 1",
         "m1l": "Services to Manage",
         "m2": "< 5ms",
         "m2l": "Proxy Overhead",
-        "f1": "Automated agent provisioning (admin UI → reload, no per-agent plumbing)",
-        "f2": "Easier backup and multi-server rollout (single unit + shared config)",
+        "f1": "Replaced repetitive manual deployment steps with a consistent, operator-friendly workflow.",
+        "f2": "Made backups and multi-server rollout simpler and less error-prone through standardized service layout.",
         "imageAlt": "Blueprint diagram: reverse proxy to Manager, then routing to Unix sockets for supervisor and agents"
       },
       "c2": {
         "tag": "Backend • Case Study 02",
-        "title": "Push notifications control subsystem",
-        "body": "I built the backend that gets promotional messages from your product to users’ phones, using Firebase. The product owner sets up a mailing list and the backend sends the messages to the users depending on the mailing type (specific users, all users, a group of users) with status tracking and logging.",
+        "title": "Admin Campaign Orchestration on PocketBase",
+        "body": "I built a notification orchestration subsystem on top of the app's PocketBase backend so non-technical admins can launch targeted campaigns without engineering help. The system handles audience selection, queued delivery through Firebase, real-time progress tracking, and full delivery telemetry so teams can see exactly what was sent, what failed, and what needs retry.",
         "techTitle": "Technical focus",
-        "f1": "A single background worker consumes the send queue: it processes one device at a time, updates status after each attempt, and avoids running duplicate workers in parallel.",
-        "f2": "Each send is recorded in an operations log; the mailing only completes when every row has a final outcome (delivered, failed, or acknowledged)—so you always know what finished and what didn’t."
+        "f1": "Designed a deterministic queue worker with per-device status transitions, retries, and idempotent processing to prevent duplicate sends.",
+        "f2": "Added an admin-facing control and observability layer: campaign states, delivery logs, completion guarantees, and failure diagnostics."
       },
       "c3": {
         "tag": "Web Scraping / Automation • Case Study 03",
-        "title": "LuukAI Scraper",
-        "body": "Crawls a domain and turns pages into structured product and article data—one pipeline for storefronts, blogs, and mixed sites instead of a bespoke scraper per layout. Phase one walks the site, extracts detail pages first, and defers listing grids so real product pages get priority; phase two goes back and mines those deferred listings. Saves output incrementally so a run can stop and resume without starting over.",
-        "arch": "Differentiator",
-        "archVal": "Reads the page—not a bespoke selector map per site",
-        "archVal2": "Maximum structured data per inference dollar",
+        "title": "Partner Onboarding Data Engine for AI Q&A",
+        "body": "I built this ingestion engine to accelerate partner onboarding at scale: crawl a partner domain, normalize products and content into structured records, and feed them directly into the AI Q&A system. Instead of hand-crafting parsers per site, one adaptive pipeline handles storefronts, blogs, and mixed structures, which dramatically reduced time-to-integration and increased the platform's commercial value.",
+        "arch": "Business impact",
+        "archVal": "Faster partner onboarding and time-to-value",
+        "archVal2": "Structured data pipeline powering production AI Q&A",
         "metric": "97%",
         "metricLabel": "Audited field accuracy"
       },
@@ -181,14 +181,14 @@
         "imageAlt": "Week of electricity price data: truth (blue line) vs model prediction (orange points), Dec 24–29, 2023",
         "pdfLink": "Full report (PDF)",
         "tag": "ML / Forecasting • Case Study 06",
-        "title": "Electricity price prediction",
-        "body": "This project forecasts electricity prices from historical series: cleaning and aligning the data, choosing and training a supervised model, then evaluating on held-out periods. The linked report documents the full pipeline—features, training setup, and metrics. The figure is a one-week evaluation window: measured prices (“truth”) against model output on the same timeline. The model follows the strong daily cycle and tracks peaks and troughs well; predictions run slightly high at some maxima—a useful signal for calibration or ensemble refinement.",
-        "evalTitle": "What the chart shows",
-        "evalVal": "Truth vs prediction over seven days (late Dec 2023): pattern match, timing, and residual bias at extremes.",
+        "title": "Decision-Grade Electricity Price Forecasting",
+        "body": "I built this forecasting system as a practical decision-support tool: it turns historical market signals into forward-looking price estimates that can inform planning, procurement timing, and risk controls. The pipeline covers data conditioning, supervised model training, and rigorous holdout evaluation, then exposes forecast behavior clearly so teams can act on trend direction and peak windows.",
+        "evalTitle": "Operational takeaway",
+        "evalVal": "The model captures recurring intraday structure and turning points with useful accuracy for planning and timing decisions.",
         "engineeringTitle": "Highlights",
-        "f1": "Side-by-side comparison of actual and forecast series on a dense time grid.",
-        "f2": "Captures recurring intraday structure rather than a single naive baseline.",
-        "f3": "Methodology, metrics, and discussion are in the PDF; the plot is a representative evaluation slice."
+        "f1": "Production-oriented evaluation slice: actual vs forecast on the same dense timeline for fast operator interpretation.",
+        "f2": "Captures strong cyclical price behavior and timing shifts instead of relying on naive baselines.",
+        "f3": "Evaluation outputs are decision-ready and easy to operationalize in planning workflows."
       },
       "c7": {
         "tag": "AI • Case Study 07",
@@ -213,9 +213,9 @@
     "j1Title": "The Genesis: 2017",
     "j1Body": "Competitive programming forged algorithmic discipline — performance and correctness still drive my architecture choices.",
     "j2Title": "Academic Rigor",
-    "j2Body": "Computer Science degree: OS, compilers, and the theory behind reliable systems. In my final year of secondary school I ranked 15th nationwide with 99.98% (<verify>verify results</verify>). I'm currently pursuing a master's in AI.",
+    "j2Body": "Earlier in my journey, I ranked 15th nationwide with 99.98% in my final high-school exams (<verify>verify results</verify>). My Computer Science degree included software design, computer architecture, and the engineering principles behind reliable systems. I'm currently pursuing a master's in AI.",
     "j3Title": "Web3 & Flutter",
-    "j3Body": "Decentralized systems and cross-platform apps for complex domains.",
+    "j3Body": "Worked on decentralized systems and cross-platform apps for complex domains.",
     "j4Title": "Full-Stack Systems Engineer (AI-Augmented)",
     "j4Body": "Today: advanced AI workflows multiply output while architecture stays scalable, secure, and production-grade.",
     "certsTitle": "Machine Learning & AI Credentials",
@@ -226,7 +226,7 @@
     "cert2Name": "Neural Networks and Deep Learning",
     "cert3Issuer": "DeepLearning.AI",
     "cert3Name": "Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",
-    "cert4Issuer": "Google Drive",
+    "cert4Issuer": "ICPC",
     "cert4Name": "Competitive programming certificates",
     "philosophyTitle": "The AI-Augmented Advantage",
     "philosophyBody": "Production quality without sacrificing speed. LLM-assisted delivery, automated tests, and AI-assisted review — robust architectures in days, not months.",
@@ -268,7 +268,7 @@
     "metaTitle": "Blog",
     "metaDescription": "Notes on architecture, AI-assisted delivery, and shipping reliable software.",
     "title": "Blog",
-    "subtitle": "Long-form notes on building production systems — MDX-powered.",
+    "subtitle": "",
     "readMore": "Read",
     "back": "All posts"
   }

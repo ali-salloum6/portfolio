@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = await params;
+  const isRtl = locale === "ar";
   if (!getBlogSlugs().includes(slug)) {
     notFound();
   }
@@ -59,7 +60,7 @@ export default async function Page({ params }: Props) {
         data-plausible-name="blog_post_back"
         className="mb-8 inline-flex text-sm font-bold text-primary hover:text-tertiary"
       >
-        ← {t("back")}
+        {isRtl ? "→" : "←"} {t("back")}
       </Link>
       <GlassPointerArticle className="industrial-card rounded-xl p-6 md:p-8">
         <header className="relative z-[1] mb-10 border-b border-outline-variant pb-8">

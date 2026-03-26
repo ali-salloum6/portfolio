@@ -5,7 +5,7 @@ import {
   GlassPointerSection,
 } from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 const HERO_IMG = "/images/hero-main.webp";
@@ -16,6 +16,8 @@ const CASE_TEASER_1_IMAGE = "/images/unified-manager-blueprint.webp";
 const CASE_TEASER_2_IMAGE = "/images/luukai-widget-wide.webp";
 
 export async function HomePage() {
+  const locale = await getLocale();
+  const isRtl = locale === "ar";
   const t = await getTranslations("home");
   const learnMore = t("learnMore");
 
@@ -117,8 +119,8 @@ export async function HomePage() {
           >
             {t("viewAllServices")}
             <MaterialIcon
-              name="arrow_forward"
-              className="transition-transform group-hover:translate-x-1"
+              name={isRtl ? "arrow_back" : "arrow_forward"}
+              className={`transition-transform ${isRtl ? "group-hover:-translate-x-1" : "group-hover:translate-x-1"}`}
             />
           </Link>
         </div>
@@ -129,6 +131,7 @@ export async function HomePage() {
             plausibleName="home_service_backend"
             title={t("serviceBackendTitle")}
             description={t("serviceBackendDesc")}
+            isRtl={isRtl}
           />
           <ServiceCard
             learnMore={learnMore}
@@ -137,6 +140,7 @@ export async function HomePage() {
             title={t("serviceFullstackTitle")}
             description={t("serviceFullstackDesc")}
             featured
+            isRtl={isRtl}
           />
           <ServiceCard
             learnMore={learnMore}
@@ -144,6 +148,7 @@ export async function HomePage() {
             plausibleName="home_service_mobile"
             title={t("serviceMobileTitle")}
             description={t("serviceMobileDesc")}
+            isRtl={isRtl}
           />
           <ServiceCard
             learnMore={learnMore}
@@ -151,6 +156,7 @@ export async function HomePage() {
             plausibleName="home_service_ai"
             title={t("serviceAiTitle")}
             description={t("serviceAiDesc")}
+            isRtl={isRtl}
           />
         </div>
         <Link
@@ -159,7 +165,7 @@ export async function HomePage() {
           className="mt-8 inline-flex items-center gap-2 font-bold text-primary md:hidden"
         >
           {t("viewAllServices")}
-          <MaterialIcon name="arrow_forward" />
+          <MaterialIcon name={isRtl ? "arrow_back" : "arrow_forward"} />
         </Link>
       </section>
 
@@ -288,6 +294,7 @@ function ServiceCard({
   title,
   description,
   featured,
+  isRtl,
 }: {
   learnMore: string;
   icon: string;
@@ -295,6 +302,7 @@ function ServiceCard({
   title: string;
   description: string;
   featured?: boolean;
+  isRtl: boolean;
 }) {
   return (
     <GlassPointerLink
@@ -319,7 +327,7 @@ function ServiceCard({
       <p className="relative z-[1] flex-grow leading-relaxed text-on-surface-variant">{description}</p>
       <span className="relative z-[1] flex items-center gap-2 text-sm font-bold text-primary">
         {learnMore}
-        <MaterialIcon name="north_east" className="text-sm" />
+        <MaterialIcon name={isRtl ? "north_west" : "north_east"} className="text-sm" />
       </span>
     </GlassPointerLink>
   );

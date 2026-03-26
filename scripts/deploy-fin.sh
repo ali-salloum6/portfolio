@@ -4,13 +4,27 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+log_stage() {
+  printf '\n[%s] === %s ===\n' "$(date '+%H:%M:%S')" "$1"
+}
+
+log_info() {
+  printf '[%s] %s\n' "$(date '+%H:%M:%S')" "$1"
+}
+
 # Build locally (so the Finland VPS doesn't do expensive compilation work).
 # Next.js will automatically read `.env.local`.
+log_stage "1/5 Local build"
+log_info "Running Next.js production build"
 npm run build
 
 # 1) Sync the repo (without `.next`) so config/public/src stays up to date.
 # We intentionally exclude `.next` here to avoid deleting the currently-running build mid-deploy.
-rsync -az --delete \
+log_stage "2/5 Sync repository files to fin"
+log_info "Uploading app sources and config (excluding build artifacts)"
+rsync \
+  -az \
+  --delete \
   --exclude ".git" \
   --exclude "node_modules" \
   --exclude ".next" \
@@ -29,13 +43,19 @@ if [[ ! -d ".next" ]]; then
 fi
 
 # Use a separate rsync call for `.next/` to ensure the VPS never serves partial assets.
+log_stage "3/5 Sync .next build artifacts"
+log_info "Uploading .next into remote .next-tmp for atomic swap (excluding cache)"
 rsync -az --delete --omit-dir-times \
+  --exclude "cache" \
+  --info=progress2,stats \
   .next/ fin:/var/www/portfolio/.next-tmp/
 
 # 3) Update Nginx to minimize compute on Next.js:
 # - serve `/_next/static/` directly from disk
 # - proxy Plausible endpoints so `/js/script.js` and `/api/event` don't hit Next
 # - keep the main location proxying to Next
+log_stage "4/5 Remote nginx + app swap/restart"
+log_info "Applying nginx config, swapping .next, and restarting service"
 ssh fin "set -euo pipefail
 cat > /etc/nginx/sites-available/portfolio-main.conf <<'EOF'
 server {
@@ -143,3 +163,6 @@ fi
 
 systemctl restart portfolio-eu.service
 "
+
+log_stage "5/5 Deployment complete"
+log_info "Portfolio is deployed on fin"

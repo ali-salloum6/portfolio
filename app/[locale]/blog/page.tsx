@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { locale } = await params;
+  const isRtl = locale === "ar";
   setRequestLocale(locale);
   const t = await getTranslations("blog");
   const posts = getAllBlogPosts();
@@ -54,7 +55,7 @@ export default async function Page({ params }: Props) {
                 data-plausible-name={`blog_index_read_${post.slug}`}
                 className="text-sm font-bold text-primary hover:text-tertiary"
               >
-                {t("readMore")} →
+                {t("readMore")} {isRtl ? "←" : "→"}
               </Link>
             </GlassPointerArticle>
           </li>

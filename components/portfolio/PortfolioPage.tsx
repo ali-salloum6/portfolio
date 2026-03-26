@@ -6,7 +6,7 @@ import {
   GlassPointerSection,
 } from "@/components/ui/GlassPointerSurface";
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 /** Case study 01: blueprint-style architecture (Caddy → Manager → Unix sockets) — `cases.c1` */
@@ -29,6 +29,8 @@ const ELECTRICITY_REPORT_PDF_URL =
   "https://drive.google.com/file/d/1UrRe9NF8okN4td2ZMYHdbI3LygMXXnoR/view";
 
 export async function PortfolioPage() {
+  const locale = await getLocale();
+  const isRtl = locale === "ar";
   const t = await getTranslations("portfolio");
 
   return (
@@ -152,7 +154,7 @@ export async function PortfolioPage() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary-hover hover:decoration-primary"
             >
-              <MaterialIcon name="open_in_new" className="text-base" />
+              <MaterialIcon name={isRtl ? "north_west" : "north_east"} className="text-base" />
               {t("cases.c4.demoLink")}
             </a>
           </div>
