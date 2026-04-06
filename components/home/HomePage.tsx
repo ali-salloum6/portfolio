@@ -67,9 +67,9 @@ export async function HomePage() {
 
       <section className="py-4">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
-          <Stat variant="number" value="9+" label={t("statsYears")} />
+          <Stat variant="number" value={t("statsYearsValue")} label={t("statsYears")} />
           <Stat variant="icon" icon="school" label={t("statsDegree")} />
-          <Stat variant="number" value="50+" label={t("statsProjects")} />
+          <Stat variant="number" value={t("statsProjectsValue")} label={t("statsProjects")} />
           <Stat variant="icon" icon="verified_user" label={t("statsMl")} />
         </div>
       </section>

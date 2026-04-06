@@ -29,5 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  entries.push({
+    url: `${base}/llms.txt`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.3,
+  });
+
   return entries;
 }
