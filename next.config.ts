@@ -22,10 +22,7 @@ const nextConfig: NextConfig = {
         source: "/js/script.js",
         destination: `${plausibleOrigin}/js/script.js`,
       },
-      {
-        source: "/api/event",
-        destination: `${plausibleOrigin}/api/event`,
-      },
+      // /api/event is handled by app/api/event/route.ts so visitor IP headers are forwarded to Plausible.
     ];
   },
 };
