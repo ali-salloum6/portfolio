@@ -45,12 +45,20 @@ export async function AboutPage() {
   return (
     <main className="mx-auto max-w-7xl px-8 py-12">
       <section className="mb-24 flex flex-col items-center gap-12 md:flex-row">
-        <div className="flex-1 space-y-6">
-          <h1 className="text-5xl font-extrabold leading-tight tracking-tighter text-on-background md:text-6xl">
+        <div className="flex-1 space-y-6" data-reveal-group>
+          <h1
+            data-reveal="fade-up"
+            className="text-5xl font-extrabold leading-tight tracking-tighter text-on-background md:text-6xl"
+          >
             {t("heroTitle")}
           </h1>
-          <p className="max-w-2xl text-xl font-medium text-on-surface-variant">{t("heroSubtitle")}</p>
-          <div className="flex flex-wrap gap-4 pt-4">
+          <p
+            data-reveal="fade-up"
+            className="max-w-2xl text-xl font-medium text-on-surface-variant"
+          >
+            {t("heroSubtitle")}
+          </p>
+          <div data-reveal="fade-up" className="flex flex-wrap gap-4 pt-4">
             <GlassPointerDiv className="industrial-card flex items-center gap-3 rounded-lg p-4">
               <MaterialIcon name="bolt" className="text-primary" />
               <span className="text-sm font-semibold">{t("chip1")}</span>
@@ -61,7 +69,10 @@ export async function AboutPage() {
             </GlassPointerDiv>
           </div>
         </div>
-        <GlassPointerDiv className="industrial-border flex h-72 w-72 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-container p-4 md:h-96 md:w-96">
+        <GlassPointerDiv
+          data-reveal="scale-in"
+          className="industrial-border anim-float flex h-72 w-72 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-container p-4 md:h-96 md:w-96"
+        >
           <Image
             src={PORTRAIT}
             alt={t("heroTitle")}
@@ -74,9 +85,17 @@ export async function AboutPage() {
       </section>
 
       <section className="mb-24">
-        <h2 className="mb-12 text-center text-3xl font-bold tracking-tight">{t("journeyTitle")}</h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-xl p-8">
+        <h2
+          data-reveal="fade-up"
+          className="mb-12 text-center text-3xl font-bold tracking-tight"
+        >
+          {t("journeyTitle")}
+        </h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3" data-reveal-group>
+          <GlassPointerArticle
+            data-reveal="fade-up"
+            className="industrial-card flex flex-col justify-between rounded-xl p-8"
+          >
             <div>
               <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
                 <MaterialIcon name="code" className="text-primary" />
@@ -94,7 +113,10 @@ export async function AboutPage() {
               </span>
             </div>
           </GlassPointerArticle>
-          <GlassPointerArticle className="industrial-card rounded-xl p-8 md:col-span-2">
+          <GlassPointerArticle
+            data-reveal="fade-up"
+            className="industrial-card rounded-xl p-8 md:col-span-2"
+          >
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
               <MaterialIcon name="school" className="text-primary" />
             </div>
@@ -115,14 +137,20 @@ export async function AboutPage() {
               })}
             </p>
           </GlassPointerArticle>
-          <GlassPointerArticle className="industrial-card rounded-xl p-8 md:col-span-2">
+          <GlassPointerArticle
+            data-reveal="fade-up"
+            className="industrial-card rounded-xl p-8 md:col-span-2"
+          >
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
               <MaterialIcon name="currency_bitcoin" className="text-primary" />
             </div>
             <h3 className="mb-4 text-2xl font-bold">{t("j3Title")}</h3>
             <p className="leading-relaxed text-on-surface-variant">{t("j3Body")}</p>
           </GlassPointerArticle>
-          <GlassPointerArticle className="industrial-card rounded-xl border border-primary/20 bg-gradient-to-br from-surface-container to-surface p-8">
+          <GlassPointerArticle
+            data-reveal="fade-up"
+            className="industrial-card rounded-xl border border-primary/20 bg-gradient-to-br from-surface-container to-surface p-8"
+          >
             <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg border-tertiary/30 bg-surface">
               <MaterialIcon name="auto_awesome" filled className="text-tertiary" />
             </div>
@@ -133,18 +161,25 @@ export async function AboutPage() {
       </section>
 
       <section className="mb-24">
-        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
+        <div
+          data-reveal="fade-up"
+          className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center"
+        >
           <h2 className="text-3xl font-bold tracking-tight">{t("certsTitle")}</h2>
           <span className="w-fit rounded-full border border-primary/30 px-4 py-2 text-xs font-bold uppercase text-primary">
             {t("certsBadge")}
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+          data-reveal-group
+        >
           {certs.map((c, index) => (
             <GlassPointerLink
               key={c.href}
               href={c.href}
               data-plausible-name={`about_cert_${index + 1}`}
+              data-reveal="fade-up"
               rel="noopener noreferrer"
               target="_blank"
               className="industrial-card group cursor-pointer rounded-xl p-2 transition-all hover:border-primary/50"
@@ -177,7 +212,10 @@ export async function AboutPage() {
         </div>
       </section>
 
-      <GlassPointerSection className="industrial-card mb-24 rounded-xl border border-primary/10 p-12">
+      <GlassPointerSection
+        data-reveal="fade-up"
+        className="industrial-card mb-24 rounded-xl border border-primary/10 p-12"
+      >
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-8 text-3xl font-extrabold tracking-tight text-on-background">
             {t("philosophyTitle")}

@@ -1,4 +1,5 @@
 import { MaterialIcon } from "@/components/MaterialIcon";
+import { CountUp } from "@/components/ui/CountUp";
 import {
   GlassPointerDiv,
   GlassPointerLink,
@@ -24,21 +25,30 @@ export async function HomePage() {
   return (
     <main className="mx-auto max-w-7xl space-y-32 px-6 pb-12 pt-24 md:px-8">
       <section className="flex flex-col items-center gap-16 py-12 lg:flex-row">
-        <div className="flex-1 space-y-8">
-          <p className="glass-panel inline-flex items-center rounded-md border-primary/35 bg-gradient-to-br from-primary/12 to-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="flex-1 space-y-8" data-reveal-group>
+          <p
+            data-reveal="fade-up"
+            className="glass-panel inline-flex items-center rounded-md border-primary/35 bg-gradient-to-br from-primary/12 to-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+          >
             {t("badge")}
           </p>
-          <h1 className="text-5xl font-extrabold leading-[1.1] tracking-tight text-on-surface lg:text-7xl">
+          <h1
+            data-reveal="fade-up"
+            className="gradient-text text-5xl font-extrabold leading-[1.1] tracking-tight lg:text-7xl"
+          >
             {t("title")}
           </h1>
-          <p className="max-w-2xl text-2xl font-medium leading-relaxed text-on-surface-variant">
+          <p
+            data-reveal="fade-up"
+            className="max-w-2xl text-2xl font-medium leading-relaxed text-on-surface-variant"
+          >
             {t("tagline")}
           </p>
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div data-reveal="fade-up" className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/contact"
               data-plausible-name="home_hero_contact"
-              className="rounded-lg bg-primary px-8 py-4 text-lg font-bold text-white transition-all hover:bg-primary-hover"
+              className="shine shine-loop rounded-lg bg-primary px-8 py-4 text-lg font-bold text-white transition-all hover:bg-primary-hover"
             >
               {t("ctaPrimary")}
             </Link>
@@ -51,8 +61,8 @@ export async function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-1 justify-center lg:justify-end">
-          <GlassPointerDiv className="glass-panel relative h-80 w-80 overflow-hidden rounded-2xl p-4 lg:h-[450px] lg:w-[450px]">
+        <div className="flex flex-1 justify-center lg:justify-end" data-reveal="scale-in">
+          <GlassPointerDiv className="glass-panel halo-ring relative h-80 w-80 overflow-hidden rounded-2xl p-4 lg:h-[450px] lg:w-[450px]">
             <Image
               src={HERO_IMG}
               alt={t("title")}
@@ -66,7 +76,10 @@ export async function HomePage() {
       </section>
 
       <section className="py-4">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+        <div
+          className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5"
+          data-reveal-group
+        >
           <Stat variant="number" value={t("statsYearsValue")} label={t("statsYears")} />
           <Stat variant="icon" icon="school" label={t("statsDegree")} />
           <Stat variant="number" value={t("statsProjectsValue")} label={t("statsProjects")} />
@@ -74,13 +87,16 @@ export async function HomePage() {
         </div>
       </section>
 
-      <GlassPointerSection className="glass-panel rounded-2xl px-4 py-16 text-center sm:px-6 md:px-6 md:py-20 lg:px-8">
+      <GlassPointerSection
+        data-reveal="fade-up"
+        className="glass-panel rounded-2xl px-4 py-16 text-center sm:px-6 md:px-6 md:py-20 lg:px-8"
+      >
         <div className="relative z-[1]">
           <h2 className="mb-12 text-sm font-bold uppercase tracking-[0.2em] text-primary">
             {t("equationTitle")}
           </h2>
           <div className="mx-auto flex w-full min-w-0 max-w-full flex-col items-center justify-center gap-2 text-3xl font-extrabold tracking-tighter text-on-surface md:flex-row md:flex-wrap md:gap-x-3 md:gap-y-4 md:text-4xl lg:gap-x-4 lg:text-5xl">
-            <span className="glass-panel box-border min-w-0 max-w-full shrink rounded-lg border-primary/40 bg-gradient-to-br from-primary/14 to-primary/5 px-4 py-4 text-center text-primary sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
+            <span className="glass-panel anim-gradient box-border min-w-0 max-w-full shrink rounded-lg border-primary/40 bg-gradient-to-br from-primary/14 via-primary/10 to-primary/5 px-4 py-4 text-center text-primary sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
               {t("equationTotal")}
             </span>
             <span className="inline-block shrink-0 self-center leading-none text-on-surface-variant -translate-y-[0.1em] md:px-0.5">
@@ -92,7 +108,7 @@ export async function HomePage() {
             <span className="inline-block shrink-0 self-center leading-none text-primary -translate-y-[0.1em] md:px-0.5">
               ×
             </span>
-            <span className="glass-panel box-border min-w-0 max-w-full shrink rounded-lg border-indigo-400/40 bg-gradient-to-br from-indigo-500/14 to-indigo-500/5 px-4 py-4 text-center text-indigo-400 sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
+            <span className="glass-panel anim-gradient box-border min-w-0 max-w-full shrink rounded-lg border-indigo-400/40 bg-gradient-to-br from-indigo-500/14 via-indigo-500/10 to-indigo-500/5 px-4 py-4 text-center text-indigo-400 sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
               {t("equationMultiplier")}
             </span>
           </div>
@@ -103,7 +119,10 @@ export async function HomePage() {
       </GlassPointerSection>
 
       <section>
-        <div className="mb-16 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div
+          data-reveal="fade-up"
+          className="mb-16 flex flex-col justify-between gap-4 md:flex-row md:items-end"
+        >
           <div className="space-y-4">
             <h2 className="text-4xl font-extrabold tracking-tight text-on-surface">
               {t("servicesTitle")}
@@ -124,7 +143,10 @@ export async function HomePage() {
             />
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+          data-reveal-group
+        >
           <ServiceCard
             learnMore={learnMore}
             icon="database"
@@ -169,7 +191,10 @@ export async function HomePage() {
         </Link>
       </section>
 
-      <section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <section
+        className="grid grid-cols-1 gap-8 lg:grid-cols-2"
+        data-reveal-group
+      >
         <CaseTeaserCard
           imageSrc={CASE_TEASER_1_IMAGE}
           imageAlt={t("case1Title")}
@@ -192,10 +217,13 @@ export async function HomePage() {
         />
       </section>
 
-      <GlassPointerSection className="glass-panel relative space-y-8 overflow-hidden rounded-2xl border-primary/25 px-8 py-20 text-center md:px-12">
+      <GlassPointerSection
+        data-reveal="fade-up"
+        className="glass-panel relative space-y-8 overflow-hidden rounded-2xl border-primary/25 px-8 py-20 text-center md:px-12"
+      >
         <div className="absolute start-0 top-0 z-[2] h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
         <div className="relative z-[1] space-y-8">
-          <h2 className="text-5xl font-extrabold tracking-tight text-on-surface">
+          <h2 className="gradient-text text-5xl font-extrabold tracking-tight">
             {t("bottomCtaTitle")}
           </h2>
           <p className="mx-auto max-w-2xl text-xl font-medium leading-relaxed text-on-surface-variant">
@@ -205,7 +233,7 @@ export async function HomePage() {
             <Link
               href="/contact"
               data-plausible-name="home_bottom_cta_primary"
-              className="rounded-lg bg-primary px-12 py-5 text-xl font-bold text-white transition-all hover:bg-primary-hover"
+              className="shine shine-loop rounded-lg bg-primary px-12 py-5 text-xl font-bold text-white transition-all hover:bg-primary-hover"
             >
               {t("bottomCtaPrimary")}
             </Link>
@@ -251,15 +279,16 @@ function CaseTeaserCard({
     <GlassPointerLink
       href="/portfolio"
       data-plausible-name={plausibleName}
+      data-reveal="fade-up"
       className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
     >
       <div className="absolute inset-0 z-[1] overflow-hidden">
-        <div className="relative h-full w-full">
+        <div className="anim-kenburns relative h-full w-full">
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
-            className={`scale-105 transition-transform duration-700 ease-out will-change-transform group-hover:scale-110 ${imageClassName}`}
+            className={`transition-transform duration-700 ease-out will-change-transform ${imageClassName}`}
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
@@ -308,6 +337,7 @@ function ServiceCard({
     <GlassPointerLink
       href="/services"
       data-plausible-name={plausibleName}
+      data-reveal="fade-up"
       className={
         featured
           ? "glass-panel flex cursor-pointer flex-col space-y-6 rounded-xl border-primary/35 p-8 transition-colors hover:border-primary/50"
@@ -345,12 +375,16 @@ function Stat({
   label: string;
 }) {
   return (
-    <GlassPointerDiv className="glass-panel flex flex-col items-center gap-3 rounded-xl px-5 py-7 text-center sm:px-7 sm:py-8">
+    <GlassPointerDiv
+      data-reveal="fade-up"
+      className="glass-panel flex flex-col items-center gap-3 rounded-xl px-5 py-7 text-center sm:px-7 sm:py-8"
+    >
       <div className="relative z-[1] flex min-h-16 w-full items-center justify-center py-1 sm:min-h-[4.5rem]">
         {variant === "number" ? (
-          <span className="text-4xl font-extrabold leading-none tracking-tight text-primary sm:text-5xl">
-            {value}
-          </span>
+          <CountUp
+            value={value!}
+            className="text-4xl font-extrabold leading-none tracking-tight text-primary tabular-nums sm:text-5xl"
+          />
         ) : (
           <MaterialIcon
             name={icon!}

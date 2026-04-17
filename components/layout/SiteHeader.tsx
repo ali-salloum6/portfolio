@@ -64,7 +64,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <Link
             href="/contact"
             data-plausible-name="nav_cta_contact"
-            className="hidden rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-hover sm:inline-flex"
+            className="shine hidden rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-hover sm:inline-flex"
           >
             {t("startProject")}
           </Link>
@@ -81,31 +81,45 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         </div>
       </nav>
 
-      {open ? (
-        <div className="border-t border-white/[0.08] bg-background/95 px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-3">
-            {nav.map((item) => (
+      <div
+        className={cn(
+          "grid overflow-hidden transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none motion-reduce:duration-0 md:hidden",
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+        )}
+        aria-hidden={!open}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div
+            className={cn(
+              "border-t border-white/[0.08] bg-background/95 px-6 py-4 transition-opacity duration-300 ease-out motion-reduce:transition-none",
+              open ? "opacity-100" : "opacity-0",
+            )}
+            inert={open ? undefined : true}
+          >
+            <div className="flex flex-col gap-3">
+              {nav.map((item) => (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  data-plausible-name={`nav_drawer_${item.key}`}
+                  className="font-semibold text-on-surface"
+                  onClick={() => setOpen(false)}
+                >
+                  {t(item.key)}
+                </Link>
+              ))}
               <Link
-                key={item.key}
-                href={item.href}
-                data-plausible-name={`nav_drawer_${item.key}`}
-                className="font-semibold text-on-surface"
+                href="/contact"
+                data-plausible-name="nav_drawer_cta_contact"
+                className="rounded-lg bg-primary px-4 py-3 text-center font-semibold text-white"
                 onClick={() => setOpen(false)}
               >
-                {t(item.key)}
+                {t("startProject")}
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              data-plausible-name="nav_drawer_cta_contact"
-              className="rounded-lg bg-primary px-4 py-3 text-center font-semibold text-white"
-              onClick={() => setOpen(false)}
-            >
-              {t("startProject")}
-            </Link>
+            </div>
           </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

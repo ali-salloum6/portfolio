@@ -35,17 +35,29 @@ export async function PortfolioPage() {
 
   return (
     <main className="mx-auto max-w-7xl px-8 py-16">
-      <header className="mb-24 text-center">
-        <h1 className="mb-6 text-5xl font-extrabold tracking-tighter text-on-background md:text-6xl">
+      <header className="mb-24 text-center" data-reveal-group>
+        <h1
+          data-reveal="fade-up"
+          className="mb-6 text-5xl font-extrabold tracking-tighter text-on-background md:text-6xl"
+        >
           {t("heroTitle")}
         </h1>
-        <p className="mx-auto max-w-2xl text-xl font-medium leading-relaxed text-on-surface-variant">
+        <p
+          data-reveal="fade-up"
+          className="mx-auto max-w-2xl text-xl font-medium leading-relaxed text-on-surface-variant"
+        >
           {t("heroSubtitle")}
         </p>
       </header>
 
-      <div className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-12">
-        <GlassPointerArticle className="industrial-card flex flex-col items-center gap-8 rounded-lg p-8 md:col-span-12 md:flex-row">
+      <div
+        className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-12"
+        data-reveal-group
+      >
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col items-center gap-8 rounded-lg p-8 md:col-span-12 md:flex-row"
+        >
           <div className="w-full md:w-1/2">
             <div className="industrial-inset relative mb-6 aspect-video overflow-hidden rounded-md">
               <Image
@@ -92,7 +104,10 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col rounded-lg p-8 md:col-span-7">
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col rounded-lg p-8 md:col-span-7"
+        >
           <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
             {t("cases.c2.tag")}
           </span>
@@ -113,7 +128,10 @@ export async function PortfolioPage() {
           </ul>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-5">
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col justify-between rounded-lg p-8 md:col-span-5"
+        >
           <div>
             <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
               {t("cases.c3.tag")}
@@ -136,7 +154,10 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col gap-8 rounded-lg p-8 md:col-span-12 md:flex-row">
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col gap-8 rounded-lg p-8 md:col-span-12 md:flex-row"
+        >
           <div className="w-full md:w-2/5 md:shrink-0">
             <div className="industrial-inset relative aspect-video w-full overflow-hidden rounded-md">
               <Image
@@ -198,7 +219,10 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex flex-col gap-8 rounded-lg p-8 md:col-span-12 md:flex-row">
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col gap-8 rounded-lg p-8 md:col-span-12 md:flex-row"
+        >
           <div className="flex w-full flex-col justify-between md:w-2/5 md:shrink-0">
             <div className="industrial-inset rounded-md p-6">
               <div className="mb-1 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
@@ -272,7 +296,10 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex h-full flex-col gap-6 rounded-lg p-8 md:col-span-8">
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex h-full flex-col gap-6 rounded-lg p-8 md:col-span-8"
+        >
           <div className="w-full shrink-0">
             <div className="industrial-inset relative aspect-[983/376] w-full overflow-hidden rounded-md bg-outline-variant/20">
               <Image
@@ -324,7 +351,10 @@ export async function PortfolioPage() {
           </div>
         </GlassPointerArticle>
 
-        <GlassPointerArticle className="industrial-card flex h-full flex-col rounded-lg p-8 md:col-span-4">
+        <GlassPointerArticle
+          data-reveal="fade-up"
+          className="industrial-card flex h-full flex-col rounded-lg p-8 md:col-span-4"
+        >
           <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-tertiary">
             {t("cases.c7.tag")}
           </span>
@@ -351,10 +381,22 @@ export async function PortfolioPage() {
       </div>
 
       <section className="mb-24">
-        <h2 className="mb-12 text-center text-3xl font-bold">{t("philosophyTitle")}</h2>
-        <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
+        <h2
+          data-reveal="fade-up"
+          className="mb-12 text-center text-3xl font-bold"
+        >
+          {t("philosophyTitle")}
+        </h2>
+        <div
+          className="grid grid-cols-1 gap-8 text-center md:grid-cols-3"
+          data-reveal-group
+        >
           {(["p1", "p2", "p3"] as const).map((key) => (
-            <GlassPointerDiv key={key} className="industrial-card rounded-lg p-8">
+            <GlassPointerDiv
+              key={key}
+              data-reveal="fade-up"
+              className="industrial-card rounded-lg p-8"
+            >
               <div className="industrial-inset mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-md">
                 <MaterialIcon
                   name={key === "p1" ? "speed" : key === "p2" ? "verified_user" : "cloud_done"}
@@ -368,7 +410,10 @@ export async function PortfolioPage() {
         </div>
       </section>
 
-      <GlassPointerSection className="industrial-card relative overflow-hidden rounded-lg p-12 text-center">
+      <GlassPointerSection
+        data-reveal="fade-up"
+        className="industrial-card relative overflow-hidden rounded-lg p-12 text-center"
+      >
         <div className="absolute end-0 top-0 z-0 p-8 opacity-5">
           <MaterialIcon name="engineering" className="text-9xl" />
         </div>
@@ -379,7 +424,7 @@ export async function PortfolioPage() {
             <Link
               href="/contact"
               data-plausible-name="portfolio_cta_contact_primary"
-              className="rounded-md bg-primary px-10 py-4 font-bold text-white transition-all hover:bg-primary-hover"
+              className="shine rounded-md bg-primary px-10 py-4 font-bold text-white transition-all hover:bg-primary-hover"
             >
               {t("ctaPrimary")}
             </Link>

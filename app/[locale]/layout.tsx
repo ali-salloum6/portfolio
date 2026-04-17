@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { PlausibleButtonTracker } from "@/components/analytics/PlausibleButtonTracker";
 import { PlausibleScript } from "@/components/seo/PlausibleScript";
 import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
+import { RevealObserver } from "@/components/ui/RevealObserver";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { getSiteUrl } from "@/lib/site-config";
@@ -62,10 +63,16 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
-      className={cn(plusJakarta.variable, notoKufiArabic.variable, "h-full")}
+      // The `js` class gates the reveal-animation initial hidden state in
+      // CSS. It's set server-side so no inline script / FOUC is needed; the
+      // <noscript> tag below restores visibility for JS-disabled visitors.
+      className={cn(plusJakarta.variable, notoKufiArabic.variable, "h-full js")}
       suppressHydrationWarning
     >
       <head>
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important;}`}</style>
+        </noscript>
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
@@ -91,7 +98,13 @@ export default async function LocaleLayout({
         <SiteJsonLd />
         <PlausibleScript />
         <PlausibleButtonTracker />
+        {/* Ambient animated aurora layer + scroll-linked progress bar.
+            Both are decorative, pointer-events: none, and opt-out under
+            prefers-reduced-motion. */}
+        <div className="ambient-aurora" aria-hidden="true" />
+        <div className="scroll-progress" aria-hidden="true" />
         <NextIntlClientProvider messages={messages}>
+          <RevealObserver />
           <SiteHeader locale={locale} />
           <div className="flex-1">{children}</div>
           <SiteFooter locale={locale} />

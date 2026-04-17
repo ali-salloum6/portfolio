@@ -21,25 +21,37 @@ export async function ServicesPage() {
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-24">
-      <header className="mx-auto mb-20 max-w-3xl text-center">
-        <GlassPointerDiv className="glass-panel mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+      <header className="mx-auto mb-20 max-w-3xl text-center" data-reveal-group>
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="glass-panel mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5"
+        >
+          <span className="pulse-ring relative h-2 w-2 rounded-full bg-primary text-primary" />
           <span className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">
             {t("heroBadge")}
           </span>
         </GlassPointerDiv>
-        <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-on-surface md:text-6xl">
+        <h1
+          data-reveal="fade-up"
+          className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-on-surface md:text-6xl"
+        >
           {t.rich("heroTitleRich", {
             accent: (c) => <span className="text-primary">{c}</span>,
           })}
         </h1>
-        <p className="text-lg leading-relaxed text-on-surface-variant">
+        <p
+          data-reveal="fade-up"
+          className="text-lg leading-relaxed text-on-surface-variant"
+        >
           {t("heroSubtitle")}
         </p>
       </header>
 
-      <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <GlassPointerDiv className="industrial-card flex items-center gap-6 rounded-xl p-6">
+      <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2" data-reveal-group>
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="industrial-card flex items-center gap-6 rounded-xl p-6"
+        >
           <div className="flex h-14 w-14 items-center justify-center rounded-lg industrial-inset text-primary">
             <MaterialIcon name="schedule" className="text-3xl" />
           </div>
@@ -48,7 +60,10 @@ export async function ServicesPage() {
             <p className="text-sm text-on-surface-variant">{t("trustTimezoneBody")}</p>
           </div>
         </GlassPointerDiv>
-        <GlassPointerDiv className="industrial-card flex items-center gap-6 rounded-xl p-6">
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="industrial-card flex items-center gap-6 rounded-xl p-6"
+        >
           <div className="flex h-14 w-14 items-center justify-center rounded-lg industrial-inset text-tertiary">
             <MaterialIcon name="bolt" className="text-3xl" />
           </div>
@@ -59,7 +74,10 @@ export async function ServicesPage() {
         </GlassPointerDiv>
       </div>
 
-      <GlassPointerSection className="mb-20 industrial-card rounded-2xl p-8 md:p-10">
+      <GlassPointerSection
+        data-reveal="fade-up"
+        className="mb-20 industrial-card rounded-2xl p-8 md:p-10"
+      >
         <h2 className="mb-4 text-2xl font-extrabold text-on-surface">{t("pricingTitle")}</h2>
         <p className="max-w-none whitespace-pre-line leading-relaxed text-on-surface-variant">
           {t("pricingBody")}
@@ -67,11 +85,20 @@ export async function ServicesPage() {
       </GlassPointerSection>
 
       <section className="mb-24">
-        <h2 className="mb-10 text-center text-3xl font-bold text-on-surface">{t("howTitle")}</h2>
-        <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <h2
+          data-reveal="fade-up"
+          className="mb-10 text-center text-3xl font-bold text-on-surface"
+        >
+          {t("howTitle")}
+        </h2>
+        <ol
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+          data-reveal-group
+        >
           {steps.map((label, i) => (
             <GlassPointerLi
               key={label}
+              data-reveal="fade-up"
               className="glass-panel flex items-center gap-3 rounded-xl px-4 py-4"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
@@ -83,8 +110,11 @@ export async function ServicesPage() {
         </ol>
       </section>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12" data-reveal-group>
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7"
+        >
           <div>
             <div className="mb-8 flex items-start justify-between">
               <div className="rounded-xl industrial-inset p-4 text-primary">
@@ -106,7 +136,10 @@ export async function ServicesPage() {
           </Link>
         </GlassPointerDiv>
 
-        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-tertiary/50 md:p-10 lg:col-span-5">
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-tertiary/50 md:p-10 lg:col-span-5"
+        >
           <div>
             <div className="mb-8 flex items-start justify-between">
               <div className="rounded-xl industrial-inset p-4 text-tertiary">
@@ -128,7 +161,10 @@ export async function ServicesPage() {
           </Link>
         </GlassPointerDiv>
 
-        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-on-surface/30 md:p-10 lg:col-span-5">
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-on-surface/30 md:p-10 lg:col-span-5"
+        >
           <div>
             <div className="mb-8 flex items-start justify-between">
               <div className="rounded-xl industrial-inset p-4 text-on-surface">
@@ -150,7 +186,10 @@ export async function ServicesPage() {
           </Link>
         </GlassPointerDiv>
 
-        <GlassPointerDiv className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7">
+        <GlassPointerDiv
+          data-reveal="fade-up"
+          className="industrial-card flex flex-col justify-between rounded-2xl p-8 transition-all hover:border-primary/50 md:p-10 lg:col-span-7"
+        >
           <div className="flex flex-col gap-10 md:flex-row">
             <div className="flex-1">
               <div className="mb-8 flex items-start justify-between">
@@ -183,14 +222,17 @@ export async function ServicesPage() {
         </GlassPointerDiv>
       </div>
 
-      <GlassPointerSection className="mt-32 industrial-card rounded-2xl border-primary/20 p-12 text-center">
+      <GlassPointerSection
+        data-reveal="fade-up"
+        className="mt-32 industrial-card rounded-2xl border-primary/20 p-12 text-center"
+      >
         <h2 className="mb-4 text-3xl font-extrabold">{t("closingTitle")}</h2>
         <p className="mx-auto mb-10 max-w-xl text-on-surface-variant">{t("closingBody")}</p>
         <div className="flex flex-col justify-center gap-6 sm:flex-row">
           <Link
             href="/contact"
             data-plausible-name="services_closing_contact"
-            className="flex items-center justify-center gap-2 rounded-lg bg-primary px-10 py-5 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover"
+            className="shine flex items-center justify-center gap-2 rounded-lg bg-primary px-10 py-5 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover"
           >
             <MaterialIcon name="calendar_today" />
             {t("closingPrimary")}

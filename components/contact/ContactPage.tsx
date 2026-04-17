@@ -8,16 +8,26 @@ export async function ContactPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16 md:px-8 md:py-24">
-      <header className="mb-12 text-center">
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-on-surface md:text-5xl">
+      <header className="mb-12 text-center" data-reveal-group>
+        <h1
+          data-reveal="fade-up"
+          className="mb-4 text-4xl font-extrabold tracking-tight text-on-surface md:text-5xl"
+        >
           {t("title")}
         </h1>
-        <p className="text-lg text-on-surface-variant">{t("subtitle")}</p>
+        <p data-reveal="fade-up" className="text-lg text-on-surface-variant">
+          {t("subtitle")}
+        </p>
       </header>
 
-      <ContactForm />
+      <div data-reveal="fade-up">
+        <ContactForm />
+      </div>
 
-      <GlassPointerDiv className="mt-12 industrial-card rounded-xl p-6 text-center">
+      <GlassPointerDiv
+        data-reveal="fade-up"
+        className="mt-12 industrial-card rounded-xl p-6 text-center"
+      >
         <p className="mb-4 text-sm font-semibold text-on-surface-variant">{t("prefer")}</p>
         <div className="flex flex-wrap justify-center gap-6">
           <a
