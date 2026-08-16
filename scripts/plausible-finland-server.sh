@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Run on Finland VPS as root (e.g. cat scripts/plausible-finland-server.sh | ssh fin bash).
+# Run on the EU site VPS as root (e.g. ./scripts/setup-plausible-finland.sh).
+# Previously: Finland VPS via `ssh fin` (185.231.206.8, decommissioned 2026-06-05).
+# Current site host: stockholm (132.243.240.175).
 # After this: point DNS A record plausible -> this server IP, then run certbot (see DEPLOYMENT.md).
 
 set -euo pipefail
