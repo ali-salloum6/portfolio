@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# DEPRECATED: fin VPS (185.231.206.8) decommissioned 2026-06-05.
+# Original: ssh fin "/usr/local/bin/portfolio-status"
+# Active status target: scripts/status-stockholm.sh
 set -euo pipefail
-
-ssh fin "/usr/local/bin/portfolio-status"
+exec "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/status-stockholm.sh" "$@"
