@@ -8,7 +8,7 @@ export const siteConfig = {
   github: process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/yourusername",
   linkedin:
     process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://linkedin.com/in/yourusername",
-  timezoneLabel: "Moscow UTC+3",
+  timezoneLabel: "Bali UTC+8",
   responseTime: "< 12 hours",
 };
 

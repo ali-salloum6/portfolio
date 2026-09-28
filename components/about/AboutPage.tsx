@@ -122,19 +122,7 @@ export async function AboutPage() {
             </div>
             <h3 className="mb-4 text-2xl font-bold">{t("j2Title")}</h3>
             <p className="leading-relaxed text-on-surface-variant">
-              {t.rich("j2Body", {
-                verify: (chunks) => (
-                  <a
-                    href="https://secondary2020.moed.gov.sy/scientific/result.php?city=10&stdnum=9468"
-                    data-plausible-name="about_secondary_verify"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-primary underline decoration-primary/40 underline-offset-2 transition-colors hover:text-primary/90 hover:decoration-primary"
-                  >
-                    {chunks}
-                  </a>
-                ),
-              })}
+              {t("j2Body")}
             </p>
           </GlassPointerArticle>
           <GlassPointerArticle

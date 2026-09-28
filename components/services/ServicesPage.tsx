@@ -205,7 +205,7 @@ export async function ServicesPage() {
             </div>
             <div className="flex w-full flex-col justify-center md:w-1/3">
               <div className="flex aspect-square flex-col items-center justify-center rounded-2xl industrial-inset p-6 text-center">
-                <span className="mb-2 text-4xl font-black text-primary">99%</span>
+                <span className="mb-2 text-4xl font-black text-primary">{t("s4StatValue")}</span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
                   {t("s4Stat")}
                 </span>

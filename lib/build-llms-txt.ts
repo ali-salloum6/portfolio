@@ -92,7 +92,7 @@ export function buildLlmsTxt(): string {
 
   const homeBody = flattenRecord(home as unknown as Record<string, unknown>);
 
-  const servicesSkip = new Set(["heroTitleRich", "s4Stat"]);
+  const servicesSkip = new Set(["heroTitleRich", "s4Stat", "s4StatValue"]);
   const servicesBody = flattenRecord(
     services as unknown as Record<string, unknown>,
     { skipKeys: servicesSkip },
