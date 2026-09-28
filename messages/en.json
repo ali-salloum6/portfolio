@@ -157,7 +157,7 @@
         "title": "LuukAI — Embeddable AI Assistant & Partner Widget",
         "body": "Partners drop in a conversational assistant: plain-language Q&A, smart recommendations, optional promos, and guided flows when needed. One codebase ships as a full web app and a floating embed—on-brand per tenant, multilingual, and built so the host site’s styling can’t break the experience.",
         "techTitle": "Built with",
-        "techVal": "React · TypeScript · Vite — one pipeline, multiple surfaces (app, widget, embedded shell)",
+        "techVal": "Svelte (v2) and React (v1) · TypeScript · Vite — one pipeline, multiple surfaces (app, widget, embedded shell)",
         "engineeringTitle": "Highlights",
         "f1": "The widget is visually self-contained—partner pages don’t accidentally restyle or break the assistant.",
         "f2": "Surveys, partner add-ons, and analytics hook in cleanly so journeys feel native, not bolted on.",
