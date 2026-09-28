@@ -13,7 +13,7 @@ import Image from "next/image";
 const CASE1_IMAGE = "/images/unified-manager-blueprint.webp";
 
 /** LuukAI widget screenshot — `cases.c4` */
-const CASE_WIDGET_IMAGE = "/images/luukai-widget-wide.webp";
+const CASE_WIDGET_IMAGE = "/images/axioma-v2-popup.webp";
 const CASE_WIDGET_DEMO_URL = "https://ai-dev.myluuk.app/widget/v2/widget-example.html";
 
 /** Published paper — `cases.c5` (Procedia CS 2024; Google Scholar cluster) */

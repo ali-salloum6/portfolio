@@ -14,7 +14,7 @@ const HERO_IMG = "/images/hero-main.webp";
 /** Portfolio case c1 — unified deployment manager blueprint */
 const CASE_TEASER_1_IMAGE = "/images/unified-manager-blueprint.webp";
 /** Portfolio case c4 — LuukAI embeddable widget */
-const CASE_TEASER_2_IMAGE = "/images/luukai-widget-wide.webp";
+const CASE_TEASER_2_IMAGE = "/images/axioma-v2-popup.webp";
 
 export async function HomePage() {
   const locale = await getLocale();
