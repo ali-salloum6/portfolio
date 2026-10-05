@@ -1,10 +1,58 @@
-# Self-hosted deployment (Stockholm site + Plausible on Moscow)
+# Self-hosted deployment (contabo-master: site + Plausible)
 
-This document records how the portfolio runs on the **Stockholm VPS** after migrating production off the decommissioned Finland host, with **Plausible** on **Moscow** (`tae`).
+Since **2026-10-05** the portfolio and Plausible both run on **`contabo-master`** (`109.199.113.233`, Contabo, Lauterbourg FR; Ubuntu 24.04, 4 vCPU, 8 GB RAM, 100 GB disk). It replaced the Stockholm VPS (site) and the Moscow VPS `tae` (Plausible). Everything below the "History" divider describes the old setup and is kept for reference.
 
-*(Plausible may also run on Stockholm if you want analytics colocated — the VPS has **2 GB RAM**; current policy keeps analytics on Moscow to match the Finland-era setup.)*
+## Architecture
+
+| Role | Where | Notes |
+|------|-------|-------|
+| **Production site** | `portfolio-eu.service` → Next.js `127.0.0.1:3000` | App root `/var/www/portfolio` |
+| **Analytics (Plausible CE v3.2.1)** | `/opt/plausible-hosting` (Docker Compose) → `127.0.0.1:8000` | Upstream `plausible/community-edition` checkout at tag `v3.2.1` |
+| **TLS + reverse proxy** | Caddy, `/etc/caddy/Caddyfile` | Automatic Let's Encrypt certs for all four hostnames |
+| **Canonical URL** | `https://www.alisalloum.tech` | Apex redirects to `www` |
+
+**Pages:** Browser → Caddy (`www` / `eu`) → Next.js `127.0.0.1:3000`.
+
+**Analytics:** Browser → `https://www.alisalloum.tech/js/script.js` and `POST /api/event` → Caddy → Plausible `127.0.0.1:8000` on the same box (header `X-Plausible-IP` carries the visitor IP). No cross-region hop and no WireGuard any more. `portfolio-eu.service` also sets `PLAUSIBLE_PROXY_ORIGIN=http://127.0.0.1:8000` for the Next.js `/api/event` route, in case Caddy's interception is ever removed.
+
+## DNS records (REG.RU, `ns1/ns2.reg.ru`)
+
+All point at **`109.199.113.233`**: `A @`, `A www`, `A eu`, `A plausible`, `A *`. TTL was 86400 (24 h) during the move, so old resolvers can keep returning the previous IPs for up to a day after a change.
+
+After changing DNS, reload Caddy so it requests certificates immediately instead of waiting out its ACME retry backoff:
+
+```bash
+ssh contabo-master systemctl reload caddy
+```
+
+## Caddyfile (summary)
+
+- `www.alisalloum.tech, eu.alisalloum.tech`: `/js/script.js` and `/api/event` → `127.0.0.1:8000` (Host `plausible.alisalloum.tech`, `X-Plausible-IP {remote_host}`); everything else → `127.0.0.1:3000`.
+- `alisalloum.tech` → 301 to `https://www.alisalloum.tech{uri}`.
+- `plausible.alisalloum.tech` → `127.0.0.1:8000`, with `/storybook*` blocked (see incident below).
+
+## Operational commands
+
+```bash
+./scripts/deploy-contabo.sh          # build locally, sync, swap .next, restart portfolio-eu
+./scripts/status-contabo.sh          # service, Caddy config, localhost:3000, disk
+ssh contabo-master journalctl -u portfolio-eu -n 80 --no-pager
+ssh contabo-master 'cd /opt/plausible-hosting && docker compose ps'
+ssh contabo-master 'cd /opt/plausible-hosting && docker compose logs --tail 50 plausible'
+```
+
+Upgrading Plausible: `git fetch --tags && git checkout <new tag>` in `/opt/plausible-hosting`, then `docker compose pull && docker compose up -d`. Read the release notes first.
+
+## Incident: cryptominer on `tae` via Plausible (2026-09-17 → 2026-10-05)
+
+`tae` ran Plausible CE **v3.2.0**, which has **CVE-2026-8467** (GHSA-55hg-8qxv-qj4p): an exposed `/storybook` endpoint allowing remote code execution as the app user. From about 2026-09-17 a miner (`/var/tmp/linuxsys`, deleted after launch) ran inside the Plausible container at ~200% CPU and 2.4 GB RAM. Fixed in **v3.2.1** (2026-05-15).
+
+On migration the Plausible data was moved with a **logical dump** (Postgres `pg_dump`, ClickHouse `events_v2` / `sessions_v2` / `ingest_counters` in Native format) into a **fresh v3.2.1** stack with new `SECRET_KEY_BASE` and `TOTP_VAULT_KEY` (no account used 2FA). Nothing from the compromised container filesystem was carried over.
 
 ---
+
+# History: Stockholm site + Plausible on Moscow (2026-06-05 → 2026-10-05)
+
 
 ## Architecture (high level)
 
