@@ -1,170 +1,351 @@
 {
   "metadata": {
     "siteName": "Ali Salloum",
-    "defaultTitle": "Ali Salloum | AI-Accelerated Full-Stack Architect",
-    "defaultDescription": "Building scalable software with AI-accelerated speed. Backend, full-stack web, Flutter, and AI/ML integration — production-ready architecture."
+    "defaultTitle": "Ali Salloum | Backend and AI-Platform Engineer",
+    "defaultDescription": "Backend and AI-platform engineer: production LLM assistants, Go and Python services, and the deployment around them. Based in Bali, open to relocation."
   },
   "nav": {
     "home": "Home",
-    "services": "Services",
     "portfolio": "Portfolio",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
-    "startProject": "Start a Project",
+    "cta": "Get in touch",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
   "footer": {
-    "tagline": "Ali Salloum — Full-Stack Architect",
+    "tagline": "Ali Salloum — Backend and AI-platform engineer",
     "copyright": "© {year} Ali Salloum. {timezone}.",
     "response": "Typical response: < 12 hours"
   },
   "home": {
-    "badge": "Available for Partnerships",
+    "badge": "Open to new roles and relocation",
     "title": "Ali Salloum",
-    "tagline": "Building scalable software with AI-accelerated speed. Full-Stack Architect specialized in accelerated delivery.",
-    "ctaPrimary": "Start a Project",
-    "ctaSecondary": "View Portfolio",
-    "equationTitle": "The Delivery Equation",
-    "equationTotal": "Total Value",
-    "equationKnowledge": "Deep Knowledge",
-    "equationMultiplier": "AI Multiplier",
-    "equationCaption": "Leveraging generative AI as a force multiplier to ship high-fidelity architectures in record time without compromising on system integrity.",
-    "servicesTitle": "Service Highlights",
-    "servicesSubtitle": "Architectural expertise meets AI speed.",
-    "viewAllServices": "View All Services",
-    "serviceBackendTitle": "Robust Backend",
-    "serviceBackendDesc": "APIs, data models and multi-tenant services built to run reliably in production.",
-    "serviceFullstackTitle": "Full-Stack Craft",
-    "serviceFullstackDesc": "End-to-end product development with polished UI/UX and seamless state management.",
-    "serviceMobileTitle": "Mobile",
-    "serviceMobileDesc": "Cross-platform apps with native feel or actual native apps, solid offline strategy, and backend integration.",
-    "serviceAiTitle": "AI & ML Integration",
-    "serviceAiDesc": "Embedding LLMs and predictive models into your workflows for automated value.",
-    "learnMore": "Learn More",
-    "portfolioTitle": "Selected work",
-    "case1Tag": "Infrastructure • Case Study 01",
-    "case1Title": "Unified Manager for Multi-Agent Deployment",
-    "case1Desc": "One manager per environment and automated agent provisioning from the admin UI—repeatable deploy without manual per-agent plumbing.",
-    "case2Tag": "Frontend • Case Study 04",
-    "case2Title": "LuukAI — Embeddable AI Assistant & Partner Widget",
-    "case2Desc": "Conversational Q&A, recommendations, and a floating embed—multilingual, on-brand per tenant, one React/TypeScript pipeline.",
-    "statsYears": "Years Exp",
-    "statsYearsValue": "5+",
-    "statsDegree": "CS Degree",
-    "statsProjects": "Projects Shipped",
-    "statsProjectsValue": "10+",
-    "statsMl": "ML Certified",
-    "bottomCtaTitle": "Ready to build the future?",
-    "bottomCtaBody": "Whether you need a technical lead for a new product or an extra pair of hands on an existing one, let's discuss how AI-accelerated development can move it forward.",
-    "bottomCtaPrimary": "Start a Project",
-    "bottomCtaSecondary": "Book a Call"
-  },
-  "services": {
-    "metaTitle": "Services",
-    "metaDescription": "Backend, full-stack web, Flutter mobile, and AI/ML integration — timelines, pricing guidance, and how we work.",
-    "heroBadge": "Available for new projects",
-    "heroTitle": "AI-Accelerated Architectural Excellence",
-    "heroTitleRich": "AI-Accelerated <accent>Architectural</accent> Excellence",
-    "heroSubtitle": "High-performance engineering for the next generation of digital products — from deep backend systems to intelligent mobile experiences.",
-    "trustTimezoneTitle": "Timezone Reliable",
-    "trustTimezoneBody": "Bali, UTC+8 — overlap with Asia, the Gulf and European mornings.",
-    "trustResponseTitle": "Rapid Response",
-    "trustResponseBody": "Replies within < 12 hours for any inquiries.",
-    "pricingTitle": "Pricing guidance",
-    "pricingBody": "Discovery calls are free. Typical engagements start around $1k.\nMost product builds fall in the $5k–$10k range depending on scope, SLA, and timeline. Fixed quotes after architecture review.",
-    "howTitle": "How I work",
-    "howStep1": "Discovery",
-    "howStep2": "Proposal",
-    "howStep3": "Architecture",
-    "howStep4": "Development",
-    "howStep5": "Delivery",
-    "s1Time": "1–2 weeks",
-    "s1Title": "Backend & API Development",
-    "s1Desc": "REST/GraphQL, database design, microservices, and high-concurrency infrastructure.",
-    "s1Cta": "Discuss this project",
-    "s2Time": "2–4 weeks",
-    "s2Title": "Mobile App Development",
-    "s2Desc": "Cross-platform apps for iOS and Android with backend integration and offline-first patterns where needed.",
-    "s2Cta": "Discuss this project",
-    "s3Time": "6-8 weeks",
-    "s3Title": "Full-Stack Web Applications",
-    "s3Desc": "SaaS, admin dashboards, and complete web products from UI to production deployment.",
-    "s3Cta": "Discuss this project",
-    "s4Time": "4-8 weeks",
-    "s4Title": "AI/ML Integration & Automation",
-    "s4Desc": "LLM integration, RAG, chatbots, and data pipelines — production-hardened, not demos.",
-    "s4Cta": "Discuss this project",
-    "s4Stat": "AI agents deployed",
-    "s4StatValue": "25",
-    "closingTitle": "Ready to architect your vision?",
-    "closingBody": "Schedule a free 30-minute technical discovery call to discuss architecture and roadmap.",
-    "closingPrimary": "Book Discovery Call",
-    "closingSecondary": "View Portfolio"
+    "tagline": "Backend and AI-platform engineer: production LLM assistants, Go and Python services, and the deployment around them.",
+    "ctaPrimary": "Get in touch",
+    "ctaSecondary": "View portfolio",
+    "statsYears": "Years full-time",
+    "statsYearsValue": "2.5+",
+    "statsDegree": "BSc CS · MSc AI (ongoing)",
+    "statsCitations": "Paper citations",
+    "statsCitationsValue": "15+",
+    "statsLead": "Tech lead since 2025",
+    "nowTitle": "Right now",
+    "now": {
+      "n1": {
+        "role": "Tech Lead, LUUK AI platform",
+        "meta": "LUUK · since June 2025",
+        "body": "I lead the backend of a multi-tenant LLM assistant platform that runs on partner brands' websites, review and merge the team's pull requests, and own deployment."
+      },
+      "n2": {
+        "role": "Backend Engineer (contract)",
+        "meta": "Vesper · since May 2026",
+        "body": "Sole backend developer of a real-estate broker platform in Go: feed import, PDF generation, CRM sync, and a bridge to an AI sales assistant."
+      },
+      "n3": {
+        "role": "MSc in Artificial Intelligence",
+        "meta": "Innopolis University · in progress",
+        "body": "Second author of a peer-reviewed paper on quantum annealing for machine learning (KES 2024), built on my BSc thesis."
+      }
+    },
+    "buildTitle": "What I build",
+    "buildSubtitle": "Four areas, each backed by production work.",
+    "viewPortfolio": "View portfolio",
+    "learnMore": "See the work",
+    "build": {
+      "b1": {
+        "title": "Backend (Go, Python)",
+        "desc": "Go and Python services with queued workers, delivery records, and CRM and login integrations."
+      },
+      "b2": {
+        "title": "LLM applications",
+        "desc": "A multi-tenant assistant platform: feed ingestion, RAG, an embeddable widget and answer-quality tests in CI."
+      },
+      "b3": {
+        "title": "Platform and infrastructure",
+        "desc": "Agent hosting, a replicated service monitor with Raft leader election, and deployment with Docker, Caddy, systemd and GitHub Actions."
+      },
+      "b4": {
+        "title": "Applied ML",
+        "desc": "A GPU vision API scaled from one server to four, an MSc in AI, and a peer-reviewed paper."
+      }
+    },
+    "portfolioTitle": "Hardest problems",
+    "case1Tag": "LLM evaluation · Case 01",
+    "case1Title": "Testing an LLM agent that never answers the same way twice",
+    "case1Desc": "310 real-model tests on frozen production data, then a rewrite the suite could prove: empty answers fell from 9–13% to 0.2–0.5%.",
+    "case2Tag": "GPU inference · Case 02",
+    "case2Title": "Getting a GPU vision API ready for a partner launch",
+    "case2Desc": "From one GPU server to four: 55–68 → 393 analyses per minute, and 1,999 of 2,000 requests OK at 100 concurrent clients.",
+    "bottomCtaTitle": "Hiring for backend or AI-platform work?",
+    "bottomCtaBody": "I'm open to engineering roles, relocation included, and to remote contracts. Write to me and I'll send my CV.",
+    "bottomCtaPrimary": "Get in touch",
+    "bottomCtaSecondary": "About me"
   },
   "portfolio": {
     "metaTitle": "Portfolio",
-    "metaDescription": "Anonymized case studies: architecture, scale, and how problems were solved — NDA-safe highlights.",
-    "heroTitle": "Ali Salloum",
-    "heroSubtitle": "AI-Accelerated Full-Stack Architect — scalability, security, and production-readiness.",
-    "philosophyTitle": "Core Architecture Philosophy",
-    "p1Title": "Performance-First",
-    "p1Body": "P99 latency is a requirement. Compute is optimized for cost and speed.",
-    "p2Title": "Security by Design",
-    "p2Body": "Security in schema, network topology, and CI/CD — not bolted on at the end.",
-    "p3Title": "Infinite Scalability",
-    "p3Body": "Stateless services and distributed state from ten users to ten million.",
-    "ctaTitle": "Ready to scale your vision?",
-    "ctaBody": "Let's discuss production-ready architecture for your performance and security needs.",
-    "ctaPrimary": "Schedule a Consultation",
-    "ctaSecondary": "Contact",
+    "metaDescription": "The hardest problems I've worked on: testing an LLM agent on frozen production data, scaling a GPU vision API from one server to four, hosting 25+ LLM agents from one process manager, and CRM sync without lost updates.",
+    "heroKicker": "Case studies",
+    "heroTitle": "The hardest problems I've worked on",
+    "heroSubtitle": "LLM agents, GPU inference, agent hosting and data sync. For each one: what broke, why it was hard, what I changed, and the numbers before and after.",
+    "heroStatus": "Tech lead of the LUUK AI platform · MSc in AI (in progress) · Based in Bali (UTC+8) · Open to relocation",
+    "labels": {
+      "problem": "The problem",
+      "hard": "Why it was hard",
+      "did": "What I did",
+      "results": "Results",
+      "credit": "Who did what",
+      "readCase": "Read the case",
+      "openImage": "Open the diagram full size",
+      "cause": "Root cause",
+      "fix": "Fix"
+    },
     "cases": {
       "c1": {
-        "tag": "CI/CD • Case Study 01",
-        "title": "From Per-Agent Services to One Manager",
-        "body": "I built the first version of our agent hosting: one service per partner agent, each with its own process and proxy config. It worked, but at 25 agents every release meant touching 25 services. I redesigned it into one manager per environment that provisions agents from the admin UI and routes requests to them over Unix sockets, so releases, backups and multi-server rollouts became predictable.",
-        "m1": "25 → 1",
-        "m1l": "Services to Manage",
-        "m2": "< 5ms",
-        "m2l": "Proxy Overhead",
-        "f1": "Replaced repetitive manual deployment steps with a consistent, operator-friendly workflow.",
-        "f2": "Made backups and multi-server rollout simpler and less error-prone through standardized service layout.",
-        "imageAlt": "Blueprint diagram: reverse proxy to Manager, then routing to Unix sockets for supervisor and agents"
+        "tag": "LLM evaluation · Agent design",
+        "period": "LUUK AI · Sep–Oct 2026",
+        "title": "Testing an LLM agent that never answers the same way twice",
+        "hook": "A 310-test answer-quality suite on frozen production data, then a rewrite of the agent that the suite could prove.",
+        "metric": "9–13% → 0.2–0.5%",
+        "metricLabel": "empty answers",
+        "problem": "Our sales assistants answer shoppers and brokers by calling tools over a live catalogue and knowledge base. After the first answer, up to three more LLM passes rewrote it (reflection, reconcile, translate), and each could change facts. Nobody could say whether a change made answers better or worse: the old tests checked helper functions on an old data dump and stayed green while the agent was broken.",
+        "hard": {
+          "h1": "The same question gets a different answer on every run, and models differ in how they use tools.",
+          "h2": "Code can't judge meaning, and an LLM judge is noisy too.",
+          "h3": "The test must run the agent exactly as deployed, on data that doesn't drift, while production data drifts and every re-sync changes ids.",
+          "h4": "A full run is about 900 real conversations, so it costs real tokens, and network errors must not count as failures."
+        },
+        "did": {
+          "d1": "Froze production data: read-only exports with a sha256 and provenance for every file. A refresh maps pinned ids to their new ids.",
+          "d2": "The harness runs the real turn on the real model with the tenant's own settings, and I checked that it matched production. At first it didn't: a different token budget, search threshold and dictionary.",
+          "d3": "Code checks come first (ids, tools and numbers precomputed from the snapshot); an LLM grader judges meaning only, with an \"uncertain\" band. A test passes only if all 3 runs pass, wording is never matched, and network errors are retried, never failed. About 20 minutes on 8 shards.",
+          "d4": "Then rewrote the turn: a tool loop and one write, guards in code (it can only recommend ids the tools returned), the round budget stated in the prompt, and no fallback that hides an empty answer. An A/B against production proved it before the merge."
+        },
+        "results": {
+          "r1": {
+            "v": "310",
+            "l": "real-model tests across 56 client scenarios, 3 of 3 runs to pass"
+          },
+          "r2": {
+            "v": "9–13% → 0.2–0.5%",
+            "l": "turns ending in an empty answer"
+          },
+          "r3": {
+            "v": "−34%",
+            "l": "model calls vs production in an A/B, 6 questions × 3 runs (embedding calls −82%)"
+          },
+          "r4": {
+            "v": "12.9 → 7.0 s",
+            "l": "p90 latency in the same A/B"
+          }
+        },
+        "credit": "I designed the suite, its rules and the rewrite. A colleague mapped the client's scenarios, AI coding agents wrote many of the tests under my rules, and the catalogue search is a colleague's.",
+        "imageAlt": "Top: production database, frozen snapshot, real agent turn run 3 times, code checks, then an LLM grader with miss, uncertain and pass bands. Bottom: before, an answer plus up to three LLM rewrite passes; after, a tool loop, one write, guards in code and a streamed answer."
       },
       "c2": {
-        "tag": "Backend • Case Study 02",
-        "title": "Admin Campaign Orchestration on PocketBase",
-        "body": "I built a notification orchestration subsystem on top of the app's PocketBase backend so non-technical admins can launch targeted campaigns without engineering help. The system handles audience selection, queued delivery through Firebase, real-time progress tracking, and full delivery telemetry so teams can see exactly what was sent, what failed, and what needs retry.",
-        "techTitle": "Technical focus",
-        "f1": "Designed a deterministic queue worker with per-device status transitions, retries, and idempotent processing to prevent duplicate sends.",
-        "f2": "Added an admin-facing control and observability layer: campaign states, delivery logs, completion guarantees, and failure diagnostics."
+        "tag": "GPU inference · Load balancing",
+        "period": "LUUK · Sep 2026",
+        "title": "Getting a GPU vision API ready for a partner launch",
+        "hook": "From a service that went down at one evening's peak to four GPU servers and 393 analyses a minute, measured through the public URL.",
+        "metric": "37% → 95%",
+        "metricLabel": "users with a full result",
+        "problem": "A face-photo skin-analysis API (the team's ONNX models behind FastAPI) was about to be embedded by a large partner. It had already failed at one evening peak: the proxy marked both backends down for 43 minutes, and only about one upload in five got a result. The servers weren't dead. Each analysis ran for 2.5–5 s on the event loop of the only process, which then couldn't answer health checks.",
+        "hard": {
+          "h1": "Per-photo state lived in shared module objects, so the analysis couldn't simply run in parallel inside one process.",
+          "h2": "cuDNN's default algorithm search took about 11 GB of GPU memory on the first photo; two processes starting together ran out of memory.",
+          "h3": "Results lived on a shared S3 mount that cached \"not found\", and two servers appending to one log object hung a whole server for 13 minutes.",
+          "h4": "A mixed fleet, from a T4 to two A5000s, and a proxy that reused connections uvicorn was closing: 2–3% of uploads got a 502."
+        },
+        "did": {
+          "d1": "Rebuilt production on an idle backup GPU server (same code, config and proxy settings) and replayed the same arrival pattern before and after every fix.",
+          "d2": "Moved the analysis into a thread pool behind a per-process limit, with a bounded queue that answers 503 with Retry-After at once, so health checks always get through.",
+          "d3": "Tuned the CUDA provider (heuristic cuDNN search, no max workspace, memory that grows only on request) and sized processes per GPU from measured memory. In-process parallelism gave +10–15% for +2.4 GB, so I dropped it.",
+          "d4": "One process per port, routed to the least busy one, with keep-alive below uvicorn's timeout and result reads that try servers in order. Per-server logs and a watchdog that remounts S3 in under 2 minutes."
+        },
+        "results": {
+          "r1": {
+            "v": "37% → 95%",
+            "l": "users with a full result, same load replayed on a copy of production (13% → 87% at the peak rate)"
+          },
+          "r2": {
+            "v": "55–68 → 393",
+            "l": "analyses per minute through the production URL, 1 → 4 GPU servers"
+          },
+          "r3": {
+            "v": "11 → 3.6 GB",
+            "l": "GPU memory per process; first analysis 38 s → 2 s"
+          },
+          "r4": {
+            "v": "1,999 / 2,000",
+            "l": "requests OK at 100 concurrent clients"
+          }
+        },
+        "credit": "The models are the team's. I led the diagnosis, the scale-out and the load tests, working with an AI coding agent.",
+        "imageAlt": "Clients, then Caddy routing to the least busy process, then four GPU servers running 31 analysis processes, some CPU-only, over a shared S3 mount with a watchdog. Inset: admission, lock and thread pool, ONNX Runtime at 3.6 GB. Bars: 55–68 analyses per minute on one server, 393 on four."
       },
       "c3": {
-        "tag": "Web Scraping / Automation • Case Study 03",
-        "title": "Partner Onboarding Data Engine for AI Q&A",
-        "body": "I built the first version of this ingestion engine to speed up partner onboarding: it crawls a partner's domain, normalizes products and content into structured records, and loads them straight into the AI Q&A system. The team later extended it to single-page storefronts, and a five-site quality audit drove fixes for duplicates and missing fields.",
-        "arch": "Business impact",
-        "archVal": "Faster partner onboarding and time-to-value",
-        "archVal2": "Structured data pipeline powering production AI Q&A",
-        "metric": "5",
-        "metricLabel": "Partner sites quality-audited"
+        "tag": "Platform · Process supervision",
+        "period": "LUUK AI · Mar–Apr 2026",
+        "title": "Replacing 25 agent services with one process manager",
+        "hook": "One manager per environment runs every partner's agent on its own Unix socket. I found and removed the 3.5 s it first added, then cut production over live.",
+        "metric": "25 → 1",
+        "metricLabel": "services per environment",
+        "problem": "Every partner's agent was its own FastAPI app, systemd unit, TCP port and proxy snippet copied by hand to an edge server: five manual steps on two machines per agent, and 25 services on the main server alone. Each agent still had to keep its own process, data and settings.",
+        "hard": {
+          "h1": "Start, stop or reload one tenant without touching the others; big agents take up to 2 minutes to start.",
+          "h2": "A Python proxy now sits in front of every LLM call. The first version added about 3.5 s per request.",
+          "h3": "One process owns every agent, so a manager bug hits every tenant. One child writing a very long log line could kill the log pipe and restart agents.",
+          "h4": "The cutover had to happen on production with a way back, and hidden coupling surfaced during it: secrets from a symlinked file, config drift, an install killed by the OOM killer, a port still held by an old service."
+        },
+        "did": {
+          "d1": "Wrote the manager: each agent runs on its own Unix socket, crashed agents restart, and a config change reloads only the agents it touches. New agents go live from the admin UI.",
+          "d2": "Removed the 3.5 s: streaming instead of buffering, agents call the supervisor's socket directly (4 proxy passes per request → 2), and uvloop.",
+          "d3": "Made the manager hard to kill: a log reader that caps lines without a newline and never raises, restarts after 3 s, and a stop that terminates, waits 10 s, then kills.",
+          "d4": "Ran the production cutover with a rollback runbook. It surfaced 13 agents disabled in the database but still running; syncing the agents file from the admin UI fixed that for good."
+        },
+        "results": {
+          "r1": {
+            "v": "25 → 1",
+            "l": "agent services → one manager per environment, now on 3 servers"
+          },
+          "r2": {
+            "v": "5 → 1",
+            "l": "manual steps to launch an agent (now one admin form)"
+          },
+          "r3": {
+            "v": "~3.5 s → noise",
+            "l": "proxy overhead per request, found and removed"
+          },
+          "r4": {
+            "v": "2.9 → 9.9 GiB",
+            "l": "RAM available after the 13 forgotten agents were stopped"
+          }
+        },
+        "credit": "The manager is mine (14 of 14 commits). A teammate's small routing prototype came first.",
+        "imageAlt": "Before and after: 25 agent services, each with its own proxy route, replaced by one manager per environment that provisions agents from the admin UI and routes requests to them over Unix sockets"
       },
       "c4": {
-        "imageAlt": "AXIOMA-branded v2 assistant popup: greeting, example questions and a filled-in question ready to send",
-        "demoLink": "Live widget demo",
-        "tag": "Frontend • Case Study 04",
-        "title": "LuukAI — Embeddable AI Assistant & Partner Widget",
-        "body": "Partners drop in a conversational assistant: plain-language Q&A, smart recommendations, optional promos, and guided flows when needed. One codebase ships as a full web app and a floating embed—on-brand per tenant, multilingual, and built so the host site’s styling can’t break the experience.",
-        "techTitle": "Built with",
-        "techVal": "Svelte (v2) and React (v1) · TypeScript · Vite — one pipeline, multiple surfaces (app, widget, embedded shell)",
-        "engineeringTitle": "Highlights",
-        "f1": "The widget is visually self-contained—partner pages don’t accidentally restyle or break the assistant.",
-        "f2": "Surveys, partner add-ons, and analytics hook in cleanly so journeys feel native, not bolted on.",
-        "f3": "Per-brand copy, languages (including RTL), and tailored result screens—down to industry flows and booking handoff to the host."
+        "tag": "Backend · Consistency",
+        "period": "Real-estate brokerage platform (pre-launch) · 2026",
+        "title": "Keeping a CRM I don't control in sync, without lost updates",
+        "hook": "A broker form, a webhook and a poll all write to the same cards; one locked write path keeps them consistent.",
+        "metric": "4 → 1",
+        "metricLabel": "concurrent submits → CRM leads",
+        "problem": "A broker registers a client's phone in the app. The backend must create a lead in the client's Bitrix24 CRM, create a local card, and keep the card's status (pending, unique, meeting set, meeting held, sold or archived) in line with whatever the CRM's managers do, with no duplicate leads, lost writes or repeated letters to brokers.",
+        "hard": {
+          "h1": "Half the lifecycle has no events: the webhook sends deal changes only, so leads and expiry need polling, and the poll and the webhook race on the same card.",
+          "h2": "Writes into the client's CRM are irreversible. It rate-limits, one update took 24 s, and the integration user loses sight of deals that lose their observers.",
+          "h3": "The framework's record API saves every column it loaded, so a broker's comment edit could undo a status change.",
+          "h4": "The client's process changed through seven versions in 17 days."
+        },
+        "did": {
+          "d1": "A lock per broker and phone, with the duplicate check re-run under it: in a test, 4 concurrent submits create exactly one lead.",
+          "d2": "Every sync takes the card's lock before it reads the CRM, and a batch prefetch is used only if no newer read of that card has finished. The webhook checks the local database first, so other agencies' deals no longer fail.",
+          "d3": "Saves write only changed columns, plus a guard on the record API. A control test reproduces the lost update without the guard.",
+          "d4": "Transient CRM errors write nothing; throttled calls retry after 1, 2 and 4 s; letters are planned from the before and after state and sent only after a successful save."
+        },
+        "results": {
+          "r1": {
+            "v": "42%",
+            "l": "of webhook calls failed on staging before the fix (808 of 1,934); now only a failed local save returns 500"
+          },
+          "r2": {
+            "v": "1,001+ → 21",
+            "l": "CRM requests to poll 500 cards (fake CRM)"
+          },
+          "r3": {
+            "v": "0",
+            "l": "duplicate letters after a restart and 4 replayed webhooks, on the live CRM"
+          },
+          "r4": {
+            "v": "276",
+            "l": "tests in the sync package, run under the race detector"
+          }
+        },
+        "credit": "I'm the sole backend developer and built this with AI pair-programming: I set the plan and the release gates and ran the race-detector suite myself. The app is another developer's; QA was done by the client's staff.",
+        "imageAlt": "Submit lane: broker form, pair lock, CRM lead, local card. Sync lane: webhook and poll, card lock, fresh read, error classification, save of changed columns, letter. Bottom: card statuses mirrored from the CRM."
       },
       "c5": {
-        "tag": "Publication • Case Study 05",
+        "tag": "LLM applications · Personal project",
+        "period": "Agent Coach · May 2026",
+        "title": "Long-term memory an LLM can't make up",
+        "hook": "The model proposes memory edits; code checks every one against the conversation before it's saved.",
+        "metric": "~180k tokens",
+        "metricLabel": "of free-text memory, replaced",
+        "problem": "My Telegram coaching bot keeps long-term memory about its user. The first design let the model append free text after every reply. After two months of daily use the memory, loaded into every turn, had grown to about 180k tokens of stale and duplicated facts, and a small extractor model had invented some.",
+        "hard": {
+          "h1": "The writer is an LLM too, so its output changes from run to run.",
+          "h2": "It must tell what the user said from what the assistant suggested.",
+          "h3": "Same-day plans must not become permanent facts, and mistakes compound silently over months."
+        },
+        "did": {
+          "d1": "The model proposes typed JSON operations with an evidence quote. Code accepts one only if the quote appears in the message it cites, facts come from the user, expiry is 1, 2, 7, 14 or 30 days, and there are at most 5 per exchange.",
+          "d2": "Code owns the file: canonical facts plus recent notes that expire into an archive. Superseding never deletes.",
+          "d3": "Every accepted or rejected operation goes to an audit log. I tested the design offline on 12 real exchanges first, then rebuilt the memory by replaying the chat history."
+        },
+        "results": {
+          "r1": {
+            "v": "~180k",
+            "l": "tokens of free text before the rewrite"
+          },
+          "r2": {
+            "v": "8 / 5",
+            "l": "operation types; at most 5 per exchange"
+          },
+          "r3": {
+            "v": "56",
+            "l": "tests, with the LLM stubbed and the clock pinned"
+          }
+        },
+        "credit": "All mine (66 of 66 commits), built with AI coding agents.",
+        "imageAlt": "An exchange goes to a writer LLM, then a validator with six checks, then a memory file with canonical facts and expiring notes; every operation goes to an audit log. Before: free-text append, about 180k tokens."
+      }
+    },
+    "warTitle": "War stories",
+    "warSubtitle": "Shorter ones: the symptom, the root cause and the fix.",
+    "war": {
+      "w1": {
+        "tag": "LLM sync",
+        "title": "Five nights of false \"sync failed\"",
+        "cause": "The nightly knowledge sync went through a proxy with a 600 s timeout, while the ingest finished on the other side after about 22 minutes. I confirmed it from three logs: the proxy config, the proxy log at the run times, and the agent's log.",
+        "fix": "Bypass the proxy for that host, and store the agent's own \"upserted / deleted\" summary on every run. That also exposed \"successful\" runs that had left the index unchanged for two weeks."
+      },
+      "w2": {
+        "tag": "LLM sync",
+        "title": "Every save re-ingested everything for 40 minutes",
+        "cause": "Any edit in the knowledge base triggered a full re-ingest (40–45 minutes per agent, PDFs parsed again), edits during a run queued more, and the ingest blocked the agent's only event loop, so chat waited up to 8 minutes.",
+        "fix": "Ingest only when a persisted fingerprint of the corpus changes, keep at most one follow-up run, skip PDFs whose bytes are unchanged, and run the ingest off the event loop. An unchanged re-sync now takes 0 s, and feed and index match exactly."
+      },
+      "w3": {
+        "tag": "LLM ops",
+        "title": "The fastest model was failing",
+        "cause": "In a 10-query benchmark one model looked four times faster than the rest. Its answers were empty: the API rejected a temperature parameter, and the timer was measuring errors.",
+        "fix": "Check outputs, not just timers. A cached capability probe per model replaced a hard-coded model list. The real result: median latency 38.9 s → 9.0 s with the model we moved to."
+      },
+      "w4": {
+        "tag": "Launch day",
+        "title": "The fix only my phone could catch",
+        "cause": "On a partner's launch day about 1 scan in 5 returned a server error. Two bugs were stacked: a crash on an empty face-detection result, and a \"retake your photo\" reply built with 8 values where the code had read 9 since a model update.",
+        "fix": "Reproduced it on a throwaway copy and rolled the fix out one process at a time across 31 processes. Testing on my own phone showed it still failed: the widget recognises one exact error text. A second fix matched it, and 95% of scans succeeded over the next three days."
+      },
+      "w5": {
+        "tag": "Release · AI agent",
+        "title": "A git pull for test agents broke production for 33 minutes",
+        "cause": "My AI coding agent pulled new code for the test agents into a checkout that the pre-launch production agents also read. One module parses its own source file on every request, so the file on disk stopped matching the code in memory, and every chat got a 500.",
+        "fix": "I caught it and reset the checkout, wrote the postmortem the same day, and gave each environment its own code clone with symlink rollback. The version endpoint now reports the code actually loaded."
+      },
+      "w6": {
+        "tag": "Go networking",
+        "title": "An import that broke only through the proxy",
+        "cause": "Cloning Go's default HTTP transport kept \"h2\" in the TLS handshake, so the client spoke HTTP/1.1 to a server expecting HTTP/2. On top of that, the image CDN sent GOAWAY around stream 2,000, and a nightly import stopped halfway.",
+        "fix": "Pin HTTP/1.1 for that client, retry, and skip a single bad image instead of failing the run. The catalogue import runs in one transaction, so a failure leaves nothing half-applied."
+      }
+    },
+    "researchTitle": "Research",
+    "research": {
+      "qboost": {
+        "tag": "Publication · 2024",
         "title": "Quantum annealing in machine learning: Qboost on D-Wave quantum annealer",
         "body": "Peer-reviewed paper on quantum annealing and machine learning that extends my BSc thesis (I'm the second author, after Hadi Salloum). A QBoost-style ensemble is mapped to a quadratic unconstrained binary optimization (QUBO) formulation and run on a D-Wave quantum annealer. It explores when quantum hardware can complement classical ML pipelines, how experiments are set up on real hardware, and how to read results within device constraints.",
         "venueTitle": "Venue",
@@ -175,54 +356,119 @@
         "paperLink": "Paper (ScienceDirect)",
         "scholarLink": "Citing articles (Google Scholar)",
         "natureLink": "Recent citation: npj Computational Materials (Nature Portfolio) — materials discovery using quantum-annealed ML",
-        "engineeringTitle": "Highlights",
         "f1": "Connects quantum annealing with ML: QBoost framing executed on D-Wave hardware with a clear experimental narrative.",
         "f2": "Sits at the intersection of QC and ML—relevant as both fields converge in research and applied work.",
         "f3": "Growing citation footprint, including a 2026 citation in npj Computational Materials (Nature Portfolio)."
       },
-      "c6": {
-        "imageAlt": "Week of electricity price data: truth (blue line) vs model prediction (orange points), Dec 24–29, 2023",
-        "pdfLink": "Full report (PDF)",
-        "tag": "ML / Forecasting • Case Study 06",
-        "title": "Decision-Grade Electricity Price Forecasting",
-        "body": "I built this forecasting system as a practical decision-support tool: it turns historical market signals into forward-looking price estimates that can inform planning, procurement timing, and risk controls. The pipeline covers data conditioning, supervised model training, and rigorous holdout evaluation, then exposes forecast behavior clearly so teams can act on trend direction and peak windows.",
-        "evalTitle": "Operational takeaway",
-        "evalVal": "The model captures recurring intraday structure and turning points with useful accuracy for planning and timing decisions.",
-        "engineeringTitle": "Highlights",
-        "f1": "Production-oriented evaluation slice: actual vs forecast on the same dense timeline for fast operator interpretation.",
-        "f2": "Captures strong cyclical price behavior and timing shifts instead of relying on naive baselines.",
-        "f3": "Evaluation outputs are decision-ready and easy to operationalize in planning workflows."
-      },
-      "c7": {
-        "tag": "AI • Case Study 07",
-        "title": "Agent Coach — long-memory Telegram assistant",
-        "body": "A production Telegram bot where memory is a first class feature: goals and facts accumulate in simple files, load into every new chat, and improve after each reply. One codebase powers multiple specialist bots—same polished command surface, different expertise. Under the hood: Python with one-tap quality presets, optional live web lookup, and a backup model when traffic spikes so the chat keeps moving.",
-        "detailTitle": "Model presets",
-        "detailVal": "Lean · balanced · max quality",
-        "highlightsTitle": "Highlights",
-        "f1": "Session threads reset; long-term context does not—so coaching stays personal across weeks.",
-        "f2": "Shipped examples include fitness coaching and German exam prep; swap persona per deployment."
+      "grok": {
+        "tag": "MSc research · 2026",
+        "title": "Disproving our own result on grokking",
+        "body": "With my co-author Yazan Kbaili, I studied whether four models trained on disjoint halves of the data, with an agreement loss on unlabeled inputs, can generalise on modular addition at 50% training data, where a single model stalls at about 12%. Our milestone result didn't reproduce: my own refactor had given the distilled model a different optimizer and schedule than its baselines. I traced it, then ran single-variable controls.",
+        "statValue": "48–49% → 100%",
+        "statLabel": "held-out accuracy, changing only the learning rate",
+        "f1": "Pilots 1–4 seemed to hit a 48–49% ceiling. Changing only the learning rate reaches 100% at about 70k steps.",
+        "f2": "My co-author's InfoNCE variant reached 92.2% but changed six settings at once. Under its recipe, a KL-softmax loss alone reaches 100% at about 18.5k steps.",
+        "f3": "Every run on a single Kaggle T4 GPU, in sweeps of 4 to 9 hours."
       }
-    }
+    },
+    "alsoTitle": "Also built",
+    "also": {
+      "a1": {
+        "tag": "Go · PocketBase · 2024",
+        "title": "Push-notification campaigns",
+        "body": "Campaigns to a topic, a condition or a user list: a delivery record per device, a unique guard per campaign and device, fan-out and status change in one transaction, a single sender, and dry-run sends for the first two weeks."
+      },
+      "a2": {
+        "tag": "Python · 2024",
+        "title": "Service monitor with Raft leader election",
+        "body": "My own implementation of Raft's leader election (terms, randomised timeouts, majority votes, heartbeats), so only the leader checks the services and sends Telegram alerts; the check state rides on the heartbeats."
+      },
+      "a3": {
+        "tag": "React → Svelte · 2025–26",
+        "title": "Embeddable assistant widget",
+        "body": "One script tag on partner sites: a closed shadow root for the launcher and an iframe for the chat, so the host's CSS can't break them; Hebrew right-to-left; typed messages between five windows.",
+        "link": "Live widget demo"
+      },
+      "a4": {
+        "tag": "SSE · 2026",
+        "title": "Streaming answers",
+        "body": "Server-sent events read over fetch, with a 45-second stall watchdog. A draft streams in and the final answer replaces it in place; a broken stream never sends the question twice."
+      }
+    },
+    "philosophyTitle": "How I work",
+    "p1Title": "Measure first",
+    "p1Body": "Evals before the rewrite, load tests before the scale-out, a control test that reproduces a race before the fix.",
+    "p2Title": "The model proposes, code decides",
+    "p2Body": "LLM output passes checks in code (ids the tools returned, evidence quotes, hard caps) instead of a second model cleaning up after the first.",
+    "p3Title": "Fix the class of bug",
+    "p3Body": "Root cause from the logs, a postmortem the same day, and a change that stops the whole class: separate release clones, persisted fingerprints, regression tests.",
+    "p4Title": "AI agents, with guardrails",
+    "p4Body": "I build with Claude Code and Cursor every day. I write the plan and the rules, review every change and run production deploys myself. An agent-caused incident ends in a standing rule.",
+    "ctaTitle": "Hiring for backend or AI-platform work?",
+    "ctaBody": "I'm open to engineering roles, relocation included, and to remote contracts. Write to me and I'll send my CV.",
+    "ctaPrimary": "Get in touch",
+    "ctaSecondary": "About me"
   },
   "about": {
     "metaTitle": "About",
-    "metaDescription": "From competitive programming to AI-augmented full-stack delivery — background, credentials, and how I work with LLMs.",
+    "metaDescription": "Experience, education and how I work: backend and AI-platform engineering, an MSc in AI, and a peer-reviewed paper.",
     "heroTitle": "Ali Salloum",
-    "heroSubtitle": "AI-Accelerated Full-Stack Architect. Bridging conceptual complexity and production-ready systems at speed.",
-    "chip1": "Rapid Delivery",
-    "chip2": "AI-First Workflow",
-    "journeyTitle": "The Narrative Journey",
-    "j1Title": "The Genesis: 2017",
-    "j1Body": "Competitive programming forged algorithmic discipline — performance and correctness still drive my architecture choices.",
-    "j2Title": "Academic Rigor",
-    "j2Body": "Earlier in my journey, I scored 2896/2900 (99.86%) in Syria's national high-school exams, joint 15th in the country. My Computer Science degree included software design, computer architecture, and the engineering principles behind reliable systems. I'm currently pursuing a master's in AI.",
-    "j3Title": "Web3 & Flutter",
-    "j3Body": "Worked on decentralized systems and cross-platform apps for complex domains.",
-    "j4Title": "Full-Stack Systems Engineer (AI-Augmented)",
-    "j4Body": "Today: advanced AI workflows multiply output while architecture stays scalable, secure, and production-grade.",
-    "certsTitle": "Machine Learning & AI Credentials",
-    "certsBadge": "Coursera & more",
+    "heroSubtitle": "Backend and AI-platform engineer. I lead the LUUK AI platform, which runs LLM assistants on partner brands' websites, and I build Go and Python backends. Based in Bali (UTC+8).",
+    "chip1": "Open to relocation",
+    "chip2": "Arabic · English · Russian",
+    "experienceTitle": "Experience",
+    "experience": {
+      "e1": {
+        "role": "Backend Engineer (contract)",
+        "org": "Vesper — real-estate broker platform",
+        "dates": "May 2026 – present",
+        "body": "Sole backend developer, Go on PocketBase: property-feed import, PDF generation for lots, SMS and Telegram login, Bitrix24 CRM sync, notifications and an audit log. Connected the platform to an AI sales assistant running on LUUK AI."
+      },
+      "e2": {
+        "role": "Tech Lead, LUUK AI platform",
+        "org": "LUUK — beauty-tech app with an AI skin and cosmetics scanner",
+        "dates": "June 2025 – present",
+        "body": "I lead the backend of a multi-tenant AI assistant platform that runs recommender agents on partner brands' websites, review and merge the team's pull requests, and own deployment. I built the feed ingestion, the admin app, answer-quality tests on frozen production snapshots in CI, and the agent hosting, which I redesigned at 25 agents into one manager per environment. I scaled the skin-analysis API from one GPU server to four. Sole author of the embeddable assistant widget."
+      },
+      "e3": {
+        "role": "Backend and MLOps Engineer",
+        "org": "LUUK",
+        "dates": "June 2024 – May 2025",
+        "body": "Productionized the team's skin-analysis model (Docker, auth, health checks, request IDs) and built a product-recognition service on a vision LLM API. Built the push-notification campaign system in Go on PocketBase and a replicated service monitor with Raft leader election."
+      },
+      "e4": {
+        "role": "Software Engineer",
+        "org": "Questbook — grants platform (Y Combinator W21)",
+        "dates": "June – September 2023",
+        "body": "Investigated production bugs, ran data analyses, and shipped updates to the GraphQL subgraph and the transaction-status service."
+      },
+      "e5": {
+        "role": "Software Engineer (freelance)",
+        "org": "Freelance",
+        "dates": "April – November 2023",
+        "body": "With one other developer, built a sewing-pattern generator and an authenticated API that returns patterns as SVG and PDF, deployed with Docker and GitHub Actions on AWS EC2."
+      }
+    },
+    "educationTitle": "Education",
+    "education": {
+      "ed1": {
+        "title": "MSc, Artificial Intelligence",
+        "meta": "Innopolis University · Nov 2024 – present",
+        "body": "In progress."
+      },
+      "ed2": {
+        "title": "BSc, Computer Science (AI track)",
+        "meta": "Innopolis University · 2020 – 2024",
+        "body": "GPA 4.32/5. Thesis (grade A) on quantum annealers for binary classification, extended into a peer-reviewed paper (KES 2024, second author)."
+      },
+      "ed3": {
+        "title": "Before university",
+        "meta": "Syria · 2020",
+        "body": "Scored 2896/2900 (99.86%) in Syria's national high-school exams, joint 15th in the country."
+      }
+    },
+    "certsTitle": "Courses and competitions",
+    "certsBadge": "Coursera · ICPC",
     "cert1Issuer": "Stanford Online",
     "cert1Name": "Machine Learning",
     "cert2Issuer": "DeepLearning.AI",
@@ -231,20 +477,20 @@
     "cert3Name": "Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",
     "cert4Issuer": "ICPC",
     "cert4Name": "NERC Southern & Volga qualifier: team 3rd-degree diploma (2020)",
-    "philosophyTitle": "The AI-Augmented Advantage",
-    "philosophyBody": "Production quality without sacrificing speed. LLM-assisted delivery, automated tests, and AI-assisted review — robust architectures in days, not months.",
-    "pillar1": "10x Velocity",
-    "pillar2": "Clean Output",
-    "pillar3": "Robust Core"
+    "philosophyTitle": "How I work",
+    "philosophyBody": "I review and merge my team's pull requests, keep answer-quality tests in CI, and own deployment. When a design reaches its limit, I redesign it rather than add tooling around it.",
+    "pillar1": "Tested in CI",
+    "pillar2": "Code review",
+    "pillar3": "Own deployment"
   },
   "contact": {
     "metaTitle": "Contact",
-    "metaDescription": "Start a project or book a discovery call. Email, Telegram, or the form — I respond within 12 hours.",
+    "metaDescription": "Get in touch about engineering roles or contract work: email, Telegram or the form. I reply within 12 hours.",
     "title": "Let's talk",
-    "subtitle": "Tell me about your product, timeline, and constraints. I reply within 12 hours (Bali, UTC+8).",
+    "subtitle": "Hiring for a backend or AI-platform role, or need a contract engineer? Tell me about the team and the role. I reply within 12 hours (Bali, UTC+8).",
     "name": "Name",
     "email": "Email",
-    "projectType": "Project type (optional)",
+    "projectType": "Role or company (optional)",
     "message": "Message",
     "submit": "Send message",
     "sending": "Sending…",
@@ -269,7 +515,7 @@
   },
   "blog": {
     "metaTitle": "Blog",
-    "metaDescription": "Notes on architecture, AI-assisted delivery, and shipping reliable software.",
+    "metaDescription": "Notes on backend engineering, LLM applications and shipping reliable software.",
     "title": "Blog",
     "subtitle": "",
     "readMore": "Read",

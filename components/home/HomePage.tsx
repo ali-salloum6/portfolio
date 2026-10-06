@@ -11,10 +11,28 @@ import Image from "next/image";
 
 const HERO_IMG = "/images/hero-main.webp";
 
-/** Portfolio case c1 — unified deployment manager blueprint */
-const CASE_TEASER_1_IMAGE = "/images/unified-manager-blueprint.webp";
-/** Portfolio case c4 — LuukAI embeddable widget */
-const CASE_TEASER_2_IMAGE = "/images/axioma-v2-popup.webp";
+/** Teasers for the first two portfolio cases. Each image keeps its story in the top third, above the card's text panel. */
+/** Portfolio case c1 — answer-quality suite and agent rewrite */
+const CASE_TEASER_1_IMAGE = "/images/case-llm-evals-teaser.webp";
+const CASE_TEASER_1_HREF = "/portfolio#llm-evals";
+/** Portfolio case c2 — GPU vision API scale-out */
+const CASE_TEASER_2_IMAGE = "/images/case-gpu-scaleout-teaser.webp";
+const CASE_TEASER_2_HREF = "/portfolio#gpu-inference";
+
+/** Current roles — `home.now.*` */
+const NOW_ITEMS = [
+  ["n1", "hub"],
+  ["n2", "dns"],
+  ["n3", "school"],
+] as const;
+
+/** Areas of work — `home.build.*` (same four areas as the CVs) */
+const BUILD_ITEMS = [
+  ["b1", "database", "home_build_backend"],
+  ["b2", "smart_toy", "home_build_llm"],
+  ["b3", "deployed_code", "home_build_platform"],
+  ["b4", "model_training", "home_build_ml"],
+] as const;
 
 export async function HomePage() {
   const locale = await getLocale();
@@ -82,39 +100,42 @@ export async function HomePage() {
         >
           <Stat variant="number" value={t("statsYearsValue")} label={t("statsYears")} />
           <Stat variant="icon" icon="school" label={t("statsDegree")} />
-          <Stat variant="number" value={t("statsProjectsValue")} label={t("statsProjects")} />
-          <Stat variant="icon" icon="verified_user" label={t("statsMl")} />
+          <Stat variant="number" value={t("statsCitationsValue")} label={t("statsCitations")} />
+          <Stat variant="icon" icon="groups" label={t("statsLead")} />
         </div>
       </section>
 
       <GlassPointerSection
         data-reveal="fade-up"
-        className="glass-panel rounded-2xl px-4 py-16 text-center sm:px-6 md:px-6 md:py-20 lg:px-8"
+        className="glass-panel rounded-2xl px-4 py-16 sm:px-6 md:px-8 md:py-20 lg:px-10"
       >
         <div className="relative z-[1]">
-          <h2 className="mb-12 text-sm font-bold uppercase tracking-[0.2em] text-primary">
-            {t("equationTitle")}
+          <h2 className="mb-12 text-center text-sm font-bold uppercase tracking-[0.2em] text-primary">
+            {t("nowTitle")}
           </h2>
-          <div className="mx-auto flex w-full min-w-0 max-w-full flex-col items-center justify-center gap-2 text-3xl font-extrabold tracking-tighter text-on-surface md:flex-row md:flex-wrap md:gap-x-3 md:gap-y-4 md:text-4xl lg:gap-x-4 lg:text-5xl">
-            <span className="glass-panel anim-gradient box-border min-w-0 max-w-full shrink rounded-lg border-primary/40 bg-gradient-to-br from-primary/14 via-primary/10 to-primary/5 px-4 py-4 text-center text-primary sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
-              {t("equationTotal")}
-            </span>
-            <span className="inline-block shrink-0 self-center leading-none text-on-surface-variant -translate-y-[0.1em] md:px-0.5">
-              =
-            </span>
-            <span className="glass-panel box-border min-w-0 max-w-full shrink rounded-lg px-4 py-4 text-center text-2xl text-on-surface-variant sm:px-5 sm:py-5 md:px-5 md:py-5 md:text-3xl lg:px-8 lg:py-6">
-              {t("equationKnowledge")}
-            </span>
-            <span className="inline-block shrink-0 self-center leading-none text-primary -translate-y-[0.1em] md:px-0.5">
-              ×
-            </span>
-            <span className="glass-panel anim-gradient box-border min-w-0 max-w-full shrink rounded-lg border-indigo-400/40 bg-gradient-to-br from-indigo-500/14 via-indigo-500/10 to-indigo-500/5 px-4 py-4 text-center text-indigo-400 sm:px-5 sm:py-5 md:px-5 md:py-5 lg:px-8 lg:py-6">
-              {t("equationMultiplier")}
-            </span>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {NOW_ITEMS.map(([key, icon], index) => (
+              <div
+                key={key}
+                className={
+                  index === 0
+                    ? "glass-panel flex flex-col rounded-xl border-primary/35 p-6 sm:p-8"
+                    : "glass-panel flex flex-col rounded-xl p-6 sm:p-8"
+                }
+              >
+                <MaterialIcon name={icon} className="relative z-[1] mb-5 text-3xl text-primary" />
+                <h3 className="relative z-[1] text-xl font-bold leading-snug text-on-surface">
+                  {t(`now.${key}.role`)}
+                </h3>
+                <p className="relative z-[1] mt-2 text-xs font-bold uppercase tracking-widest text-tertiary">
+                  {t(`now.${key}.meta`)}
+                </p>
+                <p className="relative z-[1] mt-4 text-sm leading-relaxed text-on-surface-variant">
+                  {t(`now.${key}.body`)}
+                </p>
+              </div>
+            ))}
           </div>
-          <p className="mx-auto mt-12 max-w-3xl text-lg font-medium italic text-on-surface-variant">
-            {t("equationCaption")}
-          </p>
         </div>
       </GlassPointerSection>
 
@@ -125,18 +146,18 @@ export async function HomePage() {
         >
           <div className="space-y-4">
             <h2 className="text-4xl font-extrabold tracking-tight text-on-surface">
-              {t("servicesTitle")}
+              {t("buildTitle")}
             </h2>
             <p className="font-medium text-on-surface-variant">
-              {t("servicesSubtitle")}
+              {t("buildSubtitle")}
             </p>
           </div>
           <Link
-            href="/services"
-            data-plausible-name="home_view_services"
+            href="/portfolio"
+            data-plausible-name="home_view_portfolio"
             className="hidden items-center gap-2 font-bold text-primary md:inline-flex"
           >
-            {t("viewAllServices")}
+            {t("viewPortfolio")}
             <MaterialIcon
               name={isRtl ? "arrow_back" : "arrow_forward"}
               className={`transition-transform ${isRtl ? "group-hover:-translate-x-1" : "group-hover:translate-x-1"}`}
@@ -147,46 +168,25 @@ export async function HomePage() {
           className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
           data-reveal-group
         >
-          <ServiceCard
-            learnMore={learnMore}
-            icon="database"
-            plausibleName="home_service_backend"
-            title={t("serviceBackendTitle")}
-            description={t("serviceBackendDesc")}
-            isRtl={isRtl}
-          />
-          <ServiceCard
-            learnMore={learnMore}
-            icon="layers"
-            plausibleName="home_service_fullstack"
-            title={t("serviceFullstackTitle")}
-            description={t("serviceFullstackDesc")}
-            featured
-            isRtl={isRtl}
-          />
-          <ServiceCard
-            learnMore={learnMore}
-            icon="smartphone"
-            plausibleName="home_service_mobile"
-            title={t("serviceMobileTitle")}
-            description={t("serviceMobileDesc")}
-            isRtl={isRtl}
-          />
-          <ServiceCard
-            learnMore={learnMore}
-            icon="psychology"
-            plausibleName="home_service_ai"
-            title={t("serviceAiTitle")}
-            description={t("serviceAiDesc")}
-            isRtl={isRtl}
-          />
+          {BUILD_ITEMS.map(([key, icon, plausibleName]) => (
+            <BuildCard
+              key={key}
+              learnMore={learnMore}
+              icon={icon}
+              plausibleName={plausibleName}
+              title={t(`build.${key}.title`)}
+              description={t(`build.${key}.desc`)}
+              featured={key === "b2"}
+              isRtl={isRtl}
+            />
+          ))}
         </div>
         <Link
-          href="/services"
-          data-plausible-name="home_view_services"
+          href="/portfolio"
+          data-plausible-name="home_view_portfolio"
           className="mt-8 inline-flex items-center gap-2 font-bold text-primary md:hidden"
         >
-          {t("viewAllServices")}
+          {t("viewPortfolio")}
           <MaterialIcon name={isRtl ? "arrow_back" : "arrow_forward"} />
         </Link>
       </section>
@@ -196,22 +196,24 @@ export async function HomePage() {
         data-reveal-group
       >
         <CaseTeaserCard
+          href={CASE_TEASER_1_HREF}
           imageSrc={CASE_TEASER_1_IMAGE}
           imageAlt={t("case1Title")}
-          imageClassName="object-cover"
+          imageClassName="object-cover object-top"
           tag={t("case1Tag")}
           tagAccent="primary"
-          plausibleName="home_case_teaser_deploy"
+          plausibleName="home_case_teaser_evals"
           title={t("case1Title")}
           description={t("case1Desc")}
         />
         <CaseTeaserCard
+          href={CASE_TEASER_2_HREF}
           imageSrc={CASE_TEASER_2_IMAGE}
           imageAlt={t("case2Title")}
           imageClassName="object-cover object-top"
           tag={t("case2Tag")}
           tagAccent="indigo"
-          plausibleName="home_case_teaser_luukai"
+          plausibleName="home_case_teaser_gpu"
           title={t("case2Title")}
           description={t("case2Desc")}
         />
@@ -238,8 +240,8 @@ export async function HomePage() {
               {t("bottomCtaPrimary")}
             </Link>
             <Link
-              href="/contact"
-              data-plausible-name="home_bottom_cta_secondary"
+              href="/about"
+              data-plausible-name="home_bottom_cta_about"
               className="rounded-lg border border-outline-variant px-12 py-5 text-xl font-semibold text-on-surface transition-colors hover:border-primary"
             >
               {t("bottomCtaSecondary")}
@@ -252,6 +254,7 @@ export async function HomePage() {
 }
 
 function CaseTeaserCard({
+  href,
   imageSrc,
   imageAlt,
   imageClassName,
@@ -261,6 +264,7 @@ function CaseTeaserCard({
   title,
   description,
 }: {
+  href: string;
   imageSrc: string;
   imageAlt: string;
   imageClassName: string;
@@ -277,7 +281,7 @@ function CaseTeaserCard({
 
   return (
     <GlassPointerLink
-      href="/portfolio"
+      href={href}
       data-plausible-name={plausibleName}
       data-reveal="fade-up"
       className="glass-panel group relative block h-[500px] overflow-hidden rounded-2xl"
@@ -316,7 +320,7 @@ function CaseTeaserCard({
   );
 }
 
-function ServiceCard({
+function BuildCard({
   learnMore,
   icon,
   plausibleName,
@@ -335,7 +339,7 @@ function ServiceCard({
 }) {
   return (
     <GlassPointerLink
-      href="/services"
+      href="/portfolio"
       data-plausible-name={plausibleName}
       data-reveal="fade-up"
       className={

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=block" rel="stylesheet">
+<style>html,body{margin:0;padding:0;background:#050a1c}svg{display:block}</style>
+</head>
+<body>
+<svg id="art" xmlns="http://www.w3.org/2000/svg"></svg>
+<script src="kit.js"></script>
+<script src="specs.js"></script>
+<script>
+  const name = new URLSearchParams(location.search).get("d");
+  const spec = window.SPECS[name];
+  renderDiagram(spec.draw, spec.opts || {});
+  document.title = "ready:" + name;
+</script>
+</body>
+</html>

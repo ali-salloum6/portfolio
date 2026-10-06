@@ -10,7 +10,6 @@ import { MaterialIcon } from "@/components/MaterialIcon";
 
 const nav = [
   { href: "/", key: "home" as const },
-  { href: "/services", key: "services" as const },
   { href: "/portfolio", key: "portfolio" as const },
   { href: "/about", key: "about" as const },
   { href: "/blog", key: "blog" as const },
@@ -66,7 +65,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             data-plausible-name="nav_cta_contact"
             className="shine hidden rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-hover sm:inline-flex"
           >
-            {t("startProject")}
+            {t("cta")}
           </Link>
           <button
             type="button"
@@ -114,7 +113,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
                 className="rounded-lg bg-primary px-4 py-3 text-center font-semibold text-white"
                 onClick={() => setOpen(false)}
               >
-                {t("startProject")}
+                {t("cta")}
               </Link>
             </div>
           </div>

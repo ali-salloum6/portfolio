@@ -3,7 +3,7 @@ import { getBlogSlugs } from "@/lib/blog";
 import { getSiteUrl } from "@/lib/site-config";
 import type { MetadataRoute } from "next";
 
-const staticPaths = ["", "/services", "/portfolio", "/about", "/contact", "/blog"];
+const staticPaths = ["", "/portfolio", "/about", "/contact", "/blog"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();

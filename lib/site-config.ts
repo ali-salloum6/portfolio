@@ -1,7 +1,7 @@
 /** Public links — replace with your real profiles */
 export const siteConfig = {
   name: "Ali Salloum",
-  title: "AI-Accelerated Full-Stack Architect",
+  title: "Backend and AI-Platform Engineer",
   domain: "alisalloum.tech",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@alisalloum.tech",
   telegram: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "https://t.me/yourusername",

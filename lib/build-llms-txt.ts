@@ -26,31 +26,31 @@ function section(title: string, body: string): string {
 
 function flattenRecord(
   obj: Record<string, unknown>,
-  options?: { skipKeys?: Set<string> },
+  options?: { skipKeys?: Set<string>; prefix?: string },
 ): string {
   const skip = options?.skipKeys ?? new Set();
+  const prefix = options?.prefix ?? "";
   const out: string[] = [];
   for (const [k, v] of Object.entries(obj)) {
     if (skip.has(k)) continue;
     if (typeof v === "string" && v.trim()) {
-      out.push(`- **${k}:** ${stripMarkup(v)}`);
+      out.push(`- **${prefix}${k}:** ${stripMarkup(v)}`);
+    } else if (v && typeof v === "object" && !Array.isArray(v)) {
+      const nested = flattenRecord(v as Record<string, unknown>, { prefix: `${prefix}${k}.` });
+      if (nested) out.push(nested);
     }
   }
   return out.join("\n");
 }
 
-function formatPortfolioCases(
-  cases: Record<string, Record<string, string>>,
-): string {
-  const blocks: string[] = [];
-  for (const [id, fields] of Object.entries(cases)) {
-    const inner = Object.entries(fields)
-      .filter(([, v]) => typeof v === "string" && v.trim())
-      .map(([k, v]) => `- **${k}:** ${stripMarkup(v)}`)
-      .join("\n");
-    blocks.push(`### ${id}\n\n${inner}`);
-  }
-  return blocks.join("\n\n");
+/** One `###` block per item (case, war story, research entry), with nested fields flattened. */
+function formatPortfolioItems(items: Record<string, Record<string, unknown>>): string {
+  return Object.entries(items)
+    .map(([id, fields]) => {
+      const title = typeof fields.title === "string" ? ` — ${stripMarkup(fields.title)}` : "";
+      return `### ${id}${title}\n\n${flattenRecord(fields)}`;
+    })
+    .join("\n\n");
 }
 
 export function buildLlmsTxt(): string {
@@ -77,8 +77,7 @@ export function buildLlmsTxt(): string {
     })
     .join("\n\n---\n\n");
 
-  const { portfolio, home, services, about, contact, blog, metadata, nav, footer } =
-    en;
+  const { portfolio, home, about, contact, blog, metadata, nav, footer } = en;
 
   const contactBlock = lines(
     `- **${contact.title}**`,
@@ -92,23 +91,16 @@ export function buildLlmsTxt(): string {
 
   const homeBody = flattenRecord(home as unknown as Record<string, unknown>);
 
-  const servicesSkip = new Set(["heroTitleRich", "s4Stat", "s4StatValue"]);
-  const servicesBody = flattenRecord(
-    services as unknown as Record<string, unknown>,
-    { skipKeys: servicesSkip },
-  );
-
   const aboutBody = flattenRecord(about as unknown as Record<string, unknown>);
 
   return lines(
     "# Ali Salloum — English site copy for LLMs",
     "",
-    "This document is generated from the live translation file (`messages/en.json`), blog posts (`content/blog`), and public site config. It is served at `/llms.txt` for tools and automation (e.g. cold outreach drafting).",
+    "This document is generated from the live translation file (`messages/en.json`), blog posts (`content/blog`), and public site config. It is served at `/llms.txt` for tools and LLM assistants that read the site.",
     "",
     "### Canonical URLs (English)",
     "",
     `- Home: ${base}/en/`,
-    `- Services: ${base}/en/services`,
     `- Portfolio: ${base}/en/portfolio`,
     `- About: ${base}/en/about`,
     `- Contact: ${base}/en/contact`,
@@ -127,14 +119,15 @@ export function buildLlmsTxt(): string {
     section("Footer", lines(`- **tagline:** ${footer.tagline}`, `- **response:** ${footer.response}`, `- **copyright:** ${copyright}`)),
     section("Contact (human-facing)", contactBlock),
     section("Home", homeBody),
-    section("Services", servicesBody),
     section(
       "Portfolio — hero & philosophy",
       flattenRecord({
         metaTitle: portfolio.metaTitle,
         metaDescription: portfolio.metaDescription,
+        heroKicker: portfolio.heroKicker,
         heroTitle: portfolio.heroTitle,
         heroSubtitle: portfolio.heroSubtitle,
+        heroStatus: portfolio.heroStatus,
         philosophyTitle: portfolio.philosophyTitle,
         p1Title: portfolio.p1Title,
         p1Body: portfolio.p1Body,
@@ -142,6 +135,8 @@ export function buildLlmsTxt(): string {
         p2Body: portfolio.p2Body,
         p3Title: portfolio.p3Title,
         p3Body: portfolio.p3Body,
+        p4Title: portfolio.p4Title,
+        p4Body: portfolio.p4Body,
         ctaTitle: portfolio.ctaTitle,
         ctaBody: portfolio.ctaBody,
         ctaPrimary: portfolio.ctaPrimary,
@@ -149,8 +144,20 @@ export function buildLlmsTxt(): string {
       }),
     ),
     section(
-      "Portfolio — case studies",
-      formatPortfolioCases(portfolio.cases as Record<string, Record<string, string>>),
+      "Portfolio — case studies (hardest problems)",
+      formatPortfolioItems(portfolio.cases as unknown as Record<string, Record<string, unknown>>),
+    ),
+    section(
+      `Portfolio — ${portfolio.warTitle}`,
+      formatPortfolioItems(portfolio.war as unknown as Record<string, Record<string, unknown>>),
+    ),
+    section(
+      `Portfolio — ${portfolio.researchTitle}`,
+      formatPortfolioItems(portfolio.research as unknown as Record<string, Record<string, unknown>>),
+    ),
+    section(
+      `Portfolio — ${portfolio.alsoTitle}`,
+      formatPortfolioItems(portfolio.also as unknown as Record<string, Record<string, unknown>>),
     ),
     section("About", aboutBody),
     section(

@@ -13,6 +13,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    // The freelance Services page was removed on 2026-10-06; old links land on the portfolio.
+    return [
+      {
+        source: "/:locale(en|ru|ar)/services",
+        destination: "/:locale/portfolio",
+        permanent: false,
+      },
+      { source: "/services", destination: "/en/portfolio", permanent: false },
+    ];
+  },
   async rewrites() {
     const plausibleOrigin =
       process.env.PLAUSIBLE_PROXY_ORIGIN ?? "https://plausible.alisalloum.tech";

@@ -8,9 +8,17 @@ import {
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-const PORTRAIT =
-  // "https://lh3.googleusercontent.com/aida-public/AB6AXuAyRrXf7lnqEWPZx6IbloZLOLw_-awlpumdK40PYk9RHB-inS1Ti573dq_IcsQvz9rsIvL_3xPBmW7Yx8wLF8BU4ZtwaseeINj9DrJLPV7llv-6xYB-J5jrNNg-Z8wjJQFS8WH5IRTwFEKMg-HY2URw21mO0nDUiSbr0_6HHeyvcr0InMwyrmEfGKJnp_iMK-AEGCXILTm3Ub5O_IPRtlfNwuHPuhURYJocfAThZkvOQLiyKIILG0k7KlwCuCAVXlRh8xpES3Tr8TU";
-  "/images/secondary_picture.webp";
+const PORTRAIT = "/images/secondary_picture.webp";
+
+/** Work history, newest first, in the same order as the CVs — `about.experience.*` */
+const EXPERIENCE_KEYS = ["e1", "e2", "e3", "e4", "e5"] as const;
+
+/** `about.education.*` */
+const EDUCATION_ITEMS = [
+  ["ed1", "psychology"],
+  ["ed2", "school"],
+  ["ed3", "emoji_events"],
+] as const;
 
 export async function AboutPage() {
   const t = await getTranslations("about");
@@ -60,11 +68,11 @@ export async function AboutPage() {
           </p>
           <div data-reveal="fade-up" className="flex flex-wrap gap-4 pt-4">
             <GlassPointerDiv className="industrial-card flex items-center gap-3 rounded-lg p-4">
-              <MaterialIcon name="bolt" className="text-primary" />
+              <MaterialIcon name="flight_takeoff" className="text-primary" />
               <span className="text-sm font-semibold">{t("chip1")}</span>
             </GlassPointerDiv>
             <GlassPointerDiv className="industrial-card flex items-center gap-3 rounded-lg p-4">
-              <MaterialIcon name="psychology" className="text-primary" />
+              <MaterialIcon name="translate" className="text-primary" />
               <span className="text-sm font-semibold">{t("chip2")}</span>
             </GlassPointerDiv>
           </div>
@@ -89,62 +97,58 @@ export async function AboutPage() {
           data-reveal="fade-up"
           className="mb-12 text-center text-3xl font-bold tracking-tight"
         >
-          {t("journeyTitle")}
+          {t("experienceTitle")}
+        </h2>
+        <div className="mx-auto flex max-w-5xl flex-col gap-6" data-reveal-group>
+          {EXPERIENCE_KEYS.map((key, index) => (
+            <GlassPointerArticle
+              key={key}
+              data-reveal="fade-up"
+              className={
+                index === 1
+                  ? "industrial-card flex flex-col gap-4 rounded-xl border border-primary/25 p-6 md:flex-row md:gap-10 md:p-8"
+                  : "industrial-card flex flex-col gap-4 rounded-xl p-6 md:flex-row md:gap-10 md:p-8"
+              }
+            >
+              <p className="shrink-0 text-sm font-bold uppercase tracking-widest text-primary md:w-48 md:pt-1">
+                {t(`experience.${key}.dates`)}
+              </p>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-xl font-bold text-on-surface">{t(`experience.${key}.role`)}</h3>
+                <p className="mb-3 mt-1 text-sm font-semibold text-tertiary">
+                  {t(`experience.${key}.org`)}
+                </p>
+                <p className="leading-relaxed text-on-surface-variant">{t(`experience.${key}.body`)}</p>
+              </div>
+            </GlassPointerArticle>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-24">
+        <h2
+          data-reveal="fade-up"
+          className="mb-12 text-center text-3xl font-bold tracking-tight"
+        >
+          {t("educationTitle")}
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3" data-reveal-group>
-          <GlassPointerArticle
-            data-reveal="fade-up"
-            className="industrial-card flex flex-col justify-between rounded-xl p-8"
-          >
-            <div>
+          {EDUCATION_ITEMS.map(([key, icon]) => (
+            <GlassPointerArticle
+              key={key}
+              data-reveal="fade-up"
+              className="industrial-card flex flex-col rounded-xl p-8"
+            >
               <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
-                <MaterialIcon name="code" className="text-primary" />
+                <MaterialIcon name={icon} className="text-primary" />
               </div>
-              <h3 className="mb-4 text-2xl font-bold">{t("j1Title")}</h3>
-              <p className="leading-relaxed text-on-surface-variant">{t("j1Body")}</p>
-            </div>
-            <div className="mt-8 flex gap-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-primary/80">
-                Algorithms
-              </span>
-              <span className="text-xs font-bold text-primary/40">•</span>
-              <span className="text-xs font-bold uppercase tracking-widest text-primary/80">
-                Data Structures
-              </span>
-            </div>
-          </GlassPointerArticle>
-          <GlassPointerArticle
-            data-reveal="fade-up"
-            className="industrial-card rounded-xl p-8 md:col-span-2"
-          >
-            <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
-              <MaterialIcon name="school" className="text-primary" />
-            </div>
-            <h3 className="mb-4 text-2xl font-bold">{t("j2Title")}</h3>
-            <p className="leading-relaxed text-on-surface-variant">
-              {t("j2Body")}
-            </p>
-          </GlassPointerArticle>
-          <GlassPointerArticle
-            data-reveal="fade-up"
-            className="industrial-card rounded-xl p-8 md:col-span-2"
-          >
-            <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-surface">
-              <MaterialIcon name="currency_bitcoin" className="text-primary" />
-            </div>
-            <h3 className="mb-4 text-2xl font-bold">{t("j3Title")}</h3>
-            <p className="leading-relaxed text-on-surface-variant">{t("j3Body")}</p>
-          </GlassPointerArticle>
-          <GlassPointerArticle
-            data-reveal="fade-up"
-            className="industrial-card rounded-xl border border-primary/20 bg-gradient-to-br from-surface-container to-surface p-8"
-          >
-            <div className="industrial-border mb-6 flex h-12 w-12 items-center justify-center rounded-lg border-tertiary/30 bg-surface">
-              <MaterialIcon name="auto_awesome" filled className="text-tertiary" />
-            </div>
-            <h3 className="mb-4 text-2xl font-bold">{t("j4Title")}</h3>
-            <p className="leading-relaxed text-on-surface-variant">{t("j4Body")}</p>
-          </GlassPointerArticle>
+              <h3 className="mb-2 text-xl font-bold">{t(`education.${key}.title`)}</h3>
+              <p className="mb-4 text-xs font-bold uppercase tracking-widest text-tertiary">
+                {t(`education.${key}.meta`)}
+              </p>
+              <p className="leading-relaxed text-on-surface-variant">{t(`education.${key}.body`)}</p>
+            </GlassPointerArticle>
+          ))}
         </div>
       </section>
 
@@ -212,9 +216,9 @@ export async function AboutPage() {
           <div className="flex flex-wrap justify-center gap-8">
             {(
               [
-                ["rocket_launch", t("pillar1")],
-                ["high_quality", t("pillar2")],
-                ["security", t("pillar3")],
+                ["fact_check", t("pillar1")],
+                ["rate_review", t("pillar2")],
+                ["rocket_launch", t("pillar3")],
               ] as const
             ).map(([icon, label]) => (
               <div key={label} className="flex flex-col items-center">

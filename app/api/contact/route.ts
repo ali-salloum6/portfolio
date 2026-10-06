@@ -60,7 +60,7 @@ export async function POST(req: Request) {
   const text = [
     `From: ${name} <${email}>`,
     locale ? `Locale: ${locale}` : null,
-    projectType ? `Project type: ${projectType}` : null,
+    projectType ? `Role / company: ${projectType}` : null,
     "",
     message,
   ]

@@ -10,32 +10,20 @@ export function SiteJsonLd() {
     url,
     email: siteConfig.email,
     sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.telegram],
-  };
-
-  const service = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: `${siteConfig.name} — freelance engineering`,
-    url,
-    areaServed: ["Worldwide"],
-    serviceType: [
-      "Backend & API development",
-      "Full-stack web applications",
-      "Mobile app development (Flutter)",
-      "AI/ML integration",
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Innopolis University" },
+    knowsLanguage: ["ar", "en", "ru"],
+    knowsAbout: [
+      "Backend engineering (Go, Python)",
+      "LLM applications",
+      "Platform and infrastructure",
+      "Applied machine learning",
     ],
   };
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
+    />
   );
 }
